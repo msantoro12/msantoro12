@@ -332,6 +332,41 @@ if (DRY_RUN) {
   process.exit(0);
 }
 
+// A machine-readable copy for anything downstream -- currently the local Discord
+// presence agent, which cannot parse prose out of a README reliably. Written from
+// the SAME gated values, so a consumer cannot reach anything the profile would not
+// already show. `headline` is deliberately shapeless: counts only, no repo names.
+const totals = [...days.values()].reduce(
+  (acc, b) => {
+    acc.public += b.public.length;
+    for (const [, hist] of b.private) for (const n of hist.values()) acc.private += n;
+    return acc;
+  },
+  { public: 0, private: 0 },
+);
+const todayBucket = days.get(dayKey(new Date().toISOString()));
+const todayCount =
+  (todayBucket?.public.length ?? 0) +
+  [...(todayBucket?.private.values() ?? [])].reduce(
+    (a, h) => a + [...h.values()].reduce((x, y) => x + y, 0),
+    0,
+  );
+await writeFile(
+  new URL('../digest.json', import.meta.url),
+  `${JSON.stringify(
+    {
+      generated: new Date().toISOString().slice(0, 10),
+      days: DAYS,
+      commitsToday: todayCount,
+      commitsInWindow: totals.public + totals.private,
+      headline: todayCount ? `${todayCount} commits today` : 'no commits today',
+      prose,
+    },
+    null,
+    2,
+  )}\n`,
+);
+
 const readmePath = new URL('../README.md', import.meta.url);
 const readme = await readFile(readmePath, 'utf8');
 if (!readme.includes(START) || !readme.includes(END)) {
@@ -339,8 +374,50 @@ if (!readme.includes(START) || !readme.includes(END)) {
   process.exit(1);
 }
 const updated = readme.replace(new RegExp(`${START}[\\s\\S]*?${END}`), () => block);
-if (updated === readme) console.log('No change.');
-else {
+const changed = updated !== readme;
+
+if (changed) {
   await writeFile(readmePath, updated);
   console.log(`Wrote digest (${MODEL}).`);
+} else {
+  console.log('No change.');
+}
+
+// --- optional: mirror to a Discord channel ------------------------------------
+// Posts ONLY on a real change, so a quiet stretch does not repost the same text
+// every night, and ONLY after the gate above has passed -- whatever reaches Discord
+// carries exactly the same guarantees as the profile.
+//
+// A webhook URL is a channel-scoped credential, not an account one: it can post to
+// that one channel and do nothing else. Unset, this whole block no-ops, so the
+// workflow is safe to ship before the server exists.
+//
+// Deliberately never fatal. The README is the deliverable; a webhook that 404s
+// because a channel was renamed must not fail the run or block the commit.
+const WEBHOOK = process.env.DISCORD_WEBHOOK_URL;
+if (WEBHOOK && changed && !DRY_RUN) {
+  // Discord caps an embed description at 4096 chars.
+  const description = prose.length > 4000 ? `${prose.slice(0, 3997)}...` : prose;
+  try {
+    const res = await fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        embeds: [
+          {
+            title: "What I'm working on",
+            description,
+            footer: {
+              text: 'Written from commit metadata. Private repos contribute a commit count and nothing else.',
+            },
+          },
+        ],
+      }),
+    });
+    console.log(res.ok ? 'Posted to Discord.' : `Discord POST -> ${res.status} (ignored)`);
+  } catch (err) {
+    console.warn(`Discord post failed, continuing: ${err.message}`);
+  }
+} else if (WEBHOOK && !changed) {
+  console.log('Discord: nothing new to say, skipped.');
 }
