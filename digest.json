@@ -1,8 +1,9 @@
 {
-  "generated": "2026-09-13",
+  "generated": null,
   "days": 5,
-  "commitsToday": 8,
-  "commitsInWindow": 164,
-  "headline": "8 commits today",
-  "prose": "**Sat 13 Sept** — Eight commits into `[REDACTED]`, mostly merges closing out the previous day."
+  "commitsToday": 0,
+  "commitsInWindow": 0,
+  "headline": "waiting on first run",
+  "prose": "",
+  "note": "Placeholder. The nightly workflow overwrites this on its first successful run."
 }
