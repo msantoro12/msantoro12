@@ -1,0 +1,9 @@
+{
+  "name": "msantoro12-profile",
+  "private": true,
+  "type": "module",
+  "description": "Profile README tooling. Not a package.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.70.0"
+  }
+}

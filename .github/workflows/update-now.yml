@@ -1,5 +1,6 @@
-# Rewrites the "What I'm working on" block in README.md from real push activity.
-# See SETUP.md at the repo root for the token setup.
+# Rewrites the "What I'm working on" block in README.md as a five-day digest.
+# See SETUP.md at the repo root for the token setup -- there are three secrets,
+# and the two GitHub ones are deliberately different from each other.
 
 name: Update "now" section
 
@@ -29,16 +30,24 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
 
       - name: Regenerate the block
         env:
-          # Fine-grained PAT. Read-only "Metadata" on all repositories is enough --
-          # it must NOT have contents/code access. The default GITHUB_TOKEN cannot
-          # see your other repositories, which is why this exists.
-          GH_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
+          # Metadata: Read-only, ALL repositories. Decides what exists and when it
+          # was pushed. Cannot read a line of code.
+          GH_META_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
+          # Contents: Read-only, scoped to ONLY the repos in scripts/projects.json.
+          # This is what makes the whitelist enforceable at the credential rather
+          # than in JavaScript: an unlisted repo is unreadable, not merely skipped.
+          GH_DIGEST_TOKEN: ${{ secrets.PROFILE_DIGEST_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GH_USER: ${{ github.repository_owner }}
-          MAX_ITEMS: '4'
-        run: node scripts/build-now.mjs
+          DIGEST_MODEL: claude-haiku-4-5
+          DIGEST_DAYS: '5'
+        run: node scripts/build-digest.mjs
 
       - name: Commit if anything changed
         run: |
