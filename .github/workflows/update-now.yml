@@ -1,7 +1,5 @@
-# DRAFT — goes at .github/workflows/update-now.yml in the msantoro12/msantoro12 repo.
-#
 # Rewrites the "What I'm working on" block in README.md from real push activity.
-# See README-SETUP.md in this folder for the token setup.
+# See SETUP.md at the repo root for the token setup.
 
 name: Update "now" section
 

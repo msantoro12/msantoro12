@@ -7,6 +7,18 @@ software at enterprise scale, now building things I actually want to use.
 **Building software that earns trust, one product at a time.**
 
 <!-- NOW:START -->
+
+### What I'm working on
+
+| | | |
+|---|---|---|
+| **Agent tracking & comms** | Coordination and messaging layer for multi-agent workflows. | today |
+| **[Best Sudoku](https://goodstuffsoftware.com)** | No ads, no subscription. Pay once. Web and Android. | today |
+| **[Agent Templates](https://github.com/GoodStuffSoftware/agent-templates)** | Vendor-agnostic library of agent-team templates for AI coding tools. | yesterday |
+| **[Agent Plugins](https://github.com/GoodStuffSoftware/agent-plugins)** | Roam Claude Code conversations between machines, and more. | 5 days ago |
+
+<sub>Updated automatically - last run 2026-09-13.</sub>
+
 <!-- NOW:END -->
 
 ### What I make
