@@ -1,0 +1,64 @@
+{
+  "_comment": [
+    "WHITELIST. Only repos listed here can ever appear on the profile.",
+    "Activity decides the ORDER; this file decides what is publishable at all.",
+    "A repo you push to that is not listed here is silently skipped -- so a new",
+    "private experiment can never leak onto your profile by default.",
+    "",
+    "Key   = owner/repo exactly as GitHub spells it. Most of these live under the",
+    "        GoodStuffSoftware org, NOT the personal account -- a key with the wrong",
+    "        owner silently never matches and the project just never appears.",
+    "label = what the world sees. For a private repo make this say what it IS",
+    "        without naming it.",
+    "blurb = one short line. Keep it under ~80 chars or the table wraps badly.",
+    "link  = optional. Omit for private repos -- a 404 link looks broken."
+  ],
+
+  "projects": {
+    "GoodStuffSoftware/star-rupture-planner": {
+      "label": "Star Rupture Planner",
+      "blurb": "Crafting planner for Star Rupture.",
+      "link": "https://github.com/GoodStuffSoftware/star-rupture-planner"
+    },
+    "GoodStuffSoftware/agent-templates": {
+      "label": "Agent Templates",
+      "blurb": "Vendor-agnostic library of agent-team templates for AI coding tools.",
+      "link": "https://github.com/GoodStuffSoftware/agent-templates"
+    },
+    "GoodStuffSoftware/agent-plugins": {
+      "label": "Agent Plugins",
+      "blurb": "Roam Claude Code conversations between machines, and more.",
+      "link": "https://github.com/GoodStuffSoftware/agent-plugins"
+    },
+    "GoodStuffSoftware/gss-stats": {
+      "label": "GSS Stats",
+      "blurb": "Bot-free web analytics dashboard on Cloudflare.",
+      "link": "https://github.com/GoodStuffSoftware/gss-stats"
+    },
+    "GoodStuffSoftware/gss-beacon": {
+      "label": "GSS Beacon",
+      "blurb": "Bot-free geo/analytics beacon on Cloudflare Pages Functions.",
+      "link": "https://github.com/GoodStuffSoftware/gss-beacon"
+    },
+
+    "GoodStuffSoftware/deckhand": {
+      "label": "Agent tracking & comms",
+      "blurb": "Coordination and messaging layer for multi-agent workflows.",
+      "private": true,
+      "_note": "CHECK THE KEY -- guessed. If it is still named dh, or sits on the personal account, this entry never matches. The label is what the world sees; the repo name is never rendered."
+    },
+
+    "GoodStuffSoftware/best-sudoku": {
+      "label": "Best Sudoku",
+      "blurb": "No ads, no subscription. Pay once. Web and Android.",
+      "link": "https://goodstuffsoftware.com",
+      "_note": "CHECK THE KEY -- not in the org's PUBLIC list, so it is private or named differently."
+    },
+    "GoodStuffSoftware/simple-tile": {
+      "label": "Simple Tile",
+      "blurb": "Browser tool for seamless repeating tile patterns.",
+      "link": "https://simpletile.goodstuff.software",
+      "_note": "CHECK THE KEY -- not in the org's PUBLIC list, so it is private or named differently."
+    }
+  }
+}
