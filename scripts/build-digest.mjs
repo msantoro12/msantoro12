@@ -40,16 +40,16 @@
 // WHO WRITES THE PROSE: a cloud routine, never this script
 // ---------------------------------------------------------------------------
 // This file never calls a model. The run is split in three so the agent that
-// writes the words holds NO credential for the private repositories at all:
+// writes the words is handed NO credential for the private repositories:
 //
 //   1. PAYLOAD_FILE=<path>       (GitHub Action, holds both tokens) writes the
 //                                payload -- the instructions plus the already-split
 //                                public-subjects / private-counts data -- and exits.
-//   2. A cloud routine reads that file and writes one paragraph per day. It can
-//      reach this repository and nothing else, so even a routine that ignored its
-//      prompt could not go and read a private commit. Before this split, "write
-//      only from the payload" was a prompt instruction; now it is a missing
-//      credential.
+//   2. A cloud routine reads that file and writes one paragraph per day. It is
+//      given no token for the private repositories; its only GitHub access is what
+//      Claude's GitHub integration grants it, which should be this repository
+//      alone. Before this split, "write only from the payload" was purely a prompt
+//      instruction.
 //   3. DIGEST_PROSE_FILE=<path>  (GitHub Action again) re-gathers, runs the gate
 //      against the private corpus, and only then publishes.
 //

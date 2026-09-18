@@ -20,10 +20,11 @@ The run is split into three steps, each its own trust boundary:
    the private commit corpus and a check that every day label is present), and only then
    rewrites `README.md` and `digest.json`, and optionally posts to Discord.
 
-The key property: **the agent writing the words holds no credential for the private
-repositories at all.** It can reach this repository and nothing else, so even a routine that
-ignored its own prompt could not go and read a private commit. Before this split, "write
-only from the payload" was a line in a prompt; now it is a missing credential.
+The key property: **the agent writing the words is given no token for the private
+repositories.** Its only GitHub access is whatever Claude's GitHub integration grants the
+routine — so confirm that integration is scoped to this repository alone. If it is, even a
+routine that ignored its own prompt could not go and read a private commit. Before this
+split, "write only from the payload" was purely a line in a prompt.
 
 | | What the routine receives |
 |---|---|
