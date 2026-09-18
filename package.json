@@ -4,6 +4,6 @@
   "type": "module",
   "description": "Profile README tooling. Not a package.",
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.70.0"
+    "@anthropic-ai/sdk": "^0.127.0"
   }
 }
