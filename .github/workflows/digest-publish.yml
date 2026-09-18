@@ -1,0 +1,92 @@
+# Gates and publishes the prose the cloud routine wrote to claude/digest-prose.
+# See scripts/build-digest.mjs for the sanitation gate and SETUP.md for the
+# three-step design.
+
+name: 'Digest: gate and publish'
+
+on:
+  schedule:
+    # 15:00 UTC, two hours after the routine (13:00 UTC).
+    #
+    # A schedule, NOT a push trigger, on purpose. On push, GitHub runs the PUSHED
+    # branch's copy of a workflow -- so a publish triggered by the routine's push
+    # would let whatever the routine pushed decide what runs beside the tokens. A
+    # scheduled run always uses main's copy. The two-hour margin absorbs GitHub's
+    # schedule delays while staying inside the same UTC day, which the gate needs:
+    # it requires every day label of the current window.
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: digest
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # Secrets live in the `digest` environment, usable from main only. See
+    # digest-payload.yml for why that rule is the load-bearing one.
+    environment: digest
+    steps:
+      # Always main's script, never the prose branch's copy: the routine can push
+      # prose, and must not also be able to push a weakened gate.
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          # No npm cache: the script has no dependencies and there is no lockfile.
+
+      - name: Check configuration
+        id: cfg
+        env:
+          READ_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
+          DIGEST_TOKEN: ${{ secrets.PROFILE_DIGEST_TOKEN }}
+        run: |
+          if [ -n "$READ_TOKEN" ] && [ -n "$DIGEST_TOKEN" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Digest skipped::PROFILE_READ_TOKEN and PROFILE_DIGEST_TOKEN must both be set as secrets of the digest environment. See SETUP.md. The README keeps its current content."
+          fi
+
+      - name: Fetch the prose the routine wrote
+        if: steps.cfg.outputs.configured == 'true'
+        run: |
+          if ! git fetch origin claude/digest-prose; then
+            echo "::error title=No prose to publish::Branch claude/digest-prose does not exist. The cloud routine has not run yet, or cannot push to this repo -- check https://claude.ai/code/routines."
+            exit 1
+          fi
+          git show FETCH_HEAD:digest-prose.md > "${{ runner.temp }}/prose.md"
+
+      - name: Gate and publish
+        if: steps.cfg.outputs.configured == 'true'
+        env:
+          GH_META_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
+          GH_DIGEST_TOKEN: ${{ secrets.PROFILE_DIGEST_TOKEN }}
+          GH_USER: ${{ github.repository_owner }}
+          # Optional. A channel-scoped webhook URL, not an account credential.
+          # Unset, the Discord step no-ops.
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DIGEST_PROSE_FILE: ${{ runner.temp }}/prose.md
+        run: node scripts/build-digest.mjs
+
+      - name: Commit if anything changed
+        if: steps.cfg.outputs.configured == 'true'
+        run: |
+          # Keyed on README only, deliberately -- digest.json's `generated` date moves
+          # on every run, so checking it too would commit daily regardless.
+          if [[ -z "$(git status --porcelain README.md)" ]]; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md digest.json
+          git commit -m "chore: refresh now section"
+          git push origin HEAD:main

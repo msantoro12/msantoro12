@@ -1,0 +1,123 @@
+# Gathers the digest payload -- instructions plus already-split data -- and
+# publishes it to the public `digest-input` branch. See scripts/build-digest.mjs
+# for the boundary this enforces and SETUP.md for the three-step design.
+
+name: 'Digest: gather payload'
+
+on:
+  schedule:
+    # 03:00 UTC, ten hours before the routine (13:00 UTC). GitHub delays scheduled
+    # runs by hours at busy times -- 5-7 hours late has been observed on this repo --
+    # and the margin keeps the payload ahead of the routine.
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/projects.json'   # re-gather immediately when the whitelist changes
+
+permissions:
+  contents: write
+
+concurrency:
+  group: digest
+  cancel-in-progress: false
+
+jobs:
+  payload:
+    runs-on: ubuntu-latest
+    # The tokens live in the `digest` environment, which only `main` may use. This is
+    # the load-bearing rule of the whole design: a REPOSITORY secret is readable by a
+    # workflow file pushed to any branch, and the cloud routine can push claude/*
+    # branches. Environment-only secrets are what keep the routine credential-free in
+    # fact rather than in intent.
+    environment: digest
+    steps:
+      # Full history: this job later switches to (or creates) digest-input.
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          # No npm cache: the script has no dependencies and there is no lockfile.
+
+      # "Not set up yet" and "broken" must not look the same: unconfigured is a green
+      # run with a notice; configured-and-failing is a red one, which is worth an email.
+      - name: Check configuration
+        id: cfg
+        env:
+          READ_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
+          DIGEST_TOKEN: ${{ secrets.PROFILE_DIGEST_TOKEN }}
+        run: |
+          if [ -n "$READ_TOKEN" ] && [ -n "$DIGEST_TOKEN" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Digest skipped::PROFILE_READ_TOKEN and PROFILE_DIGEST_TOKEN must both be set as secrets of the digest environment. See SETUP.md. The README keeps its current content."
+          fi
+
+      - name: Gather payload
+        if: steps.cfg.outputs.configured == 'true'
+        env:
+          # Metadata: Read-only, ALL repositories. Decides what exists and when it
+          # was pushed. Cannot read a line of code.
+          GH_META_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
+          # Contents: Read-only, scoped to ONLY the repos in scripts/projects.json.
+          GH_DIGEST_TOKEN: ${{ secrets.PROFILE_DIGEST_TOKEN }}
+          GH_USER: ${{ github.repository_owner }}
+          PAYLOAD_FILE: ${{ runner.temp }}/digest-payload.txt
+        run: node scripts/build-digest.mjs
+
+      - name: Watchdog -- fail loudly if the published digest has gone stale
+        if: steps.cfg.outputs.configured == 'true'
+        # Runs before the branch switch below, while origin/main is still checked out.
+        # `generated` is null before the first publish (not a failure) or a YYYY-MM-DD
+        # date. Past 72 hours, the routine or the publish workflow has stopped
+        # producing digests -- worth an email rather than a quietly stale profile.
+        run: |
+          generated=$(git show origin/main:digest.json | node -e "
+            let s = '';
+            process.stdin.on('data', (d) => (s += d));
+            process.stdin.on('end', () => console.log(JSON.parse(s).generated ?? ''));
+          ")
+          if [ -z "$generated" ]; then
+            echo "No digest published yet -- nothing to watch."
+            exit 0
+          fi
+          age_hours=$(( ( $(date -u +%s) - $(date -u -d "$generated" +%s) ) / 3600 ))
+          if [ "$age_hours" -gt 72 ]; then
+            echo "::error title=Digest stale::The last published digest is from $generated ($age_hours hours ago). The cloud routine or the digest-publish workflow has stopped producing digests -- check https://claude.ai/code/routines and the digest-publish run history."
+            exit 1
+          fi
+          echo "Last digest from $generated, $age_hours hours ago -- within budget."
+
+      - name: Publish payload to branch digest-input
+        if: steps.cfg.outputs.configured == 'true'
+        # digest-input is public, and that is fine: it holds only what the profile
+        # itself would show -- public commit subjects and private repos as counts.
+        # No force push: the branch history is an honest log of what was sent.
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          if git ls-remote --exit-code --heads origin digest-input; then
+            git fetch origin digest-input:refs/remotes/origin/digest-input
+            git switch --track -c digest-input origin/digest-input
+          else
+            # Current git already empties the index on --orphan, so a bare
+            # `git rm -rf .` would fail with "pathspec did not match".
+            git switch --orphan digest-input
+            git rm -rf --quiet --ignore-unmatch .
+          fi
+
+          cp "${{ runner.temp }}/digest-payload.txt" digest-payload.txt
+          git add digest-payload.txt
+
+          if git diff --cached --quiet; then
+            echo "Payload unchanged, nothing to push."
+          else
+            git commit -m "chore: digest payload"
+            git push origin digest-input
+          fi

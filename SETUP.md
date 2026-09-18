@@ -5,77 +5,115 @@ both come from real commit activity. **What may be published at all comes only f
 `scripts/projects.json`** — a repo that isn't in that file never appears, and with the token
 setup below it isn't even readable.
 
-## The one thing to understand
+## How it works
 
-The digest is only as safe as what the model is handed, so the split is structural rather
-than a line in a prompt:
+The run is split into three steps, each its own trust boundary:
 
-| | What the model receives |
+1. **`PAYLOAD_FILE=<path> node scripts/build-digest.mjs`** — a GitHub Action, holding both
+   GitHub tokens, gathers commit activity and writes a payload: the prompt instructions plus
+   data that is already split (public commit subjects, private repos as counts and a
+   conventional-commit type histogram only). It exits without writing anything else.
+2. **A Claude cloud routine** reads that payload from the public `digest-input` branch and
+   writes one paragraph per day to `digest-prose.md`, force-pushed to `claude/digest-prose`.
+3. **`DIGEST_PROSE_FILE=<path> node scripts/build-digest.mjs`** — a GitHub Action re-gathers
+   the same activity, runs the sanitation gate against it (including a canary check against
+   the private commit corpus and a check that every day label is present), and only then
+   rewrites `README.md` and `digest.json`, and optionally posts to Discord.
+
+The key property: **the agent writing the words holds no credential for the private
+repositories at all.** It can reach this repository and nothing else, so even a routine that
+ignored its own prompt could not go and read a private commit. Before this split, "write
+only from the payload" was a line in a prompt; now it is a missing credential.
+
+| | What the routine receives |
 |---|---|
 | **Public** whitelisted repo | commit subjects — it writes specifically about them |
 | **Private** repo, any | a commit **count** and a type histogram. Nothing else. |
 
-For private repos the subjects are read to compute the histogram and then dropped. They
-never enter the request, so the model cannot leak them — not with a reworded prompt, not
-on a different model, not if a commit message itself tries something. Redacting names in
-the prompt instead would hide the least sensitive part (which repo) and publish the most
-sensitive (what you did to it).
+A sanitation gate runs over the routine's output as a second layer, back inside the GitHub
+Action that still holds the tokens. It is openly partial: it catches **mechanical** leaks —
+version numbers, issue refs, emails, URLs, credential shapes, plus any three-word phrase, or
+cluster of three or more words, that appears only in private commits. It cannot catch a
+**semantic** leak, because "a rate limiter that trusted a spoofable header" contains no
+forbidden token. The structural split above is what handles those. If the gate trips, the
+run fails and the README keeps its last good content.
 
-A sanitation gate runs over the output as a second layer. It is openly partial: it catches
-mechanical leaks — version numbers, issue refs, emails, URLs, credential shapes — plus
-distinctive vocabulary that appears only in private commits. It cannot catch a semantic
-leak, because "a rate limiter that trusted a spoofable header" contains no forbidden
-token. The structural split is what handles those. If the gate trips, the run fails and
-the README keeps its last good content.
-
-## Layout
-
-```
-README.md
-package.json           # one dependency, the Anthropic SDK
-scripts/
-  build-digest.mjs     # the digest (what the workflow runs)
-  build-now.mjs        # model-free fallback: a plain table, metadata only
-  projects.json        # the whitelist
-.github/workflows/
-  update-now.yml
-```
+**In CI the gate names only the kind of problem, never the text.** Actions logs on a public
+repo are public, so printing what it blocked would publish the leak it just stopped. Run it
+locally (below) to see the detail.
 
 ## Setup
 
-**1. Markers in `README.md`** where the section should appear. The script replaces
-everything between them and fails loudly if they're missing:
-
-```markdown
-<!-- NOW:START -->
-<!-- NOW:END -->
-```
-
-**2. Two fine-grained PATs**, and the difference between them is the point.
-Settings → Developer settings → Personal access tokens → Fine-grained tokens.
+**Two fine-grained PATs**, and the difference between them is the point. Settings →
+Developer settings → Personal access tokens → Fine-grained tokens.
 
 | Secret | Repository access | Permissions |
 |---|---|---|
 | `PROFILE_READ_TOKEN` | **All repositories** | Metadata: Read-only. Nothing else. |
 | `PROFILE_DIGEST_TOKEN` | **Only select repositories** — pick exactly the ones in `projects.json` | Metadata: Read-only **and** Contents: Read-only |
 
-Set a real expiration on both; 90 days is sensible. GitHub emails before they lapse and
-the workflow fails loudly rather than publishing stale data.
+Set a real expiration on both; 90 days is sensible. GitHub emails before they lapse and the
+workflow fails loudly rather than publishing stale data.
 
-> **Be clear-eyed about what changed here.** The earlier metadata-only design could
-> promise *the token cannot read your code*. Per-day commit counts need `Contents: read`,
-> so this one promises *the script reads it and does not forward it* — a weaker claim,
-> enforced by code rather than by the credential. Scoping the digest token to selected
-> repositories is what claws most of that back: a new private experiment isn't merely
-> unlisted, it's unreadable. **When you add a repo to `projects.json`, add it to that
-> token's repository list too, or it silently won't appear.**
+> **Be clear-eyed about what changed here.** The earlier metadata-only design could promise
+> *the token cannot read your code*. Per-day commit counts need `Contents: read`, so this one
+> promises *the script reads it and does not forward it* — a weaker claim, enforced by code
+> rather than by the credential. Scoping the digest token to selected repositories is what
+> claws most of that back: a new private experiment isn't merely unlisted, it's unreadable.
+> **When you add a repo to `projects.json`, add it to that token's repository list too, or it
+> silently won't appear.**
 
-**3. An Anthropic API key** as `ANTHROPIC_API_KEY`.
+> **The resource-owner trap.** A fine-grained PAT has exactly one resource owner, but
+> `projects.json` spans both `msantoro12` and the `GoodStuffSoftware` org. A token created
+> under one owner cannot see the other's repos no matter what you tick. After creating
+> `PROFILE_DIGEST_TOKEN`, verify it actually sees all seven:
+>
+> ```bash
+> GH_TOKEN=<token> gh api "user/repos?affiliation=owner,organization_member&per_page=100" --jq '.[].full_name'
+> ```
+>
+> If the org repos are missing from that list, one token cannot cover both owners — a second
+> org-owned token is needed. Raise it if you hit this; designing that split is out of scope
+> here.
 
-**4. Add all three** in Settings → Secrets and variables → Actions → New repository secret.
+**Add both as secrets of the `digest` environment — never as repository secrets.**
+Settings → Environments → `digest` → Environment secrets. The environment already exists
+and only `main` may use it. That rule is load-bearing: a repository secret is readable by a
+workflow file pushed to *any* branch, and the cloud routine can push `claude/*` branches — so
+a repository secret would hand the routine the very credential this design keeps from it.
 
-**5. Run it** from Actions → "Update now section" → Run workflow, rather than waiting for
-the cron.
+**Optional: `DISCORD_WEBHOOK_URL`**, also in the `digest` environment — a channel-scoped
+webhook, not an account credential.
+Unset, the Discord step no-ops, so it's safe to leave out until the channel exists.
+
+**No Anthropic API key.** The prose is written by a Claude cloud routine on the owner's own
+subscription, not by an API call this repo pays for. Manage it at
+[claude.ai/code/routines](https://claude.ai/code/routines) — it needs the Claude GitHub app
+to have access to this repository.
+
+## The data branch
+
+`digest-input` is a public branch, and that is fine. It holds only what the digest itself
+would show on the profile: public commit subjects (already public) and private repos as
+counts and a type histogram (never a subject). Nothing crosses into it that the README
+wouldn't eventually carry anyway.
+
+## Schedule
+
+- **Payload**: `0 3 * * *` (03:00 UTC), plus `workflow_dispatch` and a push to
+  `scripts/projects.json` on `main`.
+- **Routine**: 13:00 UTC (9am Eastern), on the owner's Claude subscription. The payload job
+  runs ten hours earlier on purpose — GitHub delays scheduled runs by hours (5–7 hours late
+  has been observed on this repo), and the margin keeps the payload ahead of the routine.
+- **Publish**: `0 15 * * *` (15:00 UTC), plus `workflow_dispatch`. Deliberately a schedule,
+  not a push trigger: on push, GitHub runs the *pushed branch's* copy of a workflow, so a
+  push-triggered publish would let whatever the routine pushed decide what runs beside the
+  tokens. A scheduled run always uses `main`'s copy. It must also land on the same UTC day as
+  the payload, because the gate requires every day label of the current window.
+- **Watchdog**: once both secrets are configured, the payload job reads the `generated` date
+  out of `digest.json` on `main` before doing anything else. Null (never published) is fine.
+  Anything older than 72 hours fails the job loudly — the cloud routine or the publish step
+  has stopped producing digests, and that is worth an email.
 
 ## Checking it yourself
 
@@ -83,43 +121,32 @@ the cron.
 PAYLOAD_ONLY=1 GH_META_TOKEN=… GH_DIGEST_TOKEN=… GH_USER=msantoro12 node scripts/build-digest.mjs
 ```
 
-Prints the exact bytes the model is about to receive, and stops. If a private repo's
-commit subject ever appears in that output, the boundary is broken — that is the check
-worth running after touching the script.
+Prints the exact bytes the routine is about to receive, and stops. If a private repo's commit
+subject ever appears in that output, the boundary is broken — that is the check worth running
+after touching the script.
 
 ```bash
-DIGEST_FIXTURE="…some deliberately leaky prose…" node scripts/build-digest.mjs
+DIGEST_PROSE_FILE=some-leaky-file.md DRY_RUN=1 GH_META_TOKEN=… GH_DIGEST_TOKEN=… GH_USER=msantoro12 node scripts/build-digest.mjs
 ```
 
-Runs the gate against a canned string instead of calling the model, so you can confirm it
-still catches things without spending a request.
-
-## Model
-
-`DIGEST_MODEL` in the workflow, default `claude-haiku-4-5`. At one run a day this costs
-roughly **$2/year** on Haiku, $4 on Sonnet 5, $10 on Opus 5 — the whole decision spans
-about eight dollars, so choose on how the prose reads, not on price. Develop prompt
-changes against `claude-sonnet-5`, then drop back and diff.
-
-One API detail: `output_config.effort` is rejected with a 400 on Haiku 4.5. The script
-only sets it for the larger models.
+Runs the gate against a file you control instead of a real routine run, `DRY_RUN=1` so
+nothing is written. Point it at deliberately leaky prose to confirm the gate still catches
+things without waiting on a routine.
 
 ## Adding a project
 
-Edit `scripts/projects.json` — pushing that file re-renders immediately. Then **add the
-repo to `PROFILE_DIGEST_TOKEN`'s repository list**, or it stays invisible. For private
-repos make `label` say what the thing *is* without naming it, and omit `link` unless it
-points at a product rather than a repo.
+Edit `scripts/projects.json` — pushing that file re-gathers the payload immediately. Then
+**add the repo to `PROFILE_DIGEST_TOKEN`'s repository list**, or it silently won't appear.
+For private repos make `label` say what the thing *is* without naming it, and omit `link`
+unless it points at a product rather than a repo.
 
 ## Things to know
 
 - **GitHub disables scheduled workflows after 60 days of repo inactivity.** It emails you
-  first. This job commits when something changes, which usually counts — but a quiet
-  stretch can still trip it. Re-enable from the Actions tab.
-- **The bot commits daily**, so your contribution graph shows activity. Drop the cron to
-  weekly (`'15 7 * * 1'`) if that bothers you.
+  first. This job commits when something changes, which usually counts — but a quiet stretch
+  can still trip it. Re-enable from the Actions tab.
 - **Dates are relative and author-based**, never timestamps. Author date, not push date —
-  "what I did Tuesday" should mean Tuesday. A repo pushed today can hold commits written
-  last week, so the digest and a push-ordered view will sometimes disagree.
-- **A failed run leaves the last good README in place.** Failing loud and stale beats
-  failing quiet and wrong.
+  "what I did Tuesday" should mean Tuesday. A repo pushed today can hold commits written last
+  week, so the digest and a push-ordered view will sometimes disagree.
+- **A failed run leaves the last good README in place.** Failing loud and stale beats failing
+  quiet and wrong.
