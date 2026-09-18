@@ -403,6 +403,10 @@ if (WEBHOOK && changed && !DRY_RUN) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        // Embeds do not ping today, but this pins it: if the text is ever moved
+        // into `content`, an @everyone lifted verbatim from a public commit
+        // subject still cannot notify the server.
+        allowed_mentions: { parse: [] },
         embeds: [
           {
             title: "What I'm working on",

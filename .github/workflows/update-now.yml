@@ -24,17 +24,34 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      # "Not set up yet" and "broken" must not look the same. Before this, an
+      # unconfigured repo failed every night -- a failure email each morning and a
+      # row of red crosses on a public profile repo, for something that was never
+      # wrong. Unconfigured now skips with a notice; configured-and-failing still
+      # fails loudly, which is the case worth an email.
+      CONFIGURED: ${{ secrets.PROFILE_READ_TOKEN != '' && secrets.PROFILE_DIGEST_TOKEN != '' && secrets.ANTHROPIC_API_KEY != '' }}
     steps:
-      - uses: actions/checkout@v4
+      # Checkout and install run either way, so a green skip still proves the
+      # toolchain works rather than proving nothing.
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'npm'
 
       - run: npm ci
 
+      - name: Not configured yet
+        if: env.CONFIGURED != 'true'
+        run: >-
+          echo "::notice title=Digest skipped::One or more of PROFILE_READ_TOKEN,
+          PROFILE_DIGEST_TOKEN, ANTHROPIC_API_KEY is not set. See SETUP.md.
+          The README keeps its current content."
+
       - name: Regenerate the block
+        if: env.CONFIGURED == 'true'
         env:
           # Metadata: Read-only, ALL repositories. Decides what exists and when it
           # was pushed. Cannot read a line of code.
@@ -53,6 +70,7 @@ jobs:
         run: node scripts/build-digest.mjs
 
       - name: Commit if anything changed
+        if: env.CONFIGURED == 'true'
         run: |
           # Keyed on README only, deliberately. digest.json carries a generated-on
           # date that moves every night, so checking it too would commit daily
