@@ -1,4 +1,4 @@
-generated: 2026-09-19T11:11:00.955Z
+generated: 2026-09-19T11:13:59.903Z
 days: Sat 19 Sept | Fri 18 Sept | Thu 17 Sept | Wed 16 Sept | Tue 15 Sept
 
 === INSTRUCTIONS ===
@@ -39,13 +39,45 @@ Sat 19 Sept
   (no commits anywhere)
 
 Fri 18 Sept
-  (no commits anywhere)
+  PUBLIC Agent Templates: docs(agent-companion): caller_model reflects the previous turn
+  PUBLIC Agent Templates: fix(agent-companion): parity-review fix round for durable telemetry
+  PUBLIC Agent Templates: fix(agent-companion): wire coverage_partial_ratio through as an actual opt
+  PUBLIC Agent Templates: feat(agent-companion): docs, version bump, and CI for durable telemetry
+  PUBLIC Agent Templates: wip(agent-companion): test suite for durable telemetry (spec section 9)
+  PUBLIC Agent Templates: wip(agent-companion): rewire audit/detect to the durable resolver, add coverage check
+  PUBLIC Agent Templates: wip(agent-companion): durable state root, legacy import, telemetry schema v2
+  PUBLIC Agent Templates: feat(agent-companion): installable global user-level staleness hook
+  PUBLIC Agent Templates: feat(agent-companion): generalize the stale-session notice to every plugin
+  PUBLIC Agent Templates: feat(agent-companion): warn a session it is running a stale plugin copy
+  PUBLIC Agent Templates: fix(agent-companion): bump INDEX_SCHEMA so cache shape changes invalidate
+  PUBLIC Agent Templates: fix(agent-companion): honest merge-status label and frontmatter-aware display in memory search
 
 Thu 17 Sept
-  (no commits anywhere)
+  PUBLIC Star Rupture Planner: fix(tree): attach hover card tooltips to text labels while keeping icons clean for icon zoom
+  PUBLIC Star Rupture Planner: fix(nav): dismiss history dropdown on navigation and remove conflicting tree icon hover tooltips
+  PUBLIC Star Rupture Planner: fix(joystick): restore 1.5x mobile scale (66x42px) with proportional 19.5px knob sizing for touch viewports
+  PUBLIC Star Rupture Planner: fix(joystick): standardize 44x28px joystick dimensions with 1:1 SVG alignment across mobile & desktop viewports
+  PUBLIC Star Rupture Planner: fix(joystick): refine percentage deflection offsets for full click/drag travel and fluid scalability
+  PUBLIC Star Rupture Planner: refactor(joystick): convert MicroJoystick to pure HTML + custom CSS component architecture
+  PUBLIC Star Rupture Planner: feat(joystick): refine down resting tick line & restrict down hover to bottom third
+  PUBLIC Star Rupture Planner: feat(joystick): integrate down direction for history with half-lean hover & clean resting line
+  PUBLIC Star Rupture Planner: feat(joystick): animate dot deflection on tap/click for touch & mobile devices
+  PUBLIC Star Rupture Planner: style(header): adjust gap spacing on header row items across breakpoints
+  PUBLIC Star Rupture Planner: style(header): squeeze padding, margins, and input widths to keep top nav row inline down to 640px
+  PUBLIC Star Rupture Planner: fix(nav): squeeze top nav row below 835px and scale joystick 1.5x under 859px
+  PUBLIC Star Rupture Planner: fix(mobile): prevent native image callout menu on press-and-hold
 
 Wed 16 Sept
-  (no commits anywhere)
+  PUBLIC Star Rupture Planner: fix(mobile): eliminate window capture event listeners to prevent swallowed clicks
+  PUBLIC Star Rupture Planner: fix(mobile): preserve press-and-hold icon zoom when finger lifts on mobile
+  PUBLIC Star Rupture Planner: fix(mobile): refine drawer header navigation scaling for mobile devtools viewport
+  PUBLIC Star Rupture Planner: fix(mobile): resolve touch zoom event leakage and click interception
+  PUBLIC Star Rupture Planner: fix(mobile): resolve joystick knob sticking, icon zoom dismissal, and drawer nav sizing on mobile
+  PUBLIC Star Rupture Planner: v1.5.0: icon hover zoom, version badge cleanup, tree header consolidation, release gate
+  PUBLIC Star Rupture Planner: feat: refine detail drawer backdrop blur zones, mobile layout, and drawer navigation history
+  PUBLIC Star Rupture Planner: chore: bump GitHub Actions to Node 24 versions
+  PUBLIC Star Rupture Planner: feat: show overages toggle, 2-col options, path-based overrides
+  PUBLIC Star Rupture Planner: feat: Update 2 QoL support with alternate recipes and auto-update workflow
 
 Tue 15 Sept
   (no commits anywhere)
