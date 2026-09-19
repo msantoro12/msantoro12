@@ -215,7 +215,11 @@ for (const repo of repos) {
   let commits;
   try {
     commits = await gh(
-      `/repos/${repo.full_name}/commits?since=${since.toISOString()}&per_page=100`,
+      // Only the owner's OWN commits. A fork carries its upstream's history: forking
+      // a maintainer's repo once put that maintainer's commits into this digest as if
+      // they were the owner's work. Filtering by author is also what lets the owner's
+      // real contributions to a fork show up later.
+      `/repos/${repo.full_name}/commits?since=${since.toISOString()}&author=${encodeURIComponent(USER)}&per_page=100`,
       tokenFor.get(repo.full_name) ?? READ_TOKEN,
     );
   } catch (err) {

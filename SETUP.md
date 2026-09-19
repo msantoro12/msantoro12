@@ -136,5 +136,8 @@ its slug. Private repos stay anonymous whether or not they are listed.
 - **Dates are relative and author-based**, never timestamps. Author date, not push date —
   "what I did Tuesday" should mean Tuesday.
 - **The profile repo itself is excluded**, so the bot's nightly commits never count as work.
+- **Only commits you authored count.** A fork carries its upstream's history, so without
+  this, forking someone's repo would put *their* commits on your profile as yours. Your own
+  commits on a fork do show up.
 - **A failed run leaves the last good README in place.** Failing loud and stale beats failing
   quiet and wrong.
