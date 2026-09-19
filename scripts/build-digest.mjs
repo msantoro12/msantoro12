@@ -112,14 +112,21 @@ const ccType = (subject) => (subject.match(/^([a-z]+)[(:]/)?.[1] ?? 'other');
 const config = JSON.parse(await readFile(new URL('./projects.json', import.meta.url), 'utf8'));
 const allowed = config.projects ?? {};
 
+// Ask for each whitelisted repo BY NAME rather than listing /user/repos. A
+// fine-grained token owned by the personal account is not guaranteed to list the
+// org's repositories under affiliation=organization_member, and a listing that
+// quietly omits them drops every GoodStuffSoftware project from the digest -- the
+// same silent miss the whitelist keys once had. Asking by name works for public
+// repos with any token ("tokens can always read all public repositories") and for
+// the private ones through the meta token.
 const repos = [];
-for (let page = 1; page <= 4; page++) {
-  const batch = await gh(
-    `/user/repos?sort=pushed&per_page=100&page=${page}&affiliation=owner,organization_member`,
-    META_TOKEN,
-  );
-  repos.push(...batch);
-  if (batch.length < 100) break;
+for (const key of Object.keys(allowed)) {
+  try {
+    repos.push(await gh(`/repos/${key}`, META_TOKEN));
+  } catch {
+    // Loud, never silent: a whitelisted repo the token cannot see is a setup error.
+    console.log(`::warning title=Whitelisted repo not visible::${key} is in projects.json but GH_META_TOKEN cannot see it, so it will not appear in the digest.`);
+  }
 }
 
 const since = new Date(Date.now() - DAYS * 86_400_000);
