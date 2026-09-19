@@ -1,8 +1,8 @@
 # "What I'm working on" — the auto-updating digest
 
-A model writes a five-day digest, one short paragraph per day, daily. Ordering and content
-both come from real commit activity. **What may be published at all comes only from
-`scripts/projects.json`** — a repo that isn't in that file never appears.
+A model writes a five-day digest, one short paragraph per day, daily, from real commit
+activity. It covers **every repo the token can see**: public repos by name, private repos as
+anonymous counts. `scripts/projects.json` only gives public repos friendlier names.
 
 ## How it works
 
@@ -28,8 +28,8 @@ split, "write only from the payload" was purely a line in a prompt.
 
 | | What the routine receives |
 |---|---|
-| **Public** whitelisted repo | commit subjects — it writes specifically about them |
-| **Private** repo, any | a commit **count** and a type histogram. Nothing else. |
+| **Public** repo | its name and commit subjects — it writes specifically about them |
+| **Private** repo | a commit **count** and a type histogram, with no name. Nothing else. |
 
 A sanitation gate runs over the routine's output as a second layer, back inside the GitHub
 Action that holds the token. It is openly partial: it catches **mechanical** leaks — version
@@ -45,50 +45,48 @@ locally (below) to see the detail.
 
 ## Setup
 
-**One fine-grained, read-only token.** Settings → Developer settings → Personal access
-tokens → Fine-grained tokens.
+**One fine-grained, read-only token**, named `PROFILE_READ_TOKEN`. Settings → Developer
+settings → Personal access tokens → Fine-grained tokens.
 
-- **Needs:** Contents: Read-only on the **private** repos in `projects.json` (today
-  `deckhand` and `best-sudoku`). Metadata comes with it. Nothing else — no write
+- **Permissions:** Contents: Read-only (Metadata comes with it). Nothing else — no write
   permissions of any kind.
+- **Repository access** decides whose private work gets counted. *All repositories* counts
+  every private repo the token's **owner** has. A token owned by your personal account can
+  count your personal private repos but not an organisation's private ones — those would
+  need a token owned by that org.
 - **Public repos need no grant.** GitHub lets every token read every public repository, so
-  the five GoodStuffSoftware repos are covered whatever the token's owner or repo list.
-- **Narrowest option:** Repository access → *Only select repositories* → just those private
-  repos. That makes `projects.json` enforceable at the credential: an unlisted private repo
-  is unreadable, not merely skipped. An *All repositories* read-only token also works; the
-  difference is only what it could read if it ever leaked.
-- Set a real expiration; 90 days is sensible. GitHub emails before it lapses, and the run
-  fails loudly rather than publishing stale data.
+  the GoodStuffSoftware public repos are covered regardless.
+- Expiry is your call. A token with an expiry date fails loudly when it lapses; one without
+  stays valid until you delete it.
 
-Repos are fetched **by name** from `projects.json`, so the token never needs to list your
-repositories. A whitelisted repo it cannot see, or whose commits it cannot read, raises a
-warning in the run summary instead of quietly disappearing.
+The run lists every repo the token can see, and also asks for each repo named in
+`projects.json` directly, in case the listing misses org repos. A named repo it cannot see,
+or one whose commits it cannot read, raises a warning in the run summary instead of quietly
+disappearing. If it can see nothing at all, the run fails rather than publishing an empty
+week.
 
-> **Be clear-eyed about what this token is.** Per-day commit counts need `Contents: read`,
-> so the promise is *the script reads your private commits and does not forward them* —
-> enforced by code and the gate, not by the credential.
+> **Be clear-eyed about what this token is.** It can read your private code. The promise is
+> *the script reads your private commits and does not forward them* — enforced by code and
+> the gate, not by the credential.
 
-**Add it as a secret of the `digest` environment — never as a repository secret.** Name it
-`PROFILE_READ_TOKEN`. Settings → Environments → `digest` → Environment secrets. The
-environment already exists and only `main` may use it. That rule is load-bearing: a
-repository secret is readable by a workflow file pushed to *any* branch, and the cloud
-routine can push `claude/*` branches — so a repository secret would hand the routine the
-very credential this design keeps from it.
+**Add it as a secret of the `digest` environment — never as a repository secret.** Settings
+→ Environments → `digest` → Environment secrets. The environment already exists and only
+`main` may use it. That rule is load-bearing: a repository secret is readable by a workflow
+file pushed to *any* branch, and the cloud routine can push `claude/*` branches — so a
+repository secret would hand the routine the very credential this design keeps from it.
 
 **Optional: `DISCORD_WEBHOOK_URL`**, also in the `digest` environment — a channel-scoped
-webhook, not an account credential. Unset, the Discord step no-ops, so it's safe to leave
-out until the channel exists.
+webhook, not an account credential. Unset, the Discord step no-ops.
 
 **No Anthropic API key.** The prose is written by a Claude cloud routine on the owner's own
-subscription, not by an API call this repo pays for. Manage it at
-[claude.ai/code/routines](https://claude.ai/code/routines) — it needs the Claude GitHub app
-to have access to this repository.
+subscription. Manage it at [claude.ai/code/routines](https://claude.ai/code/routines) — it
+needs the Claude GitHub app to have access to this repository.
 
 ## The data branch
 
 `digest-input` is a public branch, and that is fine. It holds only what the digest itself
-would show on the profile: public commit subjects (already public) and private repos as
-counts and a type histogram (never a subject).
+would show: public commit subjects (already public) and private repos as unnamed counts and a
+type histogram (never a subject, never a name).
 
 ## Schedule
 
@@ -114,24 +112,21 @@ PAYLOAD_ONLY=1 GH_READ_TOKEN=… GH_USER=msantoro12 node scripts/build-digest.mj
 ```
 
 Prints the exact bytes the routine is about to receive, and stops. If a private repo's commit
-subject ever appears in that output, the boundary is broken — that is the check worth running
-after touching the script.
+subject or name ever appears in that output, the boundary is broken — that is the check worth
+running after touching the script. Add `DIGEST_DAYS=10` when the last five days happen to have
+no private activity, or the check has nothing to catch.
 
 ```bash
 DIGEST_PROSE_FILE=some-leaky-file.md DRY_RUN=1 GH_READ_TOKEN=… GH_USER=msantoro12 node scripts/build-digest.mjs
 ```
 
-Runs the gate against a file you control instead of a real routine run, `DRY_RUN=1` so
-nothing is written. Point it at deliberately leaky prose to confirm the gate still catches
-things without waiting on a routine.
+Runs the gate against a file you control, `DRY_RUN=1` so nothing is written. Point it at
+deliberately leaky prose to confirm the gate still catches things.
 
-## Adding a project
+## Naming a project
 
-Edit `scripts/projects.json` — pushing that file re-gathers the payload immediately. If the
-repo is **private** and the token uses *Only select repositories*, **add it to the token's
-repository list too**; the run warns if it can't read it. For private repos make `label` say
-what the thing *is* without naming it, and omit `link` unless it points at a product rather
-than a repo.
+Add it to `scripts/projects.json` with a `label` to give a public repo a friendlier name than
+its slug. Private repos stay anonymous whether or not they are listed.
 
 ## Things to know
 
@@ -139,7 +134,7 @@ than a repo.
   first. This job commits when something changes, which usually counts — but a quiet stretch
   can still trip it. Re-enable from the Actions tab.
 - **Dates are relative and author-based**, never timestamps. Author date, not push date —
-  "what I did Tuesday" should mean Tuesday. A repo pushed today can hold commits written last
-  week, so the digest and a push-ordered view will sometimes disagree.
+  "what I did Tuesday" should mean Tuesday.
+- **The profile repo itself is excluded**, so the bot's nightly commits never count as work.
 - **A failed run leaves the last good README in place.** Failing loud and stale beats failing
   quiet and wrong.

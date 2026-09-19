@@ -9,7 +9,7 @@
 // that was just closed, and mention customers by name -- so the split here is
 // STRUCTURAL rather than a line in a prompt:
 //
-//   PUBLIC  whitelisted repo -> commit subjects go to the model.
+//   PUBLIC  repo, any        -> commit subjects go to the model.
 //   PRIVATE repo, any        -> ONLY a per-day count and a conventional-commit
 //                               type histogram go to the model. Subjects are read
 //                               to compute the histogram and then dropped on the
@@ -24,18 +24,17 @@
 // ---------------------------------------------------------------------------
 // ONE READ-ONLY TOKEN
 // ---------------------------------------------------------------------------
-//   GH_READ_TOKEN    Fine-grained and read-only. The digest needs Contents:
-//                    Read-only on the PRIVATE repos in projects.json and nothing
-//                    else -- public repos need no grant, because GitHub lets any
-//                    token read every public repository. The narrowest version
-//                    ("Only select repositories" = those private repos) makes
-//                    projects.json enforceable at the credential: an unlisted
-//                    private repo is unreadable, not merely skipped. A broader
-//                    read-only token also works; it just reads more if it leaks.
+//   GH_READ_TOKEN    Fine-grained and read-only: Contents + Metadata, nothing
+//                    else. Public repos need no grant -- GitHub lets any token read
+//                    every public repository. Private repos are counted only where
+//                    the token can read them, so its repository access decides
+//                    whose private work is counted: "All repositories" counts every
+//                    private repo the token's OWNER has; an org's private repos
+//                    would need a token owned by that org.
 //
-// Repos are fetched by name from the whitelist, so nothing needs to LIST all of
-// the account's repositories. An earlier design carried a second token only for
-// that listing.
+// Coverage is every repo the token can list, plus the named projects in
+// projects.json that the listing may miss. projects.json is a label list, not a
+// whitelist: a private repo is anonymous whether or not it is named there.
 //
 // Be honest about what remains: the token CAN read private code. The promise is
 // "the script reads it and does not forward it" -- which is why the gate exists.
@@ -119,37 +118,60 @@ const ccType = (subject) => (subject.match(/^([a-z]+)[(:]/)?.[1] ?? 'other');
 // --- gather ------------------------------------------------------------------
 
 const config = JSON.parse(await readFile(new URL('./projects.json', import.meta.url), 'utf8'));
-const allowed = config.projects ?? {};
+// Display names, NOT a whitelist. Every repo the token can see is covered: public
+// ones by name with their commit subjects, private ones as anonymous counts -- the
+// model is never told a private repo's name, label or subject. projects.json only
+// decides how a PUBLIC repo is labelled, and seeds repos the listing may miss.
+const projectLabels = config.projects ?? {};
+// The profile repo itself is excluded, or the bot's nightly commits would be
+// reported as work.
+const SELF = `${USER}/${USER}`.toLowerCase();
 
-// Ask for each whitelisted repo BY NAME rather than listing /user/repos. A
-// fine-grained token owned by the personal account is not guaranteed to list the
-// org's repositories under affiliation=organization_member, and a listing that
-// quietly omits them drops every GoodStuffSoftware project from the digest -- the
-// same silent miss the whitelist keys once had. Asking by name works for public
-// repos with any token ("tokens can always read all public repositories") and for
-// the private ones through the token's own repo grant.
-const repos = [];
+const byName = new Map();
 const unseen = [];
-for (const key of Object.keys(allowed)) {
+
+// 1. Everything the token can list -- with an all-repositories token, every repo the
+//    account owns, public and private.
+try {
+  for (let page = 1; page <= 4; page++) {
+    const batch = await gh(
+      `/user/repos?sort=pushed&per_page=100&page=${page}&affiliation=owner,organization_member`,
+      READ_TOKEN,
+    );
+    for (const r of batch) byName.set(r.full_name, r);
+    if (batch.length < 100) break;
+  }
+} catch (err) {
+  // Status code or error class ONLY, never err.message: a malformed token can make
+  // the HTTP client throw with the header value -- the token -- in its message, and
+  // this log is public.
+  unseen.push(`repository listing (${err.status ?? err.name})`);
+}
+
+// 2. Named projects the listing missed. A token owned by the personal account is not
+//    guaranteed to list the org's repositories, even public ones it can read, and a
+//    quiet omission would drop every GoodStuffSoftware project -- the same silent
+//    miss the project keys once had. Asking by name closes the gap.
+for (const key of Object.keys(projectLabels)) {
+  if (byName.has(key)) continue;
   try {
-    repos.push(await gh(`/repos/${key}`, READ_TOKEN));
+    const r = await gh(`/repos/${key}`, READ_TOKEN);
+    byName.set(r.full_name, r);
   } catch (err) {
-    // Status code or error class ONLY, never err.message: a malformed token can make
-    // the HTTP client throw with the header value -- the token -- in its message,
-    // and this log is public.
     const why = err.status ?? err.name;
     unseen.push(`${key} (${why})`);
-    // Loud, never silent: a whitelisted repo the token cannot see is a setup error --
-    // usually a private repo missing from the token's "Only select repositories".
-    console.log(`::warning title=Whitelisted repo not visible::${key} is in projects.json but GH_READ_TOKEN cannot see it (${why}), so it will not appear in the digest.`);
+    // Loud, never silent: a named project the token cannot see is a setup error.
+    console.log(`::warning title=Named repo not visible::${key} is in projects.json but GH_READ_TOKEN cannot see it (${why}), so it will not appear in the digest.`);
   }
 }
-// Every token can read public repos, so seeing NONE of the whitelist means the token
-// itself is broken -- mistyped, expired or revoked -- not that the repos are private.
-// Stop here. An empty payload would become a confident "nothing happened all week" on
-// a public profile, which is worse than a stale one.
+
+const repos = [...byName.values()].filter((r) => r.full_name.toLowerCase() !== SELF);
+
+// Every token can read public repos, so seeing NOTHING means the token itself is
+// broken -- mistyped, expired or revoked. Stop here. An empty payload would become a
+// confident "nothing happened all week" on a public profile, worse than a stale one.
 if (repos.length === 0) {
-  console.log(`::error title=Token rejected::GH_READ_TOKEN could not see any of the ${unseen.length} whitelisted repos, not even the public ones (first: ${unseen[0]}). Check the PROFILE_READ_TOKEN secret: it may be mistyped, expired or revoked.`);
+  console.log(`::error title=Token rejected::GH_READ_TOKEN could not see any repositories, not even public ones (${unseen[0] ?? 'nothing listed'}). Check the PROFILE_READ_TOKEN secret: it may be mistyped, expired or revoked.`);
   process.exit(1);
 }
 
@@ -163,9 +185,11 @@ for (let i = 0; i < DAYS; i++) {
 }
 
 for (const repo of repos) {
-  const entry = allowed[repo.full_name];
-  if (!entry) continue; // not whitelisted -- and the digest token cannot read it anyway
   if (new Date(repo.pushed_at) < since) continue;
+  // Public repos use their projects.json label when they have one, else the repo
+  // name (public anyway). A private repo's label is never used for anything the
+  // model sees -- its bucket key below stays internal.
+  const label = projectLabels[repo.full_name]?.label ?? repo.name;
 
   let commits;
   try {
@@ -192,11 +216,11 @@ for (const repo of repos) {
       // then dropped -- it is never placed in the model payload.
       privateCorpus.push(subject);
       const type = ccType(subject);
-      const hist = bucket.private.get(entry.label) ?? new Map();
+      const hist = bucket.private.get(repo.full_name) ?? new Map();
       hist.set(type, (hist.get(type) ?? 0) + 1);
-      bucket.private.set(entry.label, hist);
+      bucket.private.set(repo.full_name, hist);
     } else {
-      bucket.public.push({ label: entry.label, subject });
+      bucket.public.push({ label, subject });
     }
   }
 }

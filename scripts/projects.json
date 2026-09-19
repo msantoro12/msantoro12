@@ -1,19 +1,18 @@
 {
   "_comment": [
-    "WHITELIST. Only repos listed here can ever appear on the profile.",
-    "Activity decides the ORDER; this file decides what is publishable at all.",
-    "A repo you push to that is not listed here is silently skipped -- so a new",
-    "private experiment can never leak onto your profile by default.",
+    "LABELS, not a whitelist. The digest covers every repo the token can see:",
+    "public repos by name with their commit subjects, private repos as anonymous",
+    "commit counts. A private repo is never named to the model, listed here or not.",
     "",
-    "Key   = owner/repo exactly as GitHub spells it. Check the owner: some live",
-    "        under the GoodStuffSoftware org and some under the personal account,",
-    "        and a key with the wrong owner silently never matches -- the project",
-    "        just never appears, with no error.",
-    "label = what the world sees. For a private repo make this say what it IS",
-    "        without naming it.",
-    "blurb = one short line. Keep it under ~80 chars or the table wraps badly.",
-    "link  = optional. Omit for a private repo unless the link points at the",
-    "        PRODUCT rather than the repo -- a 404 link looks broken."
+    "What this file does:",
+    "  - gives a PUBLIC repo a friendlier name than its slug (label), and",
+    "  - makes sure a named repo is fetched even when the token's listing misses it",
+    "    (the org's repos, for a token owned by the personal account).",
+    "",
+    "Key   = owner/repo exactly as GitHub spells it. A wrong owner means that",
+    "        project is not labelled or fetched; the run warns about it.",
+    "label = what the world sees for a PUBLIC repo. Never shown for a private one.",
+    "blurb, link = not used by the digest; kept for reference."
   ],
 
   "_unresolved": [
