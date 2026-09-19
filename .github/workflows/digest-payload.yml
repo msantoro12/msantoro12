@@ -62,6 +62,9 @@ jobs:
         env:
           # One fine-grained, read-only token -- see the header of build-digest.mjs.
           GH_READ_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
+          # The workflow's own token, for the org's PUBLIC repos: the org blocks
+          # personal fine-grained tokens from all of its content. Nothing to set up.
+          GH_PUBLIC_TOKEN: ${{ github.token }}
           GH_USER: ${{ github.repository_owner }}
           PAYLOAD_FILE: ${{ runner.temp }}/digest-payload.txt
         run: node scripts/build-digest.mjs

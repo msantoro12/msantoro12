@@ -67,6 +67,9 @@ jobs:
         if: steps.cfg.outputs.configured == 'true'
         env:
           GH_READ_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
+          # The workflow's own token, for the org's PUBLIC repos: the org blocks
+          # personal fine-grained tokens from all of its content. Nothing to set up.
+          GH_PUBLIC_TOKEN: ${{ github.token }}
           GH_USER: ${{ github.repository_owner }}
           # Optional. A channel-scoped webhook URL, not an account credential.
           # Unset, the Discord step no-ops.

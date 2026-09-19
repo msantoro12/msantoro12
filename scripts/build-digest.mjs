@@ -69,6 +69,13 @@ import { readFile, writeFile } from 'node:fs/promises';
 // Trimmed: a pasted secret often carries a trailing newline, and a newline inside an
 // Authorization header makes every single request fail.
 const READ_TOKEN = process.env.GH_READ_TOKEN?.trim();
+// Optional second credential, for PUBLIC repos only: the workflow's own GITHUB_TOKEN.
+// An organisation blocks fine-grained personal tokens from ALL of its content by
+// default -- "both public and private resources", in GitHub's words -- unless the
+// token was created for that org and approved. The built-in Actions token is an app
+// token, not a personal one, so it can still read the org's public repos, with no
+// extra secret to create or rotate.
+const PUBLIC_TOKEN = process.env.GH_PUBLIC_TOKEN?.trim();
 const USER = process.env.GH_USER;
 const DAYS = Number(process.env.DIGEST_DAYS ?? 5);
 const DRY_RUN = process.env.DRY_RUN === '1';
@@ -152,17 +159,31 @@ try {
 //    guaranteed to list the org's repositories, even public ones it can read, and a
 //    quiet omission would drop every GoodStuffSoftware project -- the same silent
 //    miss the project keys once had. Asking by name closes the gap.
+const tokenFor = new Map(); // full_name -> the credential that could read it
 for (const key of Object.keys(projectLabels)) {
   if (byName.has(key)) continue;
-  try {
-    const r = await gh(`/repos/${key}`, READ_TOKEN);
-    byName.set(r.full_name, r);
-  } catch (err) {
-    const why = err.status ?? err.name;
-    unseen.push(`${key} (${why})`);
-    // Loud, never silent: a named project the token cannot see is a setup error.
-    console.log(`::warning title=Named repo not visible::${key} is in projects.json but GH_READ_TOKEN cannot see it (${why}), so it will not appear in the digest.`);
+  let why;
+  for (const token of [READ_TOKEN, PUBLIC_TOKEN].filter(Boolean)) {
+    try {
+      const r = await gh(`/repos/${key}`, token);
+      byName.set(r.full_name, r);
+      tokenFor.set(r.full_name, token);
+      why = undefined;
+      break;
+    } catch (err) {
+      why = err.status ?? err.name;
+    }
   }
+  if (why !== undefined) unseen.push(`${key} (${why})`);
+}
+
+// Anything unreadable is FATAL, not a warning. Quietly dropping the org's repos once
+// produced a payload reading "no commits anywhere" for a week with thirty-five public
+// commits in them -- a confident, wrong digest is worse than a stale one. (Keys come
+// from projects.json, which is public, so naming them here leaks nothing.)
+if (unseen.length) {
+  console.log(`::error title=Repos not readable::${unseen.join(', ')}. Fix the token or the org's token policy, or remove the entry from projects.json. The README keeps its current content.`);
+  process.exit(1);
 }
 
 const repos = [...byName.values()].filter((r) => r.full_name.toLowerCase() !== SELF);
@@ -195,14 +216,17 @@ for (const repo of repos) {
   try {
     commits = await gh(
       `/repos/${repo.full_name}/commits?since=${since.toISOString()}&per_page=100`,
-      READ_TOKEN,
+      tokenFor.get(repo.full_name) ?? READ_TOKEN,
     );
   } catch (err) {
-    // Visible metadata but unreadable commits means the token lacks Contents:
-    // Read-only on this repo. Say so in the run summary rather than letting the
-    // repo quietly contribute nothing.
-    console.log(`::warning title=Commits not readable::${repo.full_name}: GH_READ_TOKEN can see this repo but not its commits (needs Contents: Read-only). It contributes nothing today.`);
-    continue;
+    // An empty repository answers 409 and genuinely has nothing to report.
+    if (err.status === 409) continue;
+    // Visible but unreadable commits means the token lacks Contents: Read-only here.
+    // Fatal for the same reason as above. A PRIVATE repo is never named, even here:
+    // this log is public, and a private repo's name is exactly what we withhold.
+    const which = repo.private ? 'a private repository' : repo.full_name;
+    console.log(`::error title=Commits not readable::${which} is visible but its commits are not (${err.status ?? err.name}). The token needs Contents: Read-only there.`);
+    process.exit(1);
   }
 
   for (const c of commits) {
