@@ -1,4 +1,4 @@
-generated: 2026-09-19T11:13:59.903Z
+generated: 2026-09-19T13:32:17.977Z
 days: Sat 19 Sept | Fri 18 Sept | Thu 17 Sept | Wed 16 Sept | Tue 15 Sept
 
 === INSTRUCTIONS ===
@@ -9,6 +9,10 @@ often a maintainer deciding whether to take his patches. Write for that reader.
 Output: one short paragraph per day, newest first, in the exact order given. Each begins
 with the bolded day label exactly as provided, an em dash, then the prose. Markdown, no
 headings, no bullets, no preamble, no closing line.
+
+LENGTH. Hard limit of 40 words per day, not counting the label. People skim a profile.
+On a busy day, pick the two or three changes that matter most and say what the day
+amounted to -- never try to list everything.
 
 VOICE. Dry, specific, understated. Assume the reader is technical and needs nothing
 explained twice. No exclamation marks, no hype, no "excited to share", no emoji.
@@ -53,6 +57,7 @@ Fri 18 Sept
   PUBLIC Agent Templates: fix(agent-companion): honest merge-status label and frontmatter-aware display in memory search
 
 Thu 17 Sept
+  PUBLIC StarRupture-Plugin-BetterCheats: Possibly fix invalid wave state after loading
   PUBLIC Star Rupture Planner: fix(tree): attach hover card tooltips to text labels while keeping icons clean for icon zoom
   PUBLIC Star Rupture Planner: fix(nav): dismiss history dropdown on navigation and remove conflicting tree icon hover tooltips
   PUBLIC Star Rupture Planner: fix(joystick): restore 1.5x mobile scale (66x42px) with proportional 19.5px knob sizing for touch viewports
@@ -68,6 +73,17 @@ Thu 17 Sept
   PUBLIC Star Rupture Planner: fix(mobile): prevent native image callout menu on press-and-hold
 
 Wed 16 Sept
+  PUBLIC StarRupture-Plugin-BetterCheats: Merge pull request #1 from Lorke76/fix/cl-125897
+  PUBLIC StarRupture-Plugin-BetterCheats: Merge branch 'main' into fix/cl-125897
+  PUBLIC StarRupture-Plugin-BetterCheats: Merge branch 'main' of https://github.com/AlienXAXS/StarRupture-Plugin-BetterCheats
+  PUBLIC StarRupture-Plugin-BetterCheats: Move kServerSessionNameOffset to aob patterns so its checked during an update.
+  PUBLIC StarRupture-Plugin-BetterCheats: Merge pull request #2 from Lorke76/fix/log-macro-dangling-else
+  PUBLIC StarRupture-Plugin-BetterCheats: Update session_config.cpp
+  PUBLIC StarRupture-Plugin-BetterCheats: Update aob_patterns.h
+  PUBLIC StarRupture-Plugin-BetterCheats: Wrap the LOG_* macros so an unbraced else cannot swallow them
+  PUBLIC StarRupture-Plugin-BetterCheats: Correct what an optional pattern miss actually costs
+  PUBLIC StarRupture-Plugin-BetterCheats: Fix the ServerSessionName offset for CL-125897
+  PUBLIC StarRupture-Plugin-BetterCheats: Re-derive the two CheckStability patterns for CL-125897
   PUBLIC Star Rupture Planner: fix(mobile): eliminate window capture event listeners to prevent swallowed clicks
   PUBLIC Star Rupture Planner: fix(mobile): preserve press-and-hold icon zoom when finger lifts on mobile
   PUBLIC Star Rupture Planner: fix(mobile): refine drawer header navigation scaling for mobile devtools viewport
