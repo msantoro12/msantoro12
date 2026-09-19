@@ -49,23 +49,19 @@ jobs:
         id: cfg
         env:
           READ_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
-          DIGEST_TOKEN: ${{ secrets.PROFILE_DIGEST_TOKEN }}
         run: |
-          if [ -n "$READ_TOKEN" ] && [ -n "$DIGEST_TOKEN" ]; then
+          if [ -n "$READ_TOKEN" ]; then
             echo "configured=true" >> "$GITHUB_OUTPUT"
           else
             echo "configured=false" >> "$GITHUB_OUTPUT"
-            echo "::notice title=Digest skipped::PROFILE_READ_TOKEN and PROFILE_DIGEST_TOKEN must both be set as secrets of the digest environment. See SETUP.md. The README keeps its current content."
+            echo "::notice title=Digest skipped::PROFILE_READ_TOKEN must be set as a secret of the digest environment. See SETUP.md. The README keeps its current content."
           fi
 
       - name: Gather payload
         if: steps.cfg.outputs.configured == 'true'
         env:
-          # Metadata: Read-only, ALL repositories. Decides what exists and when it
-          # was pushed. Cannot read a line of code.
-          GH_META_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
-          # Contents: Read-only, scoped to ONLY the repos in scripts/projects.json.
-          GH_DIGEST_TOKEN: ${{ secrets.PROFILE_DIGEST_TOKEN }}
+          # One fine-grained, read-only token -- see the header of build-digest.mjs.
+          GH_READ_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
           GH_USER: ${{ github.repository_owner }}
           PAYLOAD_FILE: ${{ runner.temp }}/digest-payload.txt
         run: node scripts/build-digest.mjs

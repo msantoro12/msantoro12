@@ -22,19 +22,23 @@
 // you actually did to it).
 //
 // ---------------------------------------------------------------------------
-// TWO TOKENS, on purpose
+// ONE READ-ONLY TOKEN
 // ---------------------------------------------------------------------------
-//   GH_META_TOKEN    Metadata: Read-only, ALL repositories. Decides what exists
-//                    and when it was pushed. Cannot read a line of code.
-//   GH_DIGEST_TOKEN  Contents: Read-only, scoped to the WHITELISTED REPOS ONLY.
-//                    This is what makes projects.json enforceable at the
-//                    credential instead of in this file: an unlisted repo is not
-//                    merely skipped, it is unreadable.
+//   GH_READ_TOKEN    Fine-grained and read-only. The digest needs Contents:
+//                    Read-only on the PRIVATE repos in projects.json and nothing
+//                    else -- public repos need no grant, because GitHub lets any
+//                    token read every public repository. The narrowest version
+//                    ("Only select repositories" = those private repos) makes
+//                    projects.json enforceable at the credential: an unlisted
+//                    private repo is unreadable, not merely skipped. A broader
+//                    read-only token also works; it just reads more if it leaks.
 //
-// Be honest about what changed: the old design could promise "the token cannot
-// read your code". This one promises "the script reads it and does not forward
-// it". That is a real step down, which is why the digest token is repo-scoped
-// and why the gate below exists.
+// Repos are fetched by name from the whitelist, so nothing needs to LIST all of
+// the account's repositories. An earlier design carried a second token only for
+// that listing.
+//
+// Be honest about what remains: the token CAN read private code. The promise is
+// "the script reads it and does not forward it" -- which is why the gate exists.
 //
 // ---------------------------------------------------------------------------
 // WHO WRITES THE PROSE: a cloud routine, never this script
@@ -54,7 +58,7 @@
 //      against the private corpus, and only then publishes.
 //
 // Env:
-//   GH_META_TOKEN, GH_DIGEST_TOKEN, GH_USER   required in every mode
+//   GH_READ_TOKEN, GH_USER   required in every mode
 //   PAYLOAD_FILE        step 1: write the payload here and exit
 //   DIGEST_PROSE_FILE   step 3: gate and publish the prose in this file
 //   PAYLOAD_ONLY        "1" prints the payload for a local audit and exits
@@ -63,8 +67,7 @@
 
 import { readFile, writeFile } from 'node:fs/promises';
 
-const META_TOKEN = process.env.GH_META_TOKEN;
-const DIGEST_TOKEN = process.env.GH_DIGEST_TOKEN;
+const READ_TOKEN = process.env.GH_READ_TOKEN;
 const USER = process.env.GH_USER;
 const DAYS = Number(process.env.DIGEST_DAYS ?? 5);
 const DRY_RUN = process.env.DRY_RUN === '1';
@@ -74,8 +77,8 @@ const PROSE_FILE = process.env.DIGEST_PROSE_FILE;
 const START = '<!-- NOW:START -->';
 const END = '<!-- NOW:END -->';
 
-if (!META_TOKEN || !DIGEST_TOKEN || !USER) {
-  console.error('GH_META_TOKEN, GH_DIGEST_TOKEN and GH_USER are required.');
+if (!READ_TOKEN || !USER) {
+  console.error('GH_READ_TOKEN and GH_USER are required.');
   process.exit(1);
 }
 
@@ -118,14 +121,15 @@ const allowed = config.projects ?? {};
 // quietly omits them drops every GoodStuffSoftware project from the digest -- the
 // same silent miss the whitelist keys once had. Asking by name works for public
 // repos with any token ("tokens can always read all public repositories") and for
-// the private ones through the meta token.
+// the private ones through the token's own repo grant.
 const repos = [];
 for (const key of Object.keys(allowed)) {
   try {
-    repos.push(await gh(`/repos/${key}`, META_TOKEN));
+    repos.push(await gh(`/repos/${key}`, READ_TOKEN));
   } catch {
-    // Loud, never silent: a whitelisted repo the token cannot see is a setup error.
-    console.log(`::warning title=Whitelisted repo not visible::${key} is in projects.json but GH_META_TOKEN cannot see it, so it will not appear in the digest.`);
+    // Loud, never silent: a whitelisted repo the token cannot see is a setup error --
+    // usually a private repo missing from the token's "Only select repositories".
+    console.log(`::warning title=Whitelisted repo not visible::${key} is in projects.json but GH_READ_TOKEN cannot see it, so it will not appear in the digest.`);
   }
 }
 
@@ -147,12 +151,13 @@ for (const repo of repos) {
   try {
     commits = await gh(
       `/repos/${repo.full_name}/commits?since=${since.toISOString()}&per_page=100`,
-      DIGEST_TOKEN,
+      READ_TOKEN,
     );
   } catch (err) {
-    // A repo the digest token is not scoped to answers 404. That is the whitelist
-    // working at the credential layer, not an error worth failing the run over.
-    console.warn(`skip ${repo.full_name}: ${err.message.slice(0, 80)}`);
+    // Visible metadata but unreadable commits means the token lacks Contents:
+    // Read-only on this repo. Say so in the run summary rather than letting the
+    // repo quietly contribute nothing.
+    console.log(`::warning title=Commits not readable::${repo.full_name}: GH_READ_TOKEN can see this repo but not its commits (needs Contents: Read-only). It contributes nothing today.`);
     continue;
   }
 

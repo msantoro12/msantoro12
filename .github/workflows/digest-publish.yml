@@ -46,13 +46,12 @@ jobs:
         id: cfg
         env:
           READ_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
-          DIGEST_TOKEN: ${{ secrets.PROFILE_DIGEST_TOKEN }}
         run: |
-          if [ -n "$READ_TOKEN" ] && [ -n "$DIGEST_TOKEN" ]; then
+          if [ -n "$READ_TOKEN" ]; then
             echo "configured=true" >> "$GITHUB_OUTPUT"
           else
             echo "configured=false" >> "$GITHUB_OUTPUT"
-            echo "::notice title=Digest skipped::PROFILE_READ_TOKEN and PROFILE_DIGEST_TOKEN must both be set as secrets of the digest environment. See SETUP.md. The README keeps its current content."
+            echo "::notice title=Digest skipped::PROFILE_READ_TOKEN must be set as a secret of the digest environment. See SETUP.md. The README keeps its current content."
           fi
 
       - name: Fetch the prose the routine wrote
@@ -67,8 +66,7 @@ jobs:
       - name: Gate and publish
         if: steps.cfg.outputs.configured == 'true'
         env:
-          GH_META_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
-          GH_DIGEST_TOKEN: ${{ secrets.PROFILE_DIGEST_TOKEN }}
+          GH_READ_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
           GH_USER: ${{ github.repository_owner }}
           # Optional. A channel-scoped webhook URL, not an account credential.
           # Unset, the Discord step no-ops.

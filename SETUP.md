@@ -2,17 +2,17 @@
 
 A model writes a five-day digest, one short paragraph per day, daily. Ordering and content
 both come from real commit activity. **What may be published at all comes only from
-`scripts/projects.json`** — a repo that isn't in that file never appears, and with the token
-setup below it isn't even readable.
+`scripts/projects.json`** — a repo that isn't in that file never appears.
 
 ## How it works
 
 The run is split into three steps, each its own trust boundary:
 
-1. **`PAYLOAD_FILE=<path> node scripts/build-digest.mjs`** — a GitHub Action, holding both
-   GitHub tokens, gathers commit activity and writes a payload: the prompt instructions plus
-   data that is already split (public commit subjects, private repos as counts and a
-   conventional-commit type histogram only). It exits without writing anything else.
+1. **`PAYLOAD_FILE=<path> node scripts/build-digest.mjs`** — a GitHub Action, holding the one
+   read-only GitHub token, gathers commit activity and writes a payload: the prompt
+   instructions plus data that is already split (public commit subjects, private repos as
+   counts and a conventional-commit type histogram only). It exits without writing anything
+   else.
 2. **A Claude cloud routine** reads that payload from the public `digest-input` branch and
    writes one paragraph per day to `digest-prose.md`, force-pushed to `claude/digest-prose`.
 3. **`DIGEST_PROSE_FILE=<path> node scripts/build-digest.mjs`** — a GitHub Action re-gathers
@@ -32,12 +32,12 @@ split, "write only from the payload" was purely a line in a prompt.
 | **Private** repo, any | a commit **count** and a type histogram. Nothing else. |
 
 A sanitation gate runs over the routine's output as a second layer, back inside the GitHub
-Action that still holds the tokens. It is openly partial: it catches **mechanical** leaks —
-version numbers, issue refs, emails, URLs, credential shapes, plus any three-word phrase, or
-cluster of three or more words, that appears only in private commits. It cannot catch a
-**semantic** leak, because "a rate limiter that trusted a spoofable header" contains no
-forbidden token. The structural split above is what handles those. If the gate trips, the
-run fails and the README keeps its last good content.
+Action that holds the token. It is openly partial: it catches **mechanical** leaks — version
+numbers, issue refs, emails, URLs, credential shapes, plus any three-word phrase, or cluster
+of three or more words, that appears only in private commits. It cannot catch a **semantic**
+leak, because "a rate limiter that trusted a spoofable header" contains no forbidden token.
+The structural split above is what handles those. If the gate trips, the run fails and the
+README keeps its last good content.
 
 **In CI the gate names only the kind of problem, never the text.** Actions logs on a public
 repo are public, so printing what it blocked would publish the leak it just stopped. Run it
@@ -45,47 +45,39 @@ locally (below) to see the detail.
 
 ## Setup
 
-**Two fine-grained PATs**, and the difference between them is the point. Settings →
-Developer settings → Personal access tokens → Fine-grained tokens.
+**One fine-grained, read-only token.** Settings → Developer settings → Personal access
+tokens → Fine-grained tokens.
 
-| Secret | Repository access | Permissions |
-|---|---|---|
-| `PROFILE_READ_TOKEN` | **All repositories** | Metadata: Read-only. Nothing else. |
-| `PROFILE_DIGEST_TOKEN` | **Only select repositories** — pick exactly the ones in `projects.json` | Metadata: Read-only **and** Contents: Read-only |
+- **Needs:** Contents: Read-only on the **private** repos in `projects.json` (today
+  `deckhand` and `best-sudoku`). Metadata comes with it. Nothing else — no write
+  permissions of any kind.
+- **Public repos need no grant.** GitHub lets every token read every public repository, so
+  the five GoodStuffSoftware repos are covered whatever the token's owner or repo list.
+- **Narrowest option:** Repository access → *Only select repositories* → just those private
+  repos. That makes `projects.json` enforceable at the credential: an unlisted private repo
+  is unreadable, not merely skipped. An *All repositories* read-only token also works; the
+  difference is only what it could read if it ever leaked.
+- Set a real expiration; 90 days is sensible. GitHub emails before it lapses, and the run
+  fails loudly rather than publishing stale data.
 
-Set a real expiration on both; 90 days is sensible. GitHub emails before they lapse and the
-workflow fails loudly rather than publishing stale data.
+Repos are fetched **by name** from `projects.json`, so the token never needs to list your
+repositories. A whitelisted repo it cannot see, or whose commits it cannot read, raises a
+warning in the run summary instead of quietly disappearing.
 
-> **Be clear-eyed about what changed here.** The earlier metadata-only design could promise
-> *the token cannot read your code*. Per-day commit counts need `Contents: read`, so this one
-> promises *the script reads it and does not forward it* — a weaker claim, enforced by code
-> rather than by the credential. Scoping the digest token to selected repositories is what
-> claws most of that back: a new private experiment isn't merely unlisted, it's unreadable.
-> **When you add a repo to `projects.json`, add it to that token's repository list too, or it
-> silently won't appear.**
+> **Be clear-eyed about what this token is.** Per-day commit counts need `Contents: read`,
+> so the promise is *the script reads your private commits and does not forward them* —
+> enforced by code and the gate, not by the credential.
 
-> **The resource-owner trap.** A fine-grained PAT has exactly one resource owner, but
-> `projects.json` spans both `msantoro12` and the `GoodStuffSoftware` org. A token created
-> under one owner cannot see the other's repos no matter what you tick. After creating
-> `PROFILE_DIGEST_TOKEN`, verify it actually sees all seven:
->
-> ```bash
-> GH_TOKEN=<token> gh api "user/repos?affiliation=owner,organization_member&per_page=100" --jq '.[].full_name'
-> ```
->
-> If the org repos are missing from that list, one token cannot cover both owners — a second
-> org-owned token is needed. Raise it if you hit this; designing that split is out of scope
-> here.
-
-**Add both as secrets of the `digest` environment — never as repository secrets.**
-Settings → Environments → `digest` → Environment secrets. The environment already exists
-and only `main` may use it. That rule is load-bearing: a repository secret is readable by a
-workflow file pushed to *any* branch, and the cloud routine can push `claude/*` branches — so
-a repository secret would hand the routine the very credential this design keeps from it.
+**Add it as a secret of the `digest` environment — never as a repository secret.** Name it
+`PROFILE_READ_TOKEN`. Settings → Environments → `digest` → Environment secrets. The
+environment already exists and only `main` may use it. That rule is load-bearing: a
+repository secret is readable by a workflow file pushed to *any* branch, and the cloud
+routine can push `claude/*` branches — so a repository secret would hand the routine the
+very credential this design keeps from it.
 
 **Optional: `DISCORD_WEBHOOK_URL`**, also in the `digest` environment — a channel-scoped
-webhook, not an account credential.
-Unset, the Discord step no-ops, so it's safe to leave out until the channel exists.
+webhook, not an account credential. Unset, the Discord step no-ops, so it's safe to leave
+out until the channel exists.
 
 **No Anthropic API key.** The prose is written by a Claude cloud routine on the owner's own
 subscription, not by an API call this repo pays for. Manage it at
@@ -96,8 +88,7 @@ to have access to this repository.
 
 `digest-input` is a public branch, and that is fine. It holds only what the digest itself
 would show on the profile: public commit subjects (already public) and private repos as
-counts and a type histogram (never a subject). Nothing crosses into it that the README
-wouldn't eventually carry anyway.
+counts and a type histogram (never a subject).
 
 ## Schedule
 
@@ -109,17 +100,17 @@ wouldn't eventually carry anyway.
 - **Publish**: `0 15 * * *` (15:00 UTC), plus `workflow_dispatch`. Deliberately a schedule,
   not a push trigger: on push, GitHub runs the *pushed branch's* copy of a workflow, so a
   push-triggered publish would let whatever the routine pushed decide what runs beside the
-  tokens. A scheduled run always uses `main`'s copy. It must also land on the same UTC day as
+  token. A scheduled run always uses `main`'s copy. It must also land on the same UTC day as
   the payload, because the gate requires every day label of the current window.
-- **Watchdog**: once both secrets are configured, the payload job reads the `generated` date
-  out of `digest.json` on `main` before doing anything else. Null (never published) is fine.
-  Anything older than 72 hours fails the job loudly — the cloud routine or the publish step
-  has stopped producing digests, and that is worth an email.
+- **Watchdog**: once the secret is configured, the payload job reads the `generated` date
+  out of `digest.json` on `main`. Null (never published) is fine. Anything older than 72
+  hours fails the job loudly — the routine or the publish step has stopped producing
+  digests, and that is worth an email.
 
 ## Checking it yourself
 
 ```bash
-PAYLOAD_ONLY=1 GH_META_TOKEN=… GH_DIGEST_TOKEN=… GH_USER=msantoro12 node scripts/build-digest.mjs
+PAYLOAD_ONLY=1 GH_READ_TOKEN=… GH_USER=msantoro12 node scripts/build-digest.mjs
 ```
 
 Prints the exact bytes the routine is about to receive, and stops. If a private repo's commit
@@ -127,7 +118,7 @@ subject ever appears in that output, the boundary is broken — that is the chec
 after touching the script.
 
 ```bash
-DIGEST_PROSE_FILE=some-leaky-file.md DRY_RUN=1 GH_META_TOKEN=… GH_DIGEST_TOKEN=… GH_USER=msantoro12 node scripts/build-digest.mjs
+DIGEST_PROSE_FILE=some-leaky-file.md DRY_RUN=1 GH_READ_TOKEN=… GH_USER=msantoro12 node scripts/build-digest.mjs
 ```
 
 Runs the gate against a file you control instead of a real routine run, `DRY_RUN=1` so
@@ -136,10 +127,11 @@ things without waiting on a routine.
 
 ## Adding a project
 
-Edit `scripts/projects.json` — pushing that file re-gathers the payload immediately. Then
-**add the repo to `PROFILE_DIGEST_TOKEN`'s repository list**, or it silently won't appear.
-For private repos make `label` say what the thing *is* without naming it, and omit `link`
-unless it points at a product rather than a repo.
+Edit `scripts/projects.json` — pushing that file re-gathers the payload immediately. If the
+repo is **private** and the token uses *Only select repositories*, **add it to the token's
+repository list too**; the run warns if it can't read it. For private repos make `label` say
+what the thing *is* without naming it, and omit `link` unless it points at a product rather
+than a repo.
 
 ## Things to know
 
