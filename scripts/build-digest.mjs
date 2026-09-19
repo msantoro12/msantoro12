@@ -273,6 +273,10 @@ Output: one short paragraph per day, newest first, in the exact order given. Eac
 with the bolded day label exactly as provided, an em dash, then the prose. Markdown, no
 headings, no bullets, no preamble, no closing line.
 
+LENGTH. Hard limit of 40 words per day, not counting the label. People skim a profile.
+On a busy day, pick the two or three changes that matter most and say what the day
+amounted to -- never try to list everything.
+
 VOICE. Dry, specific, understated. Assume the reader is technical and needs nothing
 explained twice. No exclamation marks, no hype, no "excited to share", no emoji.
 Confidence comes from specificity, never from adjectives. Where the shape of a day says
