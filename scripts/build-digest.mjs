@@ -67,7 +67,9 @@
 
 import { readFile, writeFile } from 'node:fs/promises';
 
-const READ_TOKEN = process.env.GH_READ_TOKEN;
+// Trimmed: a pasted secret often carries a trailing newline, and a newline inside an
+// Authorization header makes every single request fail.
+const READ_TOKEN = process.env.GH_READ_TOKEN?.trim();
 const USER = process.env.GH_USER;
 const DAYS = Number(process.env.DIGEST_DAYS ?? 5);
 const DRY_RUN = process.env.DRY_RUN === '1';
@@ -91,7 +93,11 @@ async function gh(path, token) {
       'User-Agent': `${USER}-profile-digest`,
     },
   });
-  if (!res.ok) throw new Error(`GET ${path} -> ${res.status} ${await res.text()}`);
+  if (!res.ok) {
+    const err = new Error(`GET ${path} -> ${res.status} ${await res.text()}`);
+    err.status = res.status;
+    throw err;
+  }
   return res.json();
 }
 
@@ -123,14 +129,28 @@ const allowed = config.projects ?? {};
 // repos with any token ("tokens can always read all public repositories") and for
 // the private ones through the token's own repo grant.
 const repos = [];
+const unseen = [];
 for (const key of Object.keys(allowed)) {
   try {
     repos.push(await gh(`/repos/${key}`, READ_TOKEN));
-  } catch {
+  } catch (err) {
+    // Status code or error class ONLY, never err.message: a malformed token can make
+    // the HTTP client throw with the header value -- the token -- in its message,
+    // and this log is public.
+    const why = err.status ?? err.name;
+    unseen.push(`${key} (${why})`);
     // Loud, never silent: a whitelisted repo the token cannot see is a setup error --
     // usually a private repo missing from the token's "Only select repositories".
-    console.log(`::warning title=Whitelisted repo not visible::${key} is in projects.json but GH_READ_TOKEN cannot see it, so it will not appear in the digest.`);
+    console.log(`::warning title=Whitelisted repo not visible::${key} is in projects.json but GH_READ_TOKEN cannot see it (${why}), so it will not appear in the digest.`);
   }
+}
+// Every token can read public repos, so seeing NONE of the whitelist means the token
+// itself is broken -- mistyped, expired or revoked -- not that the repos are private.
+// Stop here. An empty payload would become a confident "nothing happened all week" on
+// a public profile, which is worse than a stale one.
+if (repos.length === 0) {
+  console.log(`::error title=Token rejected::GH_READ_TOKEN could not see any of the ${unseen.length} whitelisted repos, not even the public ones (first: ${unseen[0]}). Check the PROFILE_READ_TOKEN secret: it may be mistyped, expired or revoked.`);
+  process.exit(1);
 }
 
 const since = new Date(Date.now() - DAYS * 86_400_000);
