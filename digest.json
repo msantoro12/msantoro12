@@ -1,9 +1,8 @@
 {
-  "generated": null,
+  "generated": "2026-09-20",
   "days": 5,
-  "commitsToday": 0,
-  "commitsInWindow": 0,
-  "headline": "waiting on first run",
-  "prose": "",
-  "note": "Placeholder. The nightly workflow overwrites this on its first successful run."
+  "commitsToday": 16,
+  "commitsInWindow": 64,
+  "headline": "16 commits today",
+  "prose": "**Sun 20 Sept** — Agent Templates: three merges landed the memory-vault secrets-gate fix, a version collision resolve, and worktree memory-scope resolution — more hardening than starting. Two `[REDACTED]` repos saw quiet merge-only activity.\n\n**Sat 19 Sept** — One documentation commit on Agent Templates, arguing an empty error log isn't evidence of health. A dozen commits in a `[REDACTED]` repo, mostly documentation, with a few fixes mixed in.\n\n**Fri 18 Sept** — Agent Templates: shipped durable telemetry end to end — state root, legacy import, a new schema, test coverage, CI — plus a global hook warning sessions running a stale plugin copy.\n\n**Thu 17 Sept** — Star Rupture Planner: a joystick-focused polish day — refactored MicroJoystick to plain HTML/CSS, tuned sizing and deflection across mobile and desktop, and fixed nav dropdown dismissal and stray tooltip hovers.\n\n**Wed 16 Sept** — Star Rupture Planner: cut a release after a run of mobile touch/zoom fixes, then added an overages toggle with path-based overrides and an auto-update workflow for recipe support — a build-and-ship day."
 }

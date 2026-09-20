@@ -10,14 +10,18 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-| | | |
-|---|---|---|
-| **Agent tracking & comms** | Coordination and messaging layer for multi-agent workflows. | today |
-| **[Best Sudoku](https://goodstuffsoftware.com)** | No ads, no subscription. Pay once. Web and Android. | today |
-| **[Agent Templates](https://github.com/GoodStuffSoftware/agent-templates)** | Vendor-agnostic library of agent-team templates for AI coding tools. | yesterday |
-| **[Agent Plugins](https://github.com/GoodStuffSoftware/agent-plugins)** | Roam Claude Code conversations between machines, and more. | 5 days ago |
+**Sun 20 Sept** — Agent Templates: three merges landed the memory-vault secrets-gate fix, a version collision resolve, and worktree memory-scope resolution — more hardening than starting. Two `[REDACTED]` repos saw quiet merge-only activity.
 
-<sub>Updated automatically - last run 2026-09-13.</sub>
+**Sat 19 Sept** — One documentation commit on Agent Templates, arguing an empty error log isn't evidence of health. A dozen commits in a `[REDACTED]` repo, mostly documentation, with a few fixes mixed in.
+
+**Fri 18 Sept** — Agent Templates: shipped durable telemetry end to end — state root, legacy import, a new schema, test coverage, CI — plus a global hook warning sessions running a stale plugin copy.
+
+**Thu 17 Sept** — Star Rupture Planner: a joystick-focused polish day — refactored MicroJoystick to plain HTML/CSS, tuned sizing and deflection across mobile and desktop, and fixed nav dropdown dismissal and stray tooltip hovers.
+
+**Wed 16 Sept** — Star Rupture Planner: cut a release after a run of mobile touch/zoom fixes, then added an overages toggle with path-based overrides and an auto-update workflow for recipe support — a build-and-ship day.
+
+<sub>Written daily by a model from commit metadata. Private repositories contribute a
+commit count and nothing else, so it has no idea what half of this is.</sub>
 
 <!-- NOW:END -->
 
