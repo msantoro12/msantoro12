@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Sun 20 Sept** — Agent Templates: three merges landed the memory-vault secrets-gate fix, a version collision resolve, and worktree memory-scope resolution — more hardening than starting. Two `[REDACTED]` repos saw quiet merge-only activity.
+**Mon 21 Sept** — One fix on Star Rupture Planner: plan state now syncs across browser tabs instead of clobbering on write. Small, single-purpose day.
 
-**Sat 19 Sept** — One documentation commit on Agent Templates, arguing an empty error log isn't evidence of health. A dozen commits in a `[REDACTED]` repo, mostly documentation, with a few fixes mixed in.
+**Sun 20 Sept** — Heavy day on Agent Templates: memory-vault backup work, a version-collision fix, and three merges — more landing and hardening than starting. Star Rupture Planner got a tree state fix. Two `[REDACTED]` repos saw light merge activity.
 
-**Fri 18 Sept** — Agent Templates: shipped durable telemetry end to end — state root, legacy import, a new schema, test coverage, CI — plus a global hook warning sessions running a stale plugin copy.
+**Sat 19 Sept** — Mostly `[REDACTED]`: twelve commits, heavy on docs, a few fixes, one merge — a day spent writing things down. One note landed on Agent Templates: an empty error log isn't evidence of health.
 
-**Thu 17 Sept** — Star Rupture Planner: a joystick-focused polish day — refactored MicroJoystick to plain HTML/CSS, tuned sizing and deflection across mobile and desktop, and fixed nav dropdown dismissal and stray tooltip hovers.
+**Fri 18 Sept** — Full day on Agent Templates: durable telemetry built out end to end — schema, resolver rewire, tests, CI — plus a new stale-session warning system for plugins. Feature work, not cleanup.
 
-**Wed 16 Sept** — Star Rupture Planner: cut a release after a run of mobile touch/zoom fixes, then added an overages toggle with path-based overrides and an auto-update workflow for recipe support — a build-and-ship day.
+**Thu 17 Sept** — Thirteen commits on Star Rupture Planner, almost all mobile joystick work: dimensions, drag travel, touch scaling, plus header spacing and nav fixes down to narrow breakpoints. A polish day.
 
 <sub>Written daily by a model from commit metadata. Private repositories contribute a
 commit count and nothing else, so it has no idea what half of this is.</sub>
