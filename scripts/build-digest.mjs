@@ -212,25 +212,56 @@ for (const repo of repos) {
   // model sees -- its bucket key below stays internal.
   const label = projectLabels[repo.full_name]?.label ?? repo.name;
 
-  let commits;
+  const token = tokenFor.get(repo.full_name) ?? READ_TOKEN;
+
+  // WHICH BRANCHES. A fork's default branch mirrors upstream, so contribution work
+  // lives on a side branch and is invisible to a default-branch-only read -- that is
+  // how a week of mod work on gss/plugin-work went unreported. Listing branches is
+  // not an option (repos here have 100+); the activity feed is already scoped to what
+  // happened recently and names the actor, so it answers this in one call.
+  const refs = new Set([repo.default_branch]);
   try {
-    commits = await gh(
-      // Only the owner's OWN commits. A fork carries its upstream's history: forking
-      // a maintainer's repo once put that maintainer's commits into this digest as if
-      // they were the owner's work. Filtering by author is also what lets the owner's
-      // real contributions to a fork show up later.
-      `/repos/${repo.full_name}/commits?since=${since.toISOString()}&author=${encodeURIComponent(USER)}&per_page=100`,
-      tokenFor.get(repo.full_name) ?? READ_TOKEN,
+    const activity = await gh(
+      `/repos/${repo.full_name}/activity?per_page=100&time_period=month`,
+      token,
     );
-  } catch (err) {
-    // An empty repository answers 409 and genuinely has nothing to report.
-    if (err.status === 409) continue;
-    // Visible but unreadable commits means the token lacks Contents: Read-only here.
-    // Fatal for the same reason as above. A PRIVATE repo is never named, even here:
-    // this log is public, and a private repo's name is exactly what we withhold.
+    for (const a of activity) {
+      if (a.actor?.login !== USER) continue;
+      if (new Date(a.timestamp) < since) continue;
+      refs.add(a.ref.replace(/^refs\/heads\//, ''));
+    }
+  } catch {
+    // Not every credential can read the activity feed. Fall back to the default
+    // branch rather than failing: fewer commits is recoverable, a dead run is not.
     const which = repo.private ? 'a private repository' : repo.full_name;
-    console.log(`::error title=Commits not readable::${which} is visible but its commits are not (${err.status ?? err.name}). The token needs Contents: Read-only there.`);
-    process.exit(1);
+    console.log(`::warning title=Branch activity unavailable::${which}: only its default branch was read, so work on side branches is missing.`);
+  }
+
+  const seen = new Set();
+  const commits = [];
+  for (const ref of [...refs].slice(0, 15)) {
+    let batch;
+    try {
+      batch = await gh(
+        // Only the owner's OWN commits. A fork carries its upstream's history:
+        // forking a maintainer's repo put that maintainer's commits into this digest
+        // as if they were the owner's work.
+        `/repos/${repo.full_name}/commits?sha=${ref}&since=${since.toISOString()}&author=${encodeURIComponent(USER)}&per_page=100`,
+        token,
+      );
+    } catch (err) {
+      // 409 is an empty repository; 404 is a branch deleted since the activity feed
+      // named it. Neither is a failure.
+      if (err.status === 409 || err.status === 404) continue;
+      // Visible but unreadable commits means the token lacks Contents: Read-only
+      // here. A PRIVATE repo is never named, even in an error: this log is public,
+      // and a private repo's name is exactly what we withhold.
+      const which = repo.private ? 'a private repository' : repo.full_name;
+      console.log(`::error title=Commits not readable::${which} is visible but its commits are not (${err.status ?? err.name}). The token needs Contents: Read-only there.`);
+      process.exit(1);
+    }
+    // The same commit appears on every branch that contains it.
+    for (const c of batch) if (!seen.has(c.sha)) seen.add(c.sha), commits.push(c);
   }
 
   for (const c of commits) {
