@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Mon 21 Sept** — One fix on Star Rupture Planner: plan state now syncs across browser tabs instead of clobbering on write. Small, single-purpose day.
+**Tue 22 Sept** — ModLoader's write-up and slider-decimal polish landed alongside a run of agent-companion fixes: vault byte-fidelity, no-op sync tracing, settings resolved outside hooks. Three `[REDACTED]` repos moved too, one a 25-commit day of merges, fixes and docs.
 
-**Sun 20 Sept** — Heavy day on Agent Templates: memory-vault backup work, a version-collision fix, and three merges — more landing and hardening than starting. Star Rupture Planner got a tree state fix. Two `[REDACTED]` repos saw light merge activity.
+**Mon 21 Sept** — Config-row layout finalized across ModLoader and its plugins, with saved presets landing for BetterDrone and BetterCheats. Agent Templates added spawn-shape gating and moved CI to the newest Node LTS. `[REDACTED]` logged a doc-heavy day.
 
-**Sat 19 Sept** — Mostly `[REDACTED]`: twelve commits, heavy on docs, a few fixes, one merge — a day spent writing things down. One note landed on Agent Templates: an empty error log isn't evidence of health.
+**Sun 20 Sept** — A hardening day: matching flicker fixes landed across ModLoader, BetterDrone and BetterCheats, plus grenade-scope and charge fixes. Agent Templates shipped memory-vault backups and fixed a worktree scope bug. `[REDACTED]` logged 69 commits, mostly fixes and docs.
 
-**Fri 18 Sept** — Full day on Agent Templates: durable telemetry built out end to end — schema, resolver rewire, tests, CI — plus a new stale-session warning system for plugins. Feature work, not cleanup.
+**Sat 19 Sept** — Broad correctness pass across the plugin suite: a crash fix in BetterDrone, composed overrides replacing raw writes in BetterCheats, consistent row alignment in ModLoader. GSS Beacon gained in-app browser detection. `[REDACTED]` ran 45 commits, mostly docs and fixes.
 
-**Thu 17 Sept** — Thirteen commits on Star Rupture Planner, almost all mobile joystick work: dimensions, drag travel, touch scaling, plus header spacing and nav fixes down to narrow breakpoints. A polish day.
+**Fri 18 Sept** — BetterDrone split out as its own plugin, with crash and race-condition fixes across BetterCheats' weapon and movement panels. Agent Templates landed a durable-telemetry system and a stale-plugin-copy warning hook. `[REDACTED]` logged six commits.
 
 <sub>Written daily by a model from commit metadata. Private repositories contribute a
 commit count and nothing else, so it has no idea what half of this is.</sub>
