@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Tue 22 Sept** — ModLoader's write-up and slider-decimal polish landed alongside a run of agent-companion fixes: vault byte-fidelity, no-op sync tracing, settings resolved outside hooks. Three `[REDACTED]` repos moved too, one a 25-commit day of merges, fixes and docs.
+**Wed 23 Sept** — Quiet day in the open. One `[REDACTED]` project saw 9 commits, mostly docs with a single merge — a day of writing things down, not shipping.
 
-**Mon 21 Sept** — Config-row layout finalized across ModLoader and its plugins, with saved presets landing for BetterDrone and BetterCheats. Agent Templates added spawn-shape gating and moved CI to the newest Node LTS. `[REDACTED]` logged a doc-heavy day.
+**Tue 22 Sept** — Heavy hardening day: ModLoader's slider/keybind columns got real alignment rules, Agent Templates absorbed a string of merges and home-boundary fixes. Three `[REDACTED]` projects added 34 commits, mostly merges, fixes and docs.
 
-**Sun 20 Sept** — A hardening day: matching flicker fixes landed across ModLoader, BetterDrone and BetterCheats, plus grenade-scope and charge fixes. Agent Templates shipped memory-vault backups and fixed a worktree scope bug. `[REDACTED]` logged 69 commits, mostly fixes and docs.
+**Mon 21 Sept** — Feature day: saved presets landed across BetterDrone, BetterCheats and the config-row layout in ModLoader, plus a cross-tab state-sync fix in Star Rupture Planner. Two `[REDACTED]` projects added 19 commits, mostly docs and fixes.
 
-**Sat 19 Sept** — Broad correctness pass across the plugin suite: a crash fix in BetterDrone, composed overrides replacing raw writes in BetterCheats, consistent row alignment in ModLoader. GSS Beacon gained in-app browser detection. `[REDACTED]` ran 45 commits, mostly docs and fixes.
+**Sun 20 Sept** — Fixed the same Escape/Q flicker bug across three StarRupture plugins, shipped memory-vault backups in Agent Templates. Two `[REDACTED]` projects logged 64 commits, split fairly evenly between fixes and docs — a landing day.
 
-**Fri 18 Sept** — BetterDrone split out as its own plugin, with crash and race-condition fixes across BetterCheats' weapon and movement panels. Agent Templates landed a durable-telemetry system and a stale-plugin-copy warning hook. `[REDACTED]` logged six commits.
+**Sat 19 Sept** — Wide fix pass across ModLoader, BetterDrone and BetterCheats (crashes, stuck binds, dead readouts), plus in-app browser detection shipped in GSS Beacon. One `[REDACTED]` project logged 45 commits, mostly docs and features.
 
 <sub>Written daily by a model from commit metadata. Private repositories contribute a
 commit count and nothing else, so it has no idea what half of this is.</sub>
