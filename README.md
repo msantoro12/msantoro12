@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Wed 23 Sept** — Quiet day in the open. One `[REDACTED]` project saw 9 commits, mostly docs with a single merge — a day of writing things down, not shipping.
+**Thu 24 Sept** — Landed Agent Templates' agent-companion release: a routing-profile layer for resolveRoute(), premium-window locking, and reviewer-parity fixes. Heavier on hardening than new ground. `[REDACTED]` saw 36 commits, mostly docs and fixes.
 
-**Tue 22 Sept** — Heavy hardening day: ModLoader's slider/keybind columns got real alignment rules, Agent Templates absorbed a string of merges and home-boundary fixes. Three `[REDACTED]` projects added 34 commits, mostly merges, fixes and docs.
+**Wed 23 Sept** — Heaviest day of the stretch: saved presets and control panels landed across the StarRupture plugins, ModLoader's config rows got reworked, and agent-companion picked up routing-trial and cache-signal work. `[REDACTED]` added 80 commits, mostly docs and fixes.
 
-**Mon 21 Sept** — Feature day: saved presets landed across BetterDrone, BetterCheats and the config-row layout in ModLoader, plus a cross-tab state-sync fix in Star Rupture Planner. Two `[REDACTED]` projects added 19 commits, mostly docs and fixes.
+**Tue 22 Sept** — ModLoader picked up slider step buttons and keybind-row alignment; agent-companion landed a run of guard and settings-resolution hardening fixes. `[REDACTED]` shipped 24 commits, mostly merges and small fixes.
 
-**Sun 20 Sept** — Fixed the same Escape/Q flicker bug across three StarRupture plugins, shipped memory-vault backups in Agent Templates. Two `[REDACTED]` projects logged 64 commits, split fairly evenly between fixes and docs — a landing day.
+**Mon 21 Sept** — StarRupture plugins picked up saved presets and grenade-scope fixes; ModLoader's config-row layout got reworked repeatedly before landing. Agent Templates moved CI onto the current Node LTS. `[REDACTED]` added 14 commits, split between docs and fixes.
 
-**Sat 19 Sept** — Wide fix pass across ModLoader, BetterDrone and BetterCheats (crashes, stuck binds, dead readouts), plus in-app browser detection shipped in GSS Beacon. One `[REDACTED]` project logged 45 commits, mostly docs and features.
+**Sun 20 Sept** — Fixed UI flicker across the StarRupture plugins and ModLoader's panel reopen bug; Agent Templates added a git-backed memory-vault backup and fixed a worktree memory-scope bug. `[REDACTED]` logged 59 commits, split between fixes and docs.
 
 <sub>Written daily by a model from commit metadata. Private repositories contribute a
 commit count and nothing else, so it has no idea what half of this is.</sub>
