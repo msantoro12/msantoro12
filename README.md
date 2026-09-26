@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Fri 25 Sept** — All on Agent Templates: recovered from broken ladder registration, then narrowed an F5 waiver so it scopes to one trial row instead of the elevated floor globally — backed by a differential test and regenerated routing docs.
+**Sat 26 Sept** — Ten `agent-companion` releases landed compaction and cache-ttl instrumentation — scout signals, a prompt-cache ladder, a shared transcript reader — plus a StarRupture-ModLoader thread diagnostic for framegen flicker. Two `[REDACTED]` repos: a release-heavy dozen commits, and a stray pair.
 
-**Thu 24 Sept** — Two agent-companion releases landed atop merged PRs and a wave of fixes — far more hardening than new feature work — while Agent Plugins shipped a session-sync release. Four `[REDACTED]` repos ran heavy, uneven volume, one topping sixty commits.
+**Fri 25 Sept** — GSS Stats shipped Best Sudoku overview, campaign-compare, and pop-up dashboards; BetterCheats and BetterDrone got UI fixes and version bumps; `agent-companion` cut three releases. A `[REDACTED]` repo's 53 commits ran 39 fixes to 3 features — hardening, not building.
 
-**Wed 23 Sept** — Shipped presets, weapon/movement tuning and thread-safety fixes across the StarRupture plugin suite, while Agent Templates ran several rounds of adversarial review and hardening plus a release. `[REDACTED]` carried 43 commits, feature- and fix-heavy.
+**Thu 24 Sept** — `agent-companion` landed two releases: per-user routing profiles, a benchmark and eval suite, and a CI leak-scan gate. Four `[REDACTED]` repos moved too — one logged 82 commits across fixes and features, another 66 entirely uncategorized.
 
-**Tue 22 Sept** — Polished StarRupture-ModLoader's slider precision and keybind alignment with a refreshed write-up, while Agent Templates repaired a boundary-detection guard and logged lessons on ratchets and half-working kill switches. `[REDACTED]` ran heavy on merges and docs, light on new fixes.
+**Wed 23 Sept** — BetterCheats gained presets, a weapon panel, and movement tuning; BetterDrone added a control panel with sprint-boost. `agent-companion` pushed a second routing-trial pass. Three `[REDACTED]` repos: one split 44 commits between fixes and features, two logged only chores.
 
-**Mon 21 Sept** — Iterated heavily on StarRupture-ModLoader's config-row layout — label/control column sizing, sidebar clipping, renamed constants — alongside expanded BetterCheats presets and a Planner fix for cross-tab state sync. `[REDACTED]` stayed light, mostly docs and small fixes.
+**Tue 22 Sept** — ModLoader polish: slider step buttons, float-decimal rules, keybind alignment, and a screenshot refresh for the write-up. BetterDrone got a wording tweak. Three `[REDACTED]` repos: the largest ran mostly merges and fixes — landing, not building.
 
 <sub>Written daily by a model from commit metadata. Private repositories contribute a
 commit count and nothing else, so it has no idea what half of this is.</sub>
