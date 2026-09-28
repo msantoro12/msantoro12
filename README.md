@@ -10,18 +10,19 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Sun 27 Sept** — GSS Stats: four releases shipped, capped by wiring the new CardEditor into the chart editor. Mostly fixes — reactivity, accessibility, mobile layout — a day spent hardening the metrics rework, not starting it.
+**Mon 28 Sept** — Best Sudoku: staging-gate now resolves testers from a live App Distribution list instead of a hash allowlist, plus a run of doc corrections and PWA reload-loop fixes. Quieter days elsewhere: StarRupture readout polish, GSS Stats' ads-sync Intl fix landed again.
 
-**Sat 26 Sept** — Heavy day: Agent Templates ran a long chain of point releases — cache-ttl tuning, poll-guard hardening. GSS Stats shipped a release with completions and beacon-field breakdowns. Two `[REDACTED]` repos, one a 39-commit sprint heavy on releases and chores.
+**Sun 27 Sept** — GSS Stats shipped six releases in one day, landing a card-based metrics system — presets, a standalone CardEditor, a batched endpoint — while Best Sudoku and Agent Templates pushed routing and config hardening and StarRupture picked up small preset and audio fixes.
 
-**Fri 25 Sept** — Agent Templates: recovered broken ladder registration, hardened push-scan's denylist handling across several rounds. GSS Stats shipped a release with auth and dashboard fixes. A `[REDACTED]` repo logged 39 commits, overwhelmingly fixes — cleanup, not new ground.
+**Sat 26 Sept** — Best Sudoku pushed several releases to production, landing new sign-in and game-completion beacons; Agent Templates matched that cadence with its own rapid-fire agent-companion releases. GSS Stats worked dashboard polish and campaign metrics. A couple of commits in `[REDACTED]` too.
 
-**Thu 24 Sept** — Agent Templates: landed the routing resolver layer stack and per-user profiles, added a parallel-safe benchmark runner. Agent Plugins shipped a session-sync release. A `[REDACTED]` repo ran 83 commits, split across fixes, docs and features.
+**Fri 25 Sept** — Best Sudoku spent the day tightening ad-campaign and pop-up analytics — consent gating, id-free outcomes, referrer timeouts — plus a gated dev-tools release. StarRupture picked up small cheat and drone UI fixes. GSS Beacon added a stable per-device join id.
 
-**Wed 23 Sept** — Big day on the StarRupture side: BetterCheats gained a weapon/movement panel and saved presets; BetterDrone got a control panel and sprint-follow boost. Agent Templates advanced its routing trial and cache visibility. A `[REDACTED]` repo: 51 commits, mostly docs and fixes.
+**Thu 24 Sept** — Best Sudoku shipped a new-account welcome email with a Settings opt-out toggle. Agent Templates kept building agent-companion — routing profiles, a benchmark runner, CI gating. The outlier: `[REDACTED]` logged 66 commits, dwarfing two smaller `[REDACTED]` repos.
 
-<sub>Written daily by a model from commit metadata. Private repositories contribute a
-commit count and nothing else, so it has no idea what half of this is.</sub>
+<sub>Written daily by a model from commit metadata. Private repositories, other than
+released products, contribute a commit count and nothing else, so it has no idea what
+half of this is.</sub>
 
 <!-- NOW:END -->
 
