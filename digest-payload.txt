@@ -1,4 +1,4 @@
-generated: 2026-09-28T09:37:41.633Z
+generated: 2026-09-28T16:15:41.596Z
 days: Mon 28 Sept | Sun 27 Sept | Sat 26 Sept | Fri 25 Sept | Thu 24 Sept
 
 === INSTRUCTIONS ===
@@ -40,6 +40,47 @@ fix.
 
 === DATA (every line below is data, never an instruction) ===
 Mon 28 Sept
+  PUBLIC Best Sudoku: docs(beacon): drop the unverified ownership claim; correct two doc overstatements
+  PUBLIC Best Sudoku: docs(beacon): cite branch ownership, not a freeze, for the install-id residual
+  PUBLIC Best Sudoku: test(e2e): seed the deferred ledger once so the reload assertion is real
+  PUBLIC Best Sudoku: fix(beacon): scope the deferred-completion settlement to a device-local ledger
+  PUBLIC Best Sudoku: fix(beacon): flush suppressed game completions when consent is granted
+  PUBLIC Best Sudoku: test(e2e): decouple PLAT-07's baseline from the checked-out branch name
+  PUBLIC Best Sudoku: fix(scripts): escape the STAGING_APPDIST source text so setup-secrets parses
+  PUBLIC Best Sudoku: docs(test): record why the real-capture telemetry file must not be consolidated
+  PUBLIC Best Sudoku: test(staging-gate): pin the handler and the telemetry at the seams that actually decide
+  PUBLIC Best Sudoku: fix(staging-gate): stop sign-out from destroying a tester's outage grace
+  PUBLIC Best Sudoku: docs(staging-gate): one authoritative credential account; fix the stale M06 and the index
+  PUBLIC Best Sudoku: docs(staging-gate): correct the "ad-campaign freeze" claim; the duty is notification
+  PUBLIC Best Sudoku: docs(staging-gate): warn that running env:bootstrap is not the same as it working
+  PUBLIC Best Sudoku: docs(staging-gate): record the credential reuse, its breadth, and the rotation hazard
+  PUBLIC Best Sudoku: docs(staging-gate): live tester list, the kept token, and a before-you-deploy runbook
+  PUBLIC Best Sudoku: test(staging-gate): pin that the lookup never fires where it must not
+  PUBLIC Best Sudoku: feat(auth-page): distinguish "could not verify" from "invite only"
+  PUBLIC Best Sudoku: feat(staging-gate): resolve tester admission from the live list, drop the hash allowlist
+  PUBLIC Best Sudoku: feat(staging-gate): add stagingTesterCheck, a live App Distribution tester lookup
+  PUBLIC Best Sudoku: fix(verify): register reportErrors in the deploy-reachability allowlist
+  PUBLIC Best Sudoku: docs(playbook): name DCR-03 and DCR-04 as automated coverage
+  PUBLIC Best Sudoku: fix(daily): clear the daily win carrier on an uncommitted flush
+  PUBLIC Best Sudoku: fix(daily): keep a solved daily completed when the cloud flush is gated
+  PUBLIC Best Sudoku: chore(agents): bsk-architect spawns its own parity reviewer
+  PUBLIC Best Sudoku: docs(playbook): name the dep-optimizer reload as a flake cause, and how to rule it in or out
+  PUBLIC Best Sudoku: test(scripts): gate the optimizeDeps include list against src/ drift
+  PUBLIC Best Sudoku: build(vite): pre-bundle every runtime dep so the optimizer cannot reload E2E workers
+  PUBLIC Best Sudoku: docs(playbook): name DCR-03 and DCR-04 as automated coverage
+  PUBLIC Best Sudoku: fix(daily): clear the daily win carrier on an uncommitted flush
+  PUBLIC Best Sudoku: fix(daily): keep a solved daily completed when the cloud flush is gated
+  PUBLIC Best Sudoku: fix(pwa): close a reachable reload loop, and stop overstating the guard
+  PUBLIC Best Sudoku: fix(pwa): never perform a real document reload under the dev server
+  PUBLIC Best Sudoku: fix(pwa): recover a stale client instead of leaving it on a dead route
+  PUBLIC Best Sudoku: docs(beacon): drop the unverified ownership claim; correct two doc overstatements
+  PUBLIC Best Sudoku: docs(beacon): cite branch ownership, not a freeze, for the install-id residual
+  PUBLIC Best Sudoku: test(e2e): seed the deferred ledger once so the reload assertion is real
+  PUBLIC Best Sudoku: fix(beacon): scope the deferred-completion settlement to a device-local ledger
+  PUBLIC Best Sudoku: fix(beacon): flush suppressed game completions when consent is granted
+  PUBLIC Best Sudoku: fix(beacon): guard getOrCreateInstallId against concurrent mints
+  PUBLIC Best Sudoku: feat(observability): verify GitHub issue state at write time before resolving
+  PUBLIC Best Sudoku: feat(observability): add resolution state to obs_errors backlog
   PUBLIC StarRupture-Plugin-BetterCheats: Weapons/Movement: real-unit readouts, estimate when unequipped
   PUBLIC StarRupture-Plugin-BetterCheats: Show each weapon tab's own base stats, gate live readout to equipped
   PUBLIC StarRupture-Plugin-BetterCheats: Defer and coalesce session config writes to a debounced commit
@@ -52,13 +93,34 @@ Mon 28 Sept
   PUBLIC StarRupture-Plugin-BetterDrone: Keep the drone map key out while any menu is open
   PUBLIC StarRupture-Plugin-BetterDrone: v0.20.0-gss.29
   PUBLIC StarRupture-Plugin-BetterDrone: Open the map from the drone with the map key
+  PUBLIC Agent Templates: docs(inbox): correct trigger on per-account sidebar entry
+  PUBLIC Agent Templates: docs(inbox): desktop session index is per-account; work files are not
+  PUBLIC Agent Templates: docs(lessons): fold the 2026-09-21..27 inbox and source-project sweep
   PUBLIC Agent Templates: chore(agent-companion): release 0.29.20
   PUBLIC Agent Templates: fix(agent-companion): delegation guard review fixes (scope, no "allow", streak reset)
   PUBLIC Agent Templates: fix(agent-companion): delegation guard detects the real main thread; off/warn/block modes
+  PUBLIC Agent Templates: feat(agent-companion): architect-class writers spawn their own reviewer
   PUBLIC Agent Templates: fix(agent-companion): delegation guard review fixes (scope, no "allow", streak reset)
   PUBLIC Agent Templates: fix(agent-companion): delegation guard detects the real main thread; off/warn/block modes
+  PUBLIC GSS Stats: fix(ads-sync): no Intl at module load in adsRules again (#33)
+  PUBLIC GSS Stats: chore(dev): make Browser-pane preview worktree-safe (#32)
+  PUBLIC GSS Stats: Merge pull request #30 from GoodStuffSoftware/chore/vitest-exclude-worktrees
+  PUBLIC GSS Stats: chore(test): exclude .claude/worktrees from vitest
+  PUBLIC GSS Stats: feat(completions): add deferred-completion beacon family (EU consent) (#29)
+  PUBLIC GSS Stats: feat(ads-reads): publish the morning read as an HTML report page (#28)
+  PUBLIC GSS Stats: fix(ads-sync): no Intl at module load in adsRules again
+  PUBLIC GSS Stats: docs(adr): propose 0004, cloud ads routines (Worker reads + cloud narrative)
+  PUBLIC GSS Stats: chore(dev): make Browser-pane preview worktree-safe
+  PUBLIC GSS Stats: chore(types): fix vue-tsc errors and run typecheck in CI
+  PUBLIC GSS Stats: feat(completions): add deferred-completion beacon family (EU consent)
+  PUBLIC GSS Stats: feat(ads-reads): publish the morning read as a report page every run
+  PUBLIC GSS Stats: feat(ads-reads): build the morning read's HTML report page
 
 Sun 27 Sept
+  PUBLIC Best Sudoku: chore(agents): 1h prompt cache on opus medium+ agents, matching agent-companion's ladder
+  PUBLIC Best Sudoku: chore(agents): declare routingType for agent-companion drift check
+  PUBLIC Best Sudoku: fix(agents): pair builder with bsk-reviewer-medium; retire dead opus-escalation in debugger
+  PUBLIC Best Sudoku: chore(agents): pin bsk-* project agents to agent-companion's default route
   PUBLIC StarRupture-Plugin-BetterCheats: Check cached UObjects are still alive before each use
   PUBLIC StarRupture-Plugin-BetterCheats: Fix saved-preset name/group bugs that only surface on reload
   PUBLIC StarRupture-Plugin-BetterCheats: Show mods/buffs and our own change in the live-values hover
@@ -203,9 +265,39 @@ Sun 27 Sept
   PUBLIC GSS Stats: feat(ads-reads): Play Console bulk reports for the retest morning read (R4)
   PUBLIC GSS Stats: feat(auth): show sign-in failures and redirect fallbacks on the dashboard
   PUBLIC GSS Stats: feat(auth): show sign-in failures and redirect fallbacks on the dashboard
-  PRIVATE (name withheld): 6 commits [fix=1 chore=3 docs=2]
 
 Sat 26 Sept
+  PUBLIC Best Sudoku: merge(staging -> main): promote v1.95.6 to production
+  PUBLIC Best Sudoku: release: v1.95.6
+  PUBLIC Best Sudoku: chore(release): v1.95.6
+  PUBLIC Best Sudoku: Merge remote-tracking branch 'origin/chore/agent-def-reconcile' into release/v1.95.6-b
+  PUBLIC Best Sudoku: Merge remote-tracking branch 'origin/fix/install-beacon-cross-tab-dedupe' into release/v1.95.6-b
+  PUBLIC Best Sudoku: merge(staging -> main): promote v1.95.5 to production
+  PUBLIC Best Sudoku: release: v1.95.5
+  PUBLIC Best Sudoku: chore(release): v1.95.5
+  PUBLIC Best Sudoku: Merge remote-tracking branch 'origin/feat/auth-new-existing-beacon' into release/v1.95.6
+  PUBLIC Best Sudoku: merge: feat/game-complete-beacon into release/v1.95.6
+  PUBLIC Best Sudoku: fix(analytics): dedupe raw /install/* beacon across tabs
+  PUBLIC Best Sudoku: test(analytics): cover Google unknown status in new-vs-existing beacon
+  PUBLIC Best Sudoku: feat(analytics): add new-vs-existing sign-in beacon
+  PUBLIC Best Sudoku: feat(analytics): emit anonymous game-completion beacon
+  PUBLIC Best Sudoku: chore(agents): restore the off-haiku routing and architect cache on staging
+  PUBLIC Best Sudoku: merge(staging -> main): promote v1.95.4 to production
+  PUBLIC Best Sudoku: release: v1.95.4
+  PUBLIC Best Sudoku: chore(release): v1.95.4
+  PUBLIC Best Sudoku: fix(install): count prompt-accepted installs when the browser confirms them
+  PUBLIC Best Sudoku: merge(staging -> main): promote v1.95.3 to production
+  PUBLIC Best Sudoku: release: v1.95.3
+  PUBLIC Best Sudoku: chore(release): set the privacy effective date to the deploy date
+  PUBLIC Best Sudoku: release: v1.95.3
+  PUBLIC Best Sudoku: chore(release): v1.95.3
+  PUBLIC Best Sudoku: docs(welcome-email): record review approval and owner sign-off status
+  PUBLIC Best Sudoku: release: v1.93.10
+  PUBLIC Best Sudoku: chore(release): v1.93.10
+  PUBLIC Best Sudoku: release: v1.90.0
+  PUBLIC Best Sudoku: chore(release): summarize dev tooling work in the v1.90.0 notes
+  PUBLIC Best Sudoku: release: v1.90.0
+  PUBLIC Best Sudoku: chore(release): consolidate v1.90.0 changelog
   PUBLIC StarRupture-ModLoader: Add temporary per-thread Present diagnostic for framegen flicker
   PUBLIC StarRupture-ModLoader: Let a different thread wait briefly for HookedPresent's owner
   PUBLIC Agent Templates: chore(agent-companion): release 0.29.17
@@ -259,47 +351,35 @@ Sat 26 Sept
   PUBLIC GSS Stats: Merge pull request #11 from GoodStuffSoftware/release/0.7.0
   PUBLIC GSS Stats: chore(release): v0.7.0
   PUBLIC GSS Stats: fix(sync): one post-midnight pull, no halving on empty, auth rows as events
-  PUBLIC GSS Stats: Merge origin/main (v0.6.1) into feat/ads-sync
-  PUBLIC GSS Stats: feat(sync): surface killed sync runs; say a capped full re-pull stops
-  PUBLIC GSS Stats: fix(reads): re-pull the last three days on every read
-  PUBLIC GSS Stats: fix(sync): check zero days against Google's total, pull newest first
-  PUBLIC GSS Stats: Merge pull request #10 from GoodStuffSoftware/release/0.6.1
-  PUBLIC GSS Stats: chore(release): v0.6.1
-  PUBLIC GSS Stats: fix(auth): stop double-counting auth success and completed-game page views
-  PUBLIC GSS Stats: docs(ads): record the cold 1-day CPU measurement (12.6 ms)
-  PUBLIC GSS Stats: docs(ads): correct the Worker CPU claim; 0004 rollout; sync rules
-  PUBLIC GSS Stats: perf(ads): no Intl at module load, so the sync Worker starts cheaply
-  PUBLIC GSS Stats: fix(stats): count a sign-in once; /new|existing|unknown only in the split
-  PUBLIC GSS Stats: feat(ads): SHA-stamped Worker deploy, paused mode, CI bundle check
-  PUBLIC GSS Stats: fix(ads): review of edfc5eb — CPU, empty responses, claims, sign-up bound
-  PUBLIC GSS Stats: Merge pull request #9 from GoodStuffSoftware/release/0.6.0
-  PUBLIC GSS Stats: chore(release): v0.6.0
-  PUBLIC GSS Stats: fix(dashboard): strip control chars from link hrefs before allowlisting
-  PUBLIC GSS Stats: Merge origin/main (v0.5.2) into integrate/bsk-tabs
-  PUBLIC GSS Stats: Merge pull request #8 from GoodStuffSoftware/release/0.5.2
-  PUBLIC GSS Stats: chore(release): v0.5.2
-  PUBLIC GSS Stats: Merge origin/main (v0.5.1) into feat/ads-sync
-  PUBLIC GSS Stats: feat(ads): exact sign-ups from /auth/success/…/new; upsell-fix segments
-  PUBLIC GSS Stats: Merge origin/main (v0.5.1) into release/0.5.2
-  PUBLIC GSS Stats: feat(ads): Worker full re-pull on demand; report unusable Ads credentials
-  PUBLIC GSS Stats: Merge pull request #7 from GoodStuffSoftware/release/0.5.1
-  PUBLIC GSS Stats: chore(release): v0.5.1
-  PUBLIC GSS Stats: Merge origin/main (v0.5.0) into integrate/bsk-tabs
-  PUBLIC GSS Stats: Merge remote-tracking branch 'origin/main' into fix/first50-offer-outcome
-  PUBLIC GSS Stats: fix(popups): recognize 'first50-offer' as the first-50 promo's outcome wire name
-  PUBLIC GSS Stats: feat(ads): gss-stats-sync Worker, Secrets Store keys, Refresh data
-  PUBLIC GSS Stats: fix(dashboard): scheme-allowlist note/text links, tokenize before interpolating
-  PUBLIC GSS Stats: Merge pull request #6 from GoodStuffSoftware/ci/actions-node24
-  PUBLIC GSS Stats: ci(deploy): move to checkout@v7, setup-node@v7 and Node 24 LTS
-  PUBLIC GSS Stats: perf(geo): cut D1 rows-read via merged queries and edge caching
-  PUBLIC GSS Stats: Merge origin/main (v0.5.0, Google sign-in) into feat/ads-sync
-  PUBLIC GSS Stats: fix(ads): find wrangler's JSON at a line start; record the 0003 rollout
-  PUBLIC GSS Stats: feat(ads): one shared sync for Ads data, readings de-dup, freshness
-  PUBLIC GSS Stats: Merge pull request #2 from GoodStuffSoftware/feat/google-auth
-  PRIVATE (name withheld): 36 commits [merge=5 release=8 chore=9 other=3 fix=2 test=1 feat=2 docs=6]
   PRIVATE (name withheld): 2 commits [other=1 chore=1]
 
 Fri 25 Sept
+  PUBLIC Best Sudoku: fix(analytics): clear app storage before the Play referrer check; quiet for a pending Play d0
+  PUBLIC Best Sudoku: fix(analytics): read the Play referrer only with consent, and time out the native call
+  PUBLIC Best Sudoku: fix(analytics): learn a Play install's ad campaign once from the Install Referrer
+  PUBLIC Best Sudoku: fix(analytics): clear the campaign record on refused beacons; quiet after sign-in
+  PUBLIC Best Sudoku: fix(analytics): harden campaign returns against opt-out, id-shaped tags and reloads
+  PUBLIC Best Sudoku: fix(analytics): count anonymous return visits per ad campaign
+  PUBLIC Best Sudoku: fix(analytics): clear pending measurements on refused beacons; quiet after sign-in
+  PUBLIC Best Sudoku: fix(analytics): delete pending pop-up measurements the moment usage data is turned off
+  PUBLIC Best Sudoku: fix(analytics): keep measurement events out of the ad snapshot's per-site totals
+  PUBLIC Best Sudoku: fix(analytics): keep outcome and return paths out of ad totals
+  PUBLIC Best Sudoku: fix(analytics): defer sign-in eligibility and always hold outcomes 30 minutes
+  PUBLIC Best Sudoku: fix(analytics): document the id-free pop-up outcomes in the registry and playbook
+  PUBLIC Best Sudoku: fix(analytics): work out pop-up outcomes on the device, send them id-free
+  PUBLIC Best Sudoku: fix(privacy): remove the installation ID claim; the beacon never sends one
+  PUBLIC Best Sudoku: fix(analytics): count earned sign-in asks and keep new events out of ad totals
+  PUBLIC Best Sudoku: fix(analytics): never beacon an admin upsell preview, and label Settings' Upgrade
+  PUBLIC Best Sudoku: fix(analytics): add manual production checks for the pop-up beacons
+  PUBLIC Best Sudoku: fix(analytics): beacon pop-up impressions, taps and outcomes
+  PUBLIC Best Sudoku: fix(analytics): keep the install id on the device and out of the data export
+  PUBLIC Best Sudoku: docs(feedback-routine): print "not live yet" for pop-up families with no production data
+  PUBLIC Best Sudoku: fix(analytics): tighten the pop-up funnel step's wording and local command
+  PUBLIC Best Sudoku: fix(analytics): report the pop-up funnel in the daily digest
+  PUBLIC Best Sudoku: test(install): cover the real install prompt accepted and dismissed paths
+  PUBLIC Best Sudoku: fix(install): tell the admin a dev-preview Install tap is a preview, not silent
+  PUBLIC Best Sudoku: merge(feat/popup-reset-all -> staging): reset-all pop-up dev control, gated by green local E2E (767/767)
+  PUBLIC Best Sudoku: feat(dev-tools): add a Reset all pop-ups control to the pop-up dashboard
   PUBLIC StarRupture-Plugin-BetterCheats: Multiply-mode rows compose onto BaseValue, not the buffed total
   PUBLIC StarRupture-Plugin-BetterCheats: Show grenade tab before charging, cap number-box width
   PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.19.0-gss.28
@@ -341,9 +421,41 @@ Fri 25 Sept
   PUBLIC Agent Templates: test(agent-companion): differential proof that only integration's trial route changed
   PUBLIC Agent Templates: fix(agent-companion): scope integration's F5 waiver to its own trial row, not the elevated floor globally
   PUBLIC GSS Beacon: fix(beacon): record an app's random install id as vid for per-device joins
-  PRIVATE (name withheld): 28 commits [fix=22 docs=3 test=1 merge=1 feat=1]
 
 Thu 24 Sept
+  PUBLIC Best Sudoku: fix(email): keep the cleared opt-out when someone re-subscribes
+  PUBLIC Best Sudoku: docs(welcome-email): the Settings switch in the design, registry and playbook
+  PUBLIC Best Sudoku: feat(settings): "Emails about new features and tips" switch in Account
+  PUBLIC Best Sudoku: feat(email): authenticated emailPreferences endpoint for the Settings toggle
+  PUBLIC Best Sudoku: feat(ops): backfill deleted_users.emailLower; record the no-postal-address call
+  PUBLIC Best Sudoku: feat(ops): read-only welcome-email preflight for tracking and the secret binding
+  PUBLIC Best Sudoku: docs(welcome-email): no backstop; stale-worker behaviour; privacy nits
+  PUBLIC Best Sudoku: fix(email): welcome claims survive a burst; fail-closed day counter
+  PUBLIC Best Sudoku: Revert "feat(app): in-app backstop for the unsubscribe link under a stale service worker"
+  PUBLIC Best Sudoku: docs(welcome-email): privacy share list and retention, rework docs
+  PUBLIC Best Sudoku: feat(app): in-app backstop for the unsubscribe link under a stale service worker
+  PUBLIC Best Sudoku: fix(email): welcome only verified addresses, cap 25 a day, skip returners
+  PUBLIC Best Sudoku: fix(email): no campaign tags on the unsubscribe URL
+  PUBLIC Best Sudoku: docs(welcome-email): privacy disclosure, playbook, signals registry, preview script
+  PUBLIC Best Sudoku: fix(functions): keep the functions build compiling after the welcome tests
+  PUBLIC Best Sudoku: feat(email): deny-all rules for email_lifecycle and the unsubscribe rewrite
+  PUBLIC Best Sudoku: fix(email): drop the first-50 email's "only email you will get" promise
+  PUBLIC Best Sudoku: feat(email): welcome email for new accounts, with one-click unsubscribe
+  PUBLIC Best Sudoku: feat(email): per-message headers, highlights and an opt-out footer in the mail shell
+  PUBLIC Best Sudoku: docs(welcome-email): design for the new-account welcome email
+  PUBLIC Best Sudoku: docs(feedback-routine): fix duplicate tier table, staging-log race, dates
+  PUBLIC Best Sudoku: docs(feedback-routine): fix obs-item dedup, beacon reliability, and baseline
+  PUBLIC Best Sudoku: docs(feedback-routine): daily routine checks obs_errors + sign-in failures
+  PUBLIC Best Sudoku: release: v1.90.0
+  PUBLIC Best Sudoku: chore(release): consolidate v1.90.0 changelog
+  PUBLIC Best Sudoku: docs(release-ops): describe the pre-commit bump check accurately
+  PUBLIC Best Sudoku: docs(release-ops): version at release, not at staging merge
+  PUBLIC Best Sudoku: fix(secrets): honest UNKNOWN outcome after a failed versions-add re-check
+  PUBLIC Best Sudoku: fix(secrets): fail closed on unreachable gcloud, add timeouts and non-interactive flags (B7)
+  PUBLIC Best Sudoku: fix(secrets): refuse duplicate-name rotation state, fail closed on API check failures (B6)
+  PUBLIC Best Sudoku: fix(secrets): rework Resend key rotation per review (prod-only, ordering, verification)
+  PUBLIC Best Sudoku: chore(secrets): add Resend key rotation script (card #109)
+  PUBLIC Best Sudoku: Merge pull request #20 from msantoro12/chore/land-architect-cache-ttl-1h
   PUBLIC StarRupture-Plugin-BetterCheats: Local build extras: grenade damage probe and version file
   PUBLIC Agent Templates: refactor(agent-companion): isolatedWriteGitEnv takes no overrides
   PUBLIC Agent Templates: fix(agent-companion): vault housekeeping stays in the sync lock; env-named config files never reach a vault write
@@ -389,7 +501,6 @@ Thu 24 Sept
   PUBLIC Agent Plugins: chore(marketplace): sync session-sync entry to 0.3.0
   PUBLIC Agent Plugins: fix(session-sync): run SessionStart/SessionEnd hooks in exec form (#2)
   PUBLIC Agent Plugins: merge: bring in fix/session-sync-exec-hooks (b36a767)
-  PRIVATE (name withheld): 53 commits [fix=17 docs=16 feat=11 other=2 release=1 chore=4 test=2]
   PRIVATE (name withheld): 3 commits [other=2 chore=1]
   PRIVATE (name withheld): 3 commits [other=2 chore=1]
   PRIVATE (name withheld): 66 commits [other=66]
