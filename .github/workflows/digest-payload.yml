@@ -95,7 +95,8 @@ jobs:
       - name: Publish payload to branch digest-input
         if: steps.cfg.outputs.configured == 'true'
         # digest-input is public, and that is fine: it holds only what the profile
-        # itself would show -- public commit subjects and private repos as counts.
+        # itself would show -- public (and released) commit subjects, and every
+        # other private repo as counts.
         # No force push: the branch history is an honest log of what was sent.
         run: |
           git config user.name  'github-actions[bot]'

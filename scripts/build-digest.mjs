@@ -10,7 +10,10 @@
 // STRUCTURAL rather than a line in a prompt:
 //
 //   PUBLIC  repo, any        -> commit subjects go to the model.
-//   PRIVATE repo, any        -> ONLY a per-day count and a conventional-commit
+//   PRIVATE repo, RELEASED   -> treated exactly like a public repo. Opt-in, per repo,
+//                               with "released": true in projects.json (strictly the
+//                               boolean true; anything else stays redacted).
+//   PRIVATE repo, any other  -> ONLY a per-day count and a conventional-commit
 //                               type histogram go to the model. Subjects are read
 //                               to compute the histogram and then dropped on the
 //                               floor. They never enter the prompt.
@@ -127,9 +130,23 @@ const ccType = (subject) => (subject.match(/^([a-z]+)[(:]/)?.[1] ?? 'other');
 const config = JSON.parse(await readFile(new URL('./projects.json', import.meta.url), 'utf8'));
 // Display names, NOT a whitelist. Every repo the token can see is covered: public
 // ones by name with their commit subjects, private ones as anonymous counts -- the
-// model is never told a private repo's name, label or subject. projects.json only
-// decides how a PUBLIC repo is labelled, and seeds repos the listing may miss.
+// model is never told an unreleased private repo's name, label or subject.
+// projects.json decides how a public (or released) repo is labelled, which private
+// repos are released, and seeds repos the listing may miss.
 const projectLabels = config.projects ?? {};
+// GitHub names are case-insensitive, so the lookup is too: a key typed as
+// "MSantoro12/Best-Sudoku" still labels (and releases) msantoro12/best-sudoku.
+const projectByLower = new Map(
+  Object.entries(projectLabels).map(([k, v]) => [k.toLowerCase(), v]),
+);
+const projectFor = (fullName) => projectByLower.get(fullName.toLowerCase());
+// RELEASED: a private repo whose owner has opted it into being reported by name,
+// because it is a shipped product. DEFAULT-DENY -- only the literal boolean true
+// counts. A missing flag, a typo'd key, "yes", 1 or "true" all stay redacted.
+const isReleased = (repo) => repo.private === true && projectFor(repo.full_name)?.released === true;
+// Whether a repo may be named and have its subjects forwarded. Every naming decision
+// below (payload, logs, errors) goes through this one test.
+const reportsPublicly = (repo) => !repo.private || isReleased(repo);
 // The profile repo itself is excluded, or the bot's nightly commits would be
 // reported as work.
 const SELF = `${USER}/${USER}`.toLowerCase();
@@ -160,8 +177,9 @@ try {
 //    quiet omission would drop every GoodStuffSoftware project -- the same silent
 //    miss the project keys once had. Asking by name closes the gap.
 const tokenFor = new Map(); // full_name -> the credential that could read it
+const listedLower = new Set([...byName.keys()].map((k) => k.toLowerCase()));
 for (const key of Object.keys(projectLabels)) {
-  if (byName.has(key)) continue;
+  if (listedLower.has(key.toLowerCase())) continue;
   let why;
   for (const token of [READ_TOKEN, PUBLIC_TOKEN].filter(Boolean)) {
     try {
@@ -199,6 +217,9 @@ if (repos.length === 0) {
 const since = new Date(Date.now() - DAYS * 86_400_000);
 const days = new Map(); // dayKey -> { public: [], private: Map<label, Map<type, n>> }
 const privateCorpus = []; // for the canary only; never sent anywhere
+// Label and slug of every RELEASED private repo seen: public words for the gate, so
+// "Best Sudoku" in the prose is not mistaken for a private-only token.
+const releasedNames = [];
 
 for (let i = 0; i < DAYS; i++) {
   const key = dayKey(new Date(Date.now() - i * 86_400_000).toISOString());
@@ -207,10 +228,12 @@ for (let i = 0; i < DAYS; i++) {
 
 for (const repo of repos) {
   if (new Date(repo.pushed_at) < since) continue;
-  // Public repos use their projects.json label when they have one, else the repo
-  // name (public anyway). A private repo's label is never used for anything the
+  // Public and released repos use their projects.json label when they have one, else
+  // the repo name. An unreleased private repo's label is never used for anything the
   // model sees -- its bucket key below stays internal.
-  const label = projectLabels[repo.full_name]?.label ?? repo.name;
+  const isPublic = reportsPublicly(repo);
+  const label = projectFor(repo.full_name)?.label ?? repo.name;
+  if (repo.private && isPublic) releasedNames.push(label, repo.name);
 
   const token = tokenFor.get(repo.full_name) ?? READ_TOKEN;
 
@@ -233,7 +256,7 @@ for (const repo of repos) {
   } catch {
     // Not every credential can read the activity feed. Fall back to the default
     // branch rather than failing: fewer commits is recoverable, a dead run is not.
-    const which = repo.private ? 'a private repository' : repo.full_name;
+    const which = isPublic ? repo.full_name : 'a private repository';
     console.log(`::warning title=Branch activity unavailable::${which}: only its default branch was read, so work on side branches is missing.`);
   }
 
@@ -254,9 +277,9 @@ for (const repo of repos) {
       // named it. Neither is a failure.
       if (err.status === 409 || err.status === 404) continue;
       // Visible but unreadable commits means the token lacks Contents: Read-only
-      // here. A PRIVATE repo is never named, even in an error: this log is public,
-      // and a private repo's name is exactly what we withhold.
-      const which = repo.private ? 'a private repository' : repo.full_name;
+      // here. An unreleased PRIVATE repo is never named, even in an error: this log
+      // is public, and a private repo's name is exactly what we withhold.
+      const which = isPublic ? repo.full_name : 'a private repository';
       console.log(`::error title=Commits not readable::${which} is visible but its commits are not (${err.status ?? err.name}). The token needs Contents: Read-only there.`);
       process.exit(1);
     }
@@ -270,7 +293,7 @@ for (const repo of repos) {
     const bucket = days.get(key);
     if (!bucket) continue;
 
-    if (repo.private) {
+    if (!isPublic) {
       // Aggregate ONLY. The subject is used for its type prefix and the canary,
       // then dropped -- it is never placed in the model payload.
       privateCorpus.push(subject);
@@ -404,9 +427,14 @@ const STOPWORDS = new Set(
 );
 
 const tokens = (s) => s.toLowerCase().match(/[a-z][a-z0-9-]{2,}/g) ?? [];
-const publicTokens = new Set(
-  [...days.values()].flatMap((b) => b.public).flatMap(({ subject }) => tokens(subject)),
-);
+// Public vocabulary: every forwarded subject (public and released repos alike),
+// plus the label and slug of each released private repo.
+const publicTokens = new Set([
+  ...[...days.values()]
+    .flatMap((b) => b.public)
+    .flatMap(({ subject }) => tokens(subject)),
+  ...releasedNames.flatMap(tokens),
+]);
 // Words and PHRASES that appear only in private commit subjects.
 //
 // The prose-writer never sees those subjects -- it holds no credential for them --
@@ -481,8 +509,9 @@ const block = [
   '',
   prose,
   '',
-  '<sub>Written daily by a model from commit metadata. Private repositories contribute a',
-  'commit count and nothing else, so it has no idea what half of this is.</sub>',
+  '<sub>Written daily by a model from commit metadata. Private repositories, other than',
+  'released products, contribute a commit count and nothing else, so it has no idea what',
+  'half of this is.</sub>',
   '',
   END,
 ].join('\n');
@@ -572,7 +601,7 @@ if (WEBHOOK && changed && !DRY_RUN) {
             title: "What I'm working on",
             description,
             footer: {
-              text: 'Written from commit metadata. Private repos contribute a commit count and nothing else.',
+              text: 'Written from commit metadata. Private repos, other than released products, contribute a commit count and nothing else.',
             },
           },
         ],

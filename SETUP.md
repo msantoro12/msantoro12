@@ -2,7 +2,9 @@
 
 A model writes a five-day digest, one short paragraph per day, daily, from real commit
 activity. It covers **every repo the token can see**: public repos by name, private repos as
-anonymous counts. `scripts/projects.json` only gives public repos friendlier names.
+anonymous counts — except private repos explicitly marked as released products, which are
+reported by name (see [Released private projects](#released-private-projects)).
+`scripts/projects.json` gives public repos friendlier names and holds that opt-in.
 
 ## How it works
 
@@ -29,7 +31,8 @@ split, "write only from the payload" was purely a line in a prompt.
 | | What the routine receives |
 |---|---|
 | **Public** repo | its name and commit subjects — it writes specifically about them |
-| **Private** repo | a commit **count** and a type histogram, with no name. Nothing else. |
+| **Private** repo, marked `"released": true` | treated exactly like a public repo: its label and commit subjects |
+| **Private** repo, any other | a commit **count** and a type histogram, with no name. Nothing else. |
 
 A sanitation gate runs over the routine's output as a second layer, back inside the GitHub
 Action that holds the token. It is openly partial: it catches **mechanical** leaks — version
@@ -85,8 +88,9 @@ needs the Claude GitHub app to have access to this repository.
 ## The data branch
 
 `digest-input` is a public branch, and that is fine. It holds only what the digest itself
-would show: public commit subjects (already public) and private repos as unnamed counts and a
-type histogram (never a subject, never a name).
+would show: public commit subjects (already public), released private projects by label and
+subject (opted in on purpose), and every other private repo as unnamed counts and a type
+histogram (never a subject, never a name).
 
 ## Schedule
 
@@ -126,7 +130,29 @@ deliberately leaky prose to confirm the gate still catches things.
 ## Naming a project
 
 Add it to `scripts/projects.json` with a `label` to give a public repo a friendlier name than
-its slug. Private repos stay anonymous whether or not they are listed.
+its slug. Private repos stay anonymous whether or not they are listed, unless marked released.
+
+## Released private projects
+
+Some private repos are shipped products whose work is fine to talk about — the source stays
+private, the product does not. Mark one with `"released": true` in `scripts/projects.json`
+and the digest reports it **exactly like a public repo**: its `label` (or the repo name) and
+its commit subjects go into the payload, its subjects are left out of the private canary
+corpus, it no longer counts as a `[REDACTED]` repo, and its label words count as public
+vocabulary for the gate. Logs and errors may name it.
+
+```json
+"msantoro12/best-sudoku": { "label": "Best Sudoku", "private": true, "released": true }
+```
+
+- **Default-deny.** Only the JSON boolean `true` releases a repo. A missing flag, a typo in
+  the key, `"yes"`, or the string `"true"` all leave it redacted. Keys match GitHub names
+  case-insensitively.
+- **Adding one** is a single-line change on `main`; a push to `projects.json` re-runs the
+  payload job. Then run the `PAYLOAD_ONLY=1` check above: the repo should appear under its
+  label and no other private repo's name should.
+- **Everything it ever committed in the window becomes public prose**, commit subjects
+  included. Read its recent log before flipping the flag.
 
 ## Things to know
 
