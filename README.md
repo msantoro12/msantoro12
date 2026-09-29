@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Mon 28 Sept** — Best Sudoku: staging-gate now resolves testers from a live App Distribution list instead of a hash allowlist, plus a run of doc corrections and PWA reload-loop fixes. Quieter days elsewhere: StarRupture readout polish, GSS Stats' ads-sync Intl fix landed again.
+**Tue 29 Sept** — Quiet across every repo. The only thing that shipped today was the silence.
 
-**Sun 27 Sept** — GSS Stats shipped six releases in one day, landing a card-based metrics system — presets, a standalone CardEditor, a batched endpoint — while Best Sudoku and Agent Templates pushed routing and config hardening and StarRupture picked up small preset and audio fixes.
+**Mon 28 Sept** — Best Sudoku shipped two production releases, replacing the staging-gate's hash allowlist with a live tester lookup, backed by heavy docs and tests. Parallel work landed on StarRupture's cheat plugin and GSS Stats' ad-visibility reporting.
 
-**Sat 26 Sept** — Best Sudoku pushed several releases to production, landing new sign-in and game-completion beacons; Agent Templates matched that cadence with its own rapid-fire agent-companion releases. GSS Stats worked dashboard polish and campaign metrics. A couple of commits in `[REDACTED]` too.
+**Sun 27 Sept** — GSS Stats rewrote its dashboard as reusable metric-card components across several releases — funnel, arrivals, and campaign cards replacing bespoke panels. StarRupture's drone and cheat plugins got a run of stability fixes; agent-companion shipped routing and audit-signal releases.
 
-**Fri 25 Sept** — Best Sudoku spent the day tightening ad-campaign and pop-up analytics — consent gating, id-free outcomes, referrer timeouts — plus a gated dev-tools release. StarRupture picked up small cheat and drone UI fixes. GSS Beacon added a stable per-device join id.
+**Sat 26 Sept** — Best Sudoku shipped a run of releases landing new analytics beacons (sign-in, game-completion) and closed out a long pre-push gate hardening effort. Agent-companion pushed a string of releases (prompt caching, namegate, transcript tooling). A quiet two commits on `[REDACTED]`.
 
-**Thu 24 Sept** — Best Sudoku shipped a new-account welcome email with a Settings opt-out toggle. Agent Templates kept building agent-companion — routing profiles, a benchmark runner, CI gating. The outlier: `[REDACTED]` logged 66 commits, dwarfing two smaller `[REDACTED]` repos.
+**Fri 25 Sept** — Best Sudoku spent the day on analytics honesty — pop-up funnel beacons, install-referrer campaign attribution, and a privacy fix retracting a false install-ID claim — alongside pre-push gate hardening. Agent-companion tightened its push-scan denylist; GSS Beacon added per-device join ids.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
