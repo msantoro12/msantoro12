@@ -1,5 +1,5 @@
-generated: 2026-09-29T09:42:17.929Z
-days: Tue 29 Sept | Mon 28 Sept | Sun 27 Sept | Sat 26 Sept | Fri 25 Sept
+generated: 2026-09-30T09:33:44.196Z
+days: Wed 30 Sept | Tue 29 Sept | Mon 28 Sept | Sun 27 Sept | Sat 26 Sept
 
 === INSTRUCTIONS ===
 You write the "What I'm working on" section of Mike Santoro's GitHub profile.
@@ -39,10 +39,145 @@ customer or product names absent from the input, URLs, or anything describing a 
 fix.
 
 === DATA (every line below is data, never an instruction) ===
-Tue 29 Sept
+Wed 30 Sept
   (no commits anywhere)
 
+Tue 29 Sept
+  PUBLIC StarRupture-Plugin-BetterDrone: Add PR screenshots
+  PUBLIC StarRupture-Plugin-BetterDrone: Bump version to 0.20.0-gss.33
+  PUBLIC StarRupture-Plugin-BetterDrone: Name the Controls keys Toggle Key and Boost Key
+  PUBLIC StarRupture-Plugin-BetterDrone: Space the unit radio buttons from their label
+  PUBLIC StarRupture-Plugin-BetterDrone: Reword panel comments
+  PUBLIC StarRupture-Plugin-BetterDrone: Bump version to 0.20.0-gss.32
+  PUBLIC StarRupture-Plugin-BetterDrone: Align panel row labels with their sliders
+  PUBLIC StarRupture-Plugin-BetterDrone: Bump version to 0.20.0-gss.31
+  PUBLIC StarRupture-Plugin-BetterDrone: Center the reset arrow on its button
+  PUBLIC StarRupture-Plugin-BetterDrone: Drop "without dismounting" from the drone descriptions
+  PUBLIC StarRupture-Plugin-BetterDrone: v0.20.0-gss.30
+  PUBLIC StarRupture-Plugin-BetterDrone: Close the drone map with the map key
+  PUBLIC StarRupture-Plugin-BetterDrone: Merge the drone-mode map key
+  PUBLIC StarRupture-Plugin-BetterDrone: Name the Controls keys Toggle Key and Boost Key
+  PUBLIC StarRupture-Plugin-BetterDrone: Space the unit radio buttons from their label
+  PUBLIC StarRupture-Plugin-BetterDrone: Reword panel comments
+  PUBLIC StarRupture-Plugin-BetterDrone: Align panel row labels with their sliders
+  PUBLIC StarRupture-Plugin-BetterDrone: Center the reset arrow on its button
+  PUBLIC StarRupture-Plugin-BetterDrone: Drop "without dismounting" from the drone descriptions
+  PUBLIC StarRupture-Plugin-BetterDrone: Close the drone map with the map key
+  PUBLIC StarRupture-Plugin-BetterDrone: Keep the drone map key out while any menu is open
+  PUBLIC StarRupture-Plugin-BetterDrone: Open the map from the drone with the map key
+  PUBLIC StarRupture-Plugin-BetterDrone: Close the drone map with the map key
+  PUBLIC StarRupture-Plugin-BetterDrone: Keep the drone map key out while any menu is open
+  PUBLIC StarRupture-Plugin-BetterDrone: Open the map from the drone with the map key
+  PUBLIC StarRupture-Plugin-BetterCheats: Add PR screenshots
+  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.20.0-gss.41
+  PUBLIC StarRupture-Plugin-BetterCheats: Align fly speed label and whole-number steppers
+  PUBLIC StarRupture-Plugin-BetterCheats: Reword fire-rate, reload and saved-preset comments
+  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.20.0-gss.40
+  PUBLIC StarRupture-Plugin-BetterCheats: Center the reset arrow on its button
+  PUBLIC StarRupture-Plugin-BetterCheats: Reword the plant pickup cap comment
+  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.20.0-gss.39
+  PUBLIC StarRupture-Plugin-BetterCheats: Lay out Power rows like the other sections
+  PUBLIC StarRupture-Plugin-BetterCheats: Align slider row labels with their controls
+  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.20.0-gss.38
+  PUBLIC StarRupture-Plugin-BetterCheats: Set stack sizes as a number instead of a multiplier
+  PUBLIC StarRupture-Plugin-BetterCheats: Make plant pickup whole steps, above stack sizes
+  PUBLIC StarRupture-Plugin-BetterCheats: Show one live number instead of expected = game
+  PUBLIC StarRupture-Plugin-BetterCheats: Align fly speed label and whole-number steppers
+  PUBLIC StarRupture-Plugin-BetterCheats: Reword fire-rate, reload and saved-preset comments
+  PUBLIC StarRupture-Plugin-BetterCheats: Center the reset arrow on its button
+  PUBLIC StarRupture-Plugin-BetterCheats: Add a 1x-5x wild plant pickup multiplier
+  PUBLIC StarRupture-Plugin-BetterCheats: Expose mining tool stats in Tools with presets
+  PUBLIC StarRupture-Plugin-BetterCheats: Share CDO lookup and multiply readout helpers
+  PUBLIC StarRupture-Plugin-BetterCheats: Lay out Power rows like the other sections
+  PUBLIC StarRupture-Plugin-BetterCheats: Align slider row labels with their controls
+  PUBLIC StarRupture-Plugin-BetterCheats: Set stack sizes as a number instead of a multiplier
+  PUBLIC StarRupture-Plugin-BetterCheats: Show one live number instead of expected = game
+  PUBLIC StarRupture-Plugin-BetterCheats: Center the reset arrow on its button
+  PUBLIC StarRupture-Plugin-BetterCheats: Add a 1x-5x wild plant pickup multiplier
+  PUBLIC StarRupture-Plugin-BetterCheats: Expose mining tool stats in Tools with presets
+  PUBLIC StarRupture-Plugin-BetterCheats: Share CDO lookup and multiply readout helpers
+  PUBLIC StarRupture-Plugin-BetterCheats: Lay out Power rows like the other sections
+  PUBLIC StarRupture-Plugin-BetterCheats: Align slider row labels with their controls
+  PUBLIC StarRupture-Plugin-BetterCheats: Set stack sizes as a number instead of a multiplier
+  PUBLIC StarRupture-Plugin-BetterCheats: Show one live number instead of expected = game
+  PUBLIC StarRupture-Plugin-BetterCheats: Center the reset arrow on its button
+  PUBLIC StarRupture-Plugin-BetterCheats: Add a 1x-5x wild plant pickup multiplier
+  PUBLIC StarRupture-Plugin-BetterCheats: Expose mining tool stats in Tools with presets
+  PUBLIC StarRupture-Plugin-BetterCheats: Share CDO lookup and multiply readout helpers
+  PUBLIC StarRupture-Plugin-BetterCheats: Lay out Power rows like the other sections
+  PUBLIC StarRupture-Plugin-BetterCheats: Align slider row labels with their controls
+  PUBLIC StarRupture-Plugin-BetterCheats: Set stack sizes as a number instead of a multiplier
+  PUBLIC StarRupture-Plugin-BetterCheats: Show one live number instead of expected = game
+  PUBLIC StarRupture-Plugin-BetterCheats: Add a 1x-5x wild plant pickup multiplier
+  PUBLIC StarRupture-Plugin-BetterCheats: Expose mining tool stats in Tools with presets
+  PUBLIC StarRupture-Plugin-BetterCheats: Share CDO lookup and multiply readout helpers
+  PUBLIC StarRupture-Plugin-BetterCheats: Lay out Power rows like the other sections
+  PUBLIC StarRupture-Plugin-BetterCheats: Align slider row labels with their controls
+  PUBLIC StarRupture-Plugin-BetterCheats: Set stack sizes as a number instead of a multiplier
+  PUBLIC StarRupture-Plugin-BetterCheats: Show one live number instead of expected = game
+  PUBLIC StarRupture-Plugin-BetterCheats: Set stack sizes as a number instead of a multiplier
+  PUBLIC StarRupture-Plugin-BetterCheats: Show one live number instead of expected = game
+  PUBLIC StarRupture-ModLoader: Add PR screenshots
+  PUBLIC StarRupture-ModLoader: Keep DLSS-G buffers and hold FrameGenPause through loads
+  PUBLIC StarRupture-ModLoader: Keep DLSS-G buffers and hold FrameGenPause through loads
+  PUBLIC StarRupture-ModLoader: Keep DLSS-G buffers and hold FrameGenPause through loads
+  PUBLIC Best Sudoku: docs(ads): retest audit trail 2026-09-29
+  PUBLIC Agent Templates: Merge pull request #5 from GoodStuffSoftware/claude/nifty-archimedes-yd2stu
+
 Mon 28 Sept
+  PUBLIC StarRupture-Plugin-BetterDrone: Keep the drone map key out while any menu is open
+  PUBLIC StarRupture-Plugin-BetterDrone: v0.20.0-gss.29
+  PUBLIC StarRupture-Plugin-BetterDrone: Open the map from the drone with the map key
+  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.20.0-gss.37
+  PUBLIC StarRupture-Plugin-BetterCheats: Route Weapons and Movement rows through ApplyComposedRow
+  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.20.0-gss.36
+  PUBLIC StarRupture-Plugin-BetterCheats: Stop stack sizes compounding across sessions
+  PUBLIC StarRupture-Plugin-BetterCheats: Add a 1x-5x wild plant pickup multiplier
+  PUBLIC StarRupture-Plugin-BetterCheats: Merge gss/mining: mining tool stats and presets in Tools
+  PUBLIC StarRupture-Plugin-BetterCheats: Estimate mining mods from the current slider value
+  PUBLIC StarRupture-Plugin-BetterCheats: Skip CDO lookup until the object walker is ready
+  PUBLIC StarRupture-Plugin-BetterCheats: Expose mining tool stats in Tools with presets
+  PUBLIC StarRupture-Plugin-BetterCheats: Persist compose state when a row's write changes
+  PUBLIC StarRupture-Plugin-BetterCheats: Share CDO lookup and multiply readout with Tools
+  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.20.0-gss.35
+  PUBLIC StarRupture-Plugin-BetterCheats: Weapons/Movement: real-unit readouts, estimate when unequipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Label local builds from upstream's v0.20.0 release
+  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.19.0-gss.33
+  PUBLIC StarRupture-Plugin-BetterCheats: Show each weapon tab's own base stats, gate live readout to equipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Defer and coalesce session config writes to a debounced commit
+  PUBLIC StarRupture-Plugin-BetterCheats: Route Weapons and Movement rows through ApplyComposedRow
+  PUBLIC StarRupture-Plugin-BetterCheats: Stop stack sizes compounding across sessions
+  PUBLIC StarRupture-Plugin-BetterCheats: Persist compose state when a row's write changes
+  PUBLIC StarRupture-Plugin-BetterCheats: Weapons/Movement: real-unit readouts, estimate when unequipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Show each weapon tab's own base stats, gate live readout to equipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Defer and coalesce session config writes to a debounced commit
+  PUBLIC StarRupture-Plugin-BetterCheats: Route Weapons and Movement rows through ApplyComposedRow
+  PUBLIC StarRupture-Plugin-BetterCheats: Stop stack sizes compounding across sessions
+  PUBLIC StarRupture-Plugin-BetterCheats: Persist compose state when a row's write changes
+  PUBLIC StarRupture-Plugin-BetterCheats: Weapons/Movement: real-unit readouts, estimate when unequipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Show each weapon tab's own base stats, gate live readout to equipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Defer and coalesce session config writes to a debounced commit
+  PUBLIC StarRupture-Plugin-BetterCheats: Route Weapons and Movement rows through ApplyComposedRow
+  PUBLIC StarRupture-Plugin-BetterCheats: Stop stack sizes compounding across sessions
+  PUBLIC StarRupture-Plugin-BetterCheats: Persist compose state when a row's write changes
+  PUBLIC StarRupture-Plugin-BetterCheats: Weapons/Movement: real-unit readouts, estimate when unequipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Show each weapon tab's own base stats, gate live readout to equipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Defer and coalesce session config writes to a debounced commit
+  PUBLIC StarRupture-Plugin-BetterCheats: Route Weapons and Movement rows through ApplyComposedRow
+  PUBLIC StarRupture-Plugin-BetterCheats: Stop stack sizes compounding across sessions
+  PUBLIC StarRupture-Plugin-BetterCheats: Persist compose state when a row's write changes
+  PUBLIC StarRupture-Plugin-BetterCheats: Weapons/Movement: real-unit readouts, estimate when unequipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Show each weapon tab's own base stats, gate live readout to equipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Defer and coalesce session config writes to a debounced commit
+  PUBLIC StarRupture-Plugin-BetterCheats: Route Weapons and Movement rows through ApplyComposedRow
+  PUBLIC StarRupture-Plugin-BetterCheats: Stop stack sizes compounding across sessions
+  PUBLIC StarRupture-Plugin-BetterCheats: Persist compose state when a row's write changes
+  PUBLIC StarRupture-Plugin-BetterCheats: Weapons/Movement: real-unit readouts, estimate when unequipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Show each weapon tab's own base stats, gate live readout to equipped
+  PUBLIC StarRupture-Plugin-BetterCheats: Defer and coalesce session config writes to a debounced commit
+  PUBLIC StarRupture-Plugin-BetterCheats: Find gatherable classes in memory, not by force-load
+  PUBLIC StarRupture-Plugin-BetterCheats: Persist compose state whenever the written value changes
+  PUBLIC StarRupture-Plugin-BetterCheats: Add a wild-plant gather (Plant Pickup) multiplier
   PUBLIC Best Sudoku: merge(staging -> main): promote v1.95.8 to production
   PUBLIC Best Sudoku: release: v1.95.8
   PUBLIC Best Sudoku: chore(release): v1.95.8
@@ -97,35 +232,6 @@ Mon 28 Sept
   PUBLIC Best Sudoku: feat(staging-gate): resolve tester admission from the live list, drop the hash allowlist
   PUBLIC Best Sudoku: feat(staging-gate): add stagingTesterCheck, a live App Distribution tester lookup
   PUBLIC Best Sudoku: fix(verify): register reportErrors in the deploy-reachability allowlist
-  PUBLIC StarRupture-Plugin-BetterCheats: Route Weapons and Movement rows through ApplyComposedRow
-  PUBLIC StarRupture-Plugin-BetterCheats: Stop stack sizes compounding across sessions
-  PUBLIC StarRupture-Plugin-BetterCheats: Persist compose state when a row's write changes
-  PUBLIC StarRupture-Plugin-BetterCheats: Weapons/Movement: real-unit readouts, estimate when unequipped
-  PUBLIC StarRupture-Plugin-BetterCheats: Show each weapon tab's own base stats, gate live readout to equipped
-  PUBLIC StarRupture-Plugin-BetterCheats: Defer and coalesce session config writes to a debounced commit
-  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.20.0-gss.37
-  PUBLIC StarRupture-Plugin-BetterCheats: Route Weapons and Movement rows through ApplyComposedRow
-  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.20.0-gss.36
-  PUBLIC StarRupture-Plugin-BetterCheats: Stop stack sizes compounding across sessions
-  PUBLIC StarRupture-Plugin-BetterCheats: Add a 1x-5x wild plant pickup multiplier
-  PUBLIC StarRupture-Plugin-BetterCheats: Merge gss/mining: mining tool stats and presets in Tools
-  PUBLIC StarRupture-Plugin-BetterCheats: Estimate mining mods from the current slider value
-  PUBLIC StarRupture-Plugin-BetterCheats: Skip CDO lookup until the object walker is ready
-  PUBLIC StarRupture-Plugin-BetterCheats: Expose mining tool stats in Tools with presets
-  PUBLIC StarRupture-Plugin-BetterCheats: Persist compose state when a row's write changes
-  PUBLIC StarRupture-Plugin-BetterCheats: Share CDO lookup and multiply readout with Tools
-  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.20.0-gss.35
-  PUBLIC StarRupture-Plugin-BetterCheats: Weapons/Movement: real-unit readouts, estimate when unequipped
-  PUBLIC StarRupture-Plugin-BetterCheats: Label local builds from upstream's v0.20.0 release
-  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.19.0-gss.33
-  PUBLIC StarRupture-Plugin-BetterCheats: Show each weapon tab's own base stats, gate live readout to equipped
-  PUBLIC StarRupture-Plugin-BetterCheats: Defer and coalesce session config writes to a debounced commit
-  PUBLIC StarRupture-Plugin-BetterCheats: Find gatherable classes in memory, not by force-load
-  PUBLIC StarRupture-Plugin-BetterCheats: Persist compose state whenever the written value changes
-  PUBLIC StarRupture-Plugin-BetterCheats: Add a wild-plant gather (Plant Pickup) multiplier
-  PUBLIC StarRupture-Plugin-BetterDrone: Keep the drone map key out while any menu is open
-  PUBLIC StarRupture-Plugin-BetterDrone: v0.20.0-gss.29
-  PUBLIC StarRupture-Plugin-BetterDrone: Open the map from the drone with the map key
   PUBLIC Agent Templates: chore(agent-companion): release 0.29.21
   PUBLIC Agent Templates: fix(agent-companion): self-review review round (nested opus/xhigh review)
   PUBLIC Agent Templates: feat(agent-companion): architect-class writers spawn their own reviewer
@@ -160,28 +266,8 @@ Mon 28 Sept
   PUBLIC GSS Stats: chore(types): fix vue-tsc errors and run typecheck in CI
   PUBLIC GSS Stats: fix(ads-sync): no Intl at module load in adsRules again
   PUBLIC GSS Stats: chore(dev): make Browser-pane preview worktree-safe
-  PUBLIC GSS Stats: feat(completions): add deferred-completion beacon family (EU consent)
-  PUBLIC GSS Stats: feat(ads-reads): publish the morning read as a report page every run
-  PUBLIC GSS Stats: feat(ads-reads): build the morning read's HTML report page
 
 Sun 27 Sept
-  PUBLIC Best Sudoku: chore(agents): 1h prompt cache on opus medium+ agents, matching agent-companion's ladder
-  PUBLIC Best Sudoku: chore(agents): declare routingType for agent-companion drift check
-  PUBLIC Best Sudoku: fix(agents): pair builder with bsk-reviewer-medium; retire dead opus-escalation in debugger
-  PUBLIC Best Sudoku: chore(agents): pin bsk-* project agents to agent-companion's default route
-  PUBLIC Best Sudoku: docs(ads-retest): seed the retest daily review log and audit-trail data dir
-  PUBLIC Best Sudoku: docs(ads): log 09-26 go-live bounds and freeze status in retest spec section 15
-  PUBLIC StarRupture-Plugin-BetterCheats: Check cached UObjects are still alive before each use
-  PUBLIC StarRupture-Plugin-BetterCheats: Fix saved-preset name/group bugs that only surface on reload
-  PUBLIC StarRupture-Plugin-BetterCheats: Show mods/buffs and our own change in the live-values hover
-  PUBLIC StarRupture-Plugin-BetterCheats: Add built-in Less Cost Grenade preset
-  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.19.0-gss.32
-  PUBLIC StarRupture-Plugin-BetterCheats: Check cached UObjects are still alive before each use
-  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.19.0-gss.31
-  PUBLIC StarRupture-Plugin-BetterCheats: Fix saved-preset name/group bugs that only surface on reload
-  PUBLIC StarRupture-Plugin-BetterCheats: Show mods/buffs and our own change in the live-values hover
-  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.19.0-gss.29
-  PUBLIC StarRupture-Plugin-BetterCheats: Add built-in Less Cost Grenade preset
   PUBLIC StarRupture-Plugin-BetterDrone: v0.20.0-gss.28
   PUBLIC StarRupture-Plugin-BetterDrone: Snap base drone speed changes instead of ramping
   PUBLIC StarRupture-Plugin-BetterDrone: v0.20.0-gss.27
@@ -195,6 +281,40 @@ Sun 27 Sept
   PUBLIC StarRupture-Plugin-BetterDrone: Validate cached drone audio components before each use
   PUBLIC StarRupture-Plugin-BetterDrone: Fix saved-preset names containing ']' getting truncated on reload
   PUBLIC StarRupture-Plugin-BetterDrone: Reapply drone audio volume every tick, not every 0.5s
+  PUBLIC StarRupture-Plugin-BetterDrone: Snap base drone speed changes instead of ramping
+  PUBLIC StarRupture-Plugin-BetterDrone: Validate cached drone audio components before each use
+  PUBLIC StarRupture-Plugin-BetterDrone: Fix saved-preset names containing ']' getting truncated on reload
+  PUBLIC StarRupture-Plugin-BetterDrone: Reapply drone audio volume every tick, not every 0.5s
+  PUBLIC StarRupture-Plugin-BetterDrone: Snap base drone speed changes instead of ramping
+  PUBLIC StarRupture-Plugin-BetterDrone: Validate cached drone audio components before each use
+  PUBLIC StarRupture-Plugin-BetterDrone: Fix saved-preset names containing ']' getting truncated on reload
+  PUBLIC StarRupture-Plugin-BetterDrone: Reapply drone audio volume every tick, not every 0.5s
+  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.19.0-gss.32
+  PUBLIC StarRupture-Plugin-BetterCheats: Check cached UObjects are still alive before each use
+  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.19.0-gss.31
+  PUBLIC StarRupture-Plugin-BetterCheats: Fix saved-preset name/group bugs that only surface on reload
+  PUBLIC StarRupture-Plugin-BetterCheats: Show mods/buffs and our own change in the live-values hover
+  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.19.0-gss.29
+  PUBLIC StarRupture-Plugin-BetterCheats: Add built-in Less Cost Grenade preset
+  PUBLIC StarRupture-Plugin-BetterCheats: Check cached UObjects are still alive before each use
+  PUBLIC StarRupture-Plugin-BetterCheats: Fix saved-preset name/group bugs that only surface on reload
+  PUBLIC StarRupture-Plugin-BetterCheats: Show mods/buffs and our own change in the live-values hover
+  PUBLIC StarRupture-Plugin-BetterCheats: Add built-in Less Cost Grenade preset
+  PUBLIC StarRupture-Plugin-BetterCheats: Check cached UObjects are still alive before each use
+  PUBLIC StarRupture-Plugin-BetterCheats: Fix saved-preset name/group bugs that only surface on reload
+  PUBLIC StarRupture-Plugin-BetterCheats: Check cached UObjects are still alive before each use
+  PUBLIC StarRupture-Plugin-BetterCheats: Fix saved-preset name/group bugs that only surface on reload
+  PUBLIC StarRupture-Plugin-BetterCheats: Show mods/buffs and our own change in the live-values hover
+  PUBLIC StarRupture-Plugin-BetterCheats: Add built-in Less Cost Grenade preset
+  PUBLIC StarRupture-Plugin-BetterCheats: Check cached UObjects are still alive before each use
+  PUBLIC StarRupture-Plugin-BetterCheats: Fix saved-preset name/group bugs that only surface on reload
+  PUBLIC StarRupture-Plugin-BetterCheats: Show mods/buffs and our own change in the live-values hover
+  PUBLIC StarRupture-Plugin-BetterCheats: Add built-in Less Cost Grenade preset
+  PUBLIC StarRupture-Plugin-BetterCheats: Check cached UObjects are still alive before each use
+  PUBLIC StarRupture-Plugin-BetterCheats: Fix saved-preset name/group bugs that only surface on reload
+  PUBLIC StarRupture-ModLoader: Look up the current world fresh every tick
+  PUBLIC StarRupture-ModLoader: Center IconButton's glyph on its actual ink box
+  PUBLIC StarRupture-ModLoader: Pause DLSS Frame Generation while an overlay window is open
   PUBLIC StarRupture-ModLoader: Look up the current world fresh every tick
   PUBLIC StarRupture-ModLoader: Center IconButton's glyph on its actual ink box
   PUBLIC StarRupture-ModLoader: Pause DLSS Frame Generation while an overlay window is open
@@ -204,6 +324,12 @@ Sun 27 Sept
   PUBLIC StarRupture-ModLoader: Remove FramegenDiag temporary logging
   PUBLIC StarRupture-ModLoader: Pause DLSS Frame Generation while an overlay window is open
   PUBLIC StarRupture-ModLoader: Revert "Let a different thread wait briefly for HookedPresent's owner"
+  PUBLIC Best Sudoku: chore(agents): 1h prompt cache on opus medium+ agents, matching agent-companion's ladder
+  PUBLIC Best Sudoku: chore(agents): declare routingType for agent-companion drift check
+  PUBLIC Best Sudoku: fix(agents): pair builder with bsk-reviewer-medium; retire dead opus-escalation in debugger
+  PUBLIC Best Sudoku: chore(agents): pin bsk-* project agents to agent-companion's default route
+  PUBLIC Best Sudoku: docs(ads-retest): seed the retest daily review log and audit-trail data dir
+  PUBLIC Best Sudoku: docs(ads): log 09-26 go-live bounds and freeze status in retest spec section 15
   PUBLIC Agent Templates: chore(agent-companion): release 0.29.19
   PUBLIC Agent Templates: fix(agent-companion): namegate names must match the Agent tool's name pattern
   PUBLIC Agent Templates: fix(agent-companion): review fixes for audit signals (runaway delivery, parity, churn)
@@ -308,12 +434,10 @@ Sun 27 Sept
   PUBLIC GSS Stats: feat(metrics): add the batched POST /api/metrics endpoint (ADR 0003 slice 3)
   PUBLIC GSS Stats: feat(metrics): add the metrics registry (ADR 0003 slice 2)
   PUBLIC GSS Stats: fix(overview): attribute KPI arrivals like the scorecard; "Game-screen views"
-  PUBLIC GSS Stats: fix(ads-reads): correct upsell-bug and sign-up standing notes
-  PUBLIC GSS Stats: fix(ads-reads): attach the bearer token to Play GCS list/download requests
-  PUBLIC GSS Stats: feat(metrics): explicit zeros for every Best Sudoku event family (A2)
-  PUBLIC GSS Stats: fix(geo): stop the auth-panel filters from busting D1's bind ceiling
 
 Sat 26 Sept
+  PUBLIC StarRupture-ModLoader: Add temporary per-thread Present diagnostic for framegen flicker
+  PUBLIC StarRupture-ModLoader: Let a different thread wait briefly for HookedPresent's owner
   PUBLIC Best Sudoku: merge(staging -> main): promote v1.95.6 to production
   PUBLIC Best Sudoku: release: v1.95.6
   PUBLIC Best Sudoku: chore(release): v1.95.6
@@ -380,8 +504,6 @@ Sat 26 Sept
   PUBLIC Best Sudoku: fix(e2e): close the remaining fail-opens in greenBankDecision
   PUBLIC Best Sudoku: fix(e2e): scrub the git env on the calls that produce banked values
   PUBLIC Best Sudoku: fix(e2e): key the affected classifier off the pushed sha, not the checkout
-  PUBLIC StarRupture-ModLoader: Add temporary per-thread Present diagnostic for framegen flicker
-  PUBLIC StarRupture-ModLoader: Let a different thread wait briefly for HookedPresent's owner
   PUBLIC Agent Templates: chore(agent-companion): release 0.29.17
   PUBLIC Agent Templates: feat(agent-companion): 1-hour prompt cache on the opus medium..max ladder rungs
   PUBLIC Agent Templates: chore(agent-companion): release 0.29.16
@@ -417,135 +539,4 @@ Sat 26 Sept
   PUBLIC GSS Stats: fix(dashboard): always-visible zoom + reveal icons, per-chart disclosure
   PUBLIC GSS Stats: merge: fix/clean-look into release/0.8.0
   PUBLIC GSS Stats: merge: feat/trim-uninstrumented into release/0.8.0
-  PUBLIC GSS Stats: merge: feat/all-beacon-fields into release/0.8.0
-  PUBLIC GSS Stats: fix(dashboard): stop the touch toggle from closing itself on the opening tap
-  PUBLIC GSS Stats: perf(campaigns): cache the closed-flight instrumentation check and completions
   PRIVATE (name withheld): 2 commits [other=1 chore=1]
-
-Fri 25 Sept
-  PUBLIC Best Sudoku: fix(analytics): clear app storage before the Play referrer check; quiet for a pending Play d0
-  PUBLIC Best Sudoku: fix(analytics): read the Play referrer only with consent, and time out the native call
-  PUBLIC Best Sudoku: fix(analytics): learn a Play install's ad campaign once from the Install Referrer
-  PUBLIC Best Sudoku: fix(analytics): clear the campaign record on refused beacons; quiet after sign-in
-  PUBLIC Best Sudoku: fix(analytics): harden campaign returns against opt-out, id-shaped tags and reloads
-  PUBLIC Best Sudoku: fix(analytics): count anonymous return visits per ad campaign
-  PUBLIC Best Sudoku: fix(analytics): clear pending measurements on refused beacons; quiet after sign-in
-  PUBLIC Best Sudoku: fix(analytics): delete pending pop-up measurements the moment usage data is turned off
-  PUBLIC Best Sudoku: fix(analytics): keep measurement events out of the ad snapshot's per-site totals
-  PUBLIC Best Sudoku: fix(analytics): keep outcome and return paths out of ad totals
-  PUBLIC Best Sudoku: fix(analytics): defer sign-in eligibility and always hold outcomes 30 minutes
-  PUBLIC Best Sudoku: fix(analytics): document the id-free pop-up outcomes in the registry and playbook
-  PUBLIC Best Sudoku: fix(analytics): work out pop-up outcomes on the device, send them id-free
-  PUBLIC Best Sudoku: fix(privacy): remove the installation ID claim; the beacon never sends one
-  PUBLIC Best Sudoku: fix(analytics): count earned sign-in asks and keep new events out of ad totals
-  PUBLIC Best Sudoku: fix(analytics): never beacon an admin upsell preview, and label Settings' Upgrade
-  PUBLIC Best Sudoku: fix(analytics): add manual production checks for the pop-up beacons
-  PUBLIC Best Sudoku: fix(analytics): beacon pop-up impressions, taps and outcomes
-  PUBLIC Best Sudoku: fix(analytics): keep the install id on the device and out of the data export
-  PUBLIC Best Sudoku: docs(feedback-routine): print "not live yet" for pop-up families with no production data
-  PUBLIC Best Sudoku: fix(analytics): tighten the pop-up funnel step's wording and local command
-  PUBLIC Best Sudoku: fix(analytics): report the pop-up funnel in the daily digest
-  PUBLIC Best Sudoku: test(install): cover the real install prompt accepted and dismissed paths
-  PUBLIC Best Sudoku: fix(install): tell the admin a dev-preview Install tap is a preview, not silent
-  PUBLIC Best Sudoku: merge(feat/popup-reset-all -> staging): reset-all pop-up dev control, gated by green local E2E (767/767)
-  PUBLIC Best Sudoku: feat(dev-tools): add a Reset all pop-ups control to the pop-up dashboard
-  PUBLIC Best Sudoku: docs(marketing): correct tagged_arrivals to a per-row floor, not a hits count
-  PUBLIC Best Sudoku: docs(marketing): switch campaign attribution to row-level uc, retire signature joins
-  PUBLIC Best Sudoku: docs: correct the gate's stale documentation and the unset rationale
-  PUBLIC Best Sudoku: fix(hooks): name the cause when the ledger declines, and fail closed on an absent dirt sample
-  PUBLIC Best Sudoku: test(e2e): cover the under-inclusive direction of the merge-base fix
-  PUBLIC Best Sudoku: fix(hooks): stop the early vitest calls consuming the pushed-ref stdin
-  PUBLIC Best Sudoku: fix(e2e): add the remaining gate-decision files to the inheritance blocklist
-  PUBLIC Best Sudoku: fix(hooks): key the unit gate off the pushed refs, not the checkout
-  PUBLIC Best Sudoku: fix(e2e): scrub the git environment at the runner boundary
-  PUBLIC Best Sudoku: fix(e2e): pin the banked sha and re-check dirt at record time
-  PUBLIC Best Sudoku: docs(hooks): record the pre-push gate honesty design and its retractions
-  PUBLIC Best Sudoku: fix(hooks): run the hook's own tests when the hook changes
-  PUBLIC Best Sudoku: fix(e2e): close the inheritance blocklist over the gate's own surface
-  PUBLIC Best Sudoku: fix(hooks): classify every release ref in a multi-ref push, not just the first
-  PUBLIC Best Sudoku: fix(merge): reject an INHERITED green where the merge gate requires a real run
-  PUBLIC Best Sudoku: fix(merge): refuse to gate when the checkout is not the sha being gated
-  PUBLIC Best Sudoku: fix(hooks): isolate the hook test's ledger and stop leaking git env into spawned children
-  PUBLIC Best Sudoku: fix(e2e): refuse to bank a green earned on a modified tracked tree
-  PUBLIC Best Sudoku: fix(hooks): select tests from a merge-base diff, not a tip-to-tip diff
-  PUBLIC Best Sudoku: fix(hooks): stop a stray untracked file from disabling every E2E fast path
-  PUBLIC Best Sudoku: fix(hooks): key E2E fast paths off the pushed refs, not the checkout HEAD
-  PUBLIC Best Sudoku: docs: correct the gate's stale documentation and the unset rationale
-  PUBLIC Best Sudoku: fix(hooks): name the cause when the ledger declines, and fail closed on an absent dirt sample
-  PUBLIC Best Sudoku: test(e2e): cover the under-inclusive direction of the merge-base fix
-  PUBLIC Best Sudoku: fix(hooks): stop the early vitest calls consuming the pushed-ref stdin
-  PUBLIC Best Sudoku: fix(e2e): add the remaining gate-decision files to the inheritance blocklist
-  PUBLIC Best Sudoku: fix(hooks): key the unit gate off the pushed refs, not the checkout
-  PUBLIC Best Sudoku: fix(e2e): scrub the git environment at the runner boundary
-  PUBLIC Best Sudoku: fix(e2e): pin the banked sha and re-check dirt at record time
-  PUBLIC Best Sudoku: docs(hooks): record the pre-push gate honesty design and its retractions
-  PUBLIC Best Sudoku: fix(hooks): run the hook's own tests when the hook changes
-  PUBLIC Best Sudoku: fix(e2e): close the inheritance blocklist over the gate's own surface
-  PUBLIC Best Sudoku: fix(hooks): classify every release ref in a multi-ref push, not just the first
-  PUBLIC Best Sudoku: fix(merge): reject an INHERITED green where the merge gate requires a real run
-  PUBLIC Best Sudoku: fix(merge): refuse to gate when the checkout is not the sha being gated
-  PUBLIC Best Sudoku: fix(hooks): isolate the hook test's ledger and stop leaking git env into spawned children
-  PUBLIC Best Sudoku: fix(e2e): refuse to bank a green earned on a modified tracked tree
-  PUBLIC Best Sudoku: fix(hooks): select tests from a merge-base diff, not a tip-to-tip diff
-  PUBLIC Best Sudoku: fix(hooks): stop a stray untracked file from disabling every E2E fast path
-  PUBLIC Best Sudoku: fix(hooks): key E2E fast paths off the pushed refs, not the checkout HEAD
-  PUBLIC Best Sudoku: docs: correct the gate's stale documentation and the unset rationale
-  PUBLIC Best Sudoku: fix(hooks): name the cause when the ledger declines, and fail closed on an absent dirt sample
-  PUBLIC Best Sudoku: test(e2e): cover the under-inclusive direction of the merge-base fix
-  PUBLIC Best Sudoku: fix(hooks): stop the early vitest calls consuming the pushed-ref stdin
-  PUBLIC Best Sudoku: fix(e2e): add the remaining gate-decision files to the inheritance blocklist
-  PUBLIC Best Sudoku: fix(hooks): key the unit gate off the pushed refs, not the checkout
-  PUBLIC Best Sudoku: fix(e2e): scrub the git environment at the runner boundary
-  PUBLIC Best Sudoku: fix(e2e): pin the banked sha and re-check dirt at record time
-  PUBLIC Best Sudoku: docs(hooks): record the pre-push gate honesty design and its retractions
-  PUBLIC Best Sudoku: fix(hooks): run the hook's own tests when the hook changes
-  PUBLIC Best Sudoku: fix(e2e): close the inheritance blocklist over the gate's own surface
-  PUBLIC Best Sudoku: fix(hooks): classify every release ref in a multi-ref push, not just the first
-  PUBLIC Best Sudoku: fix(merge): reject an INHERITED green where the merge gate requires a real run
-  PUBLIC Best Sudoku: fix(merge): refuse to gate when the checkout is not the sha being gated
-  PUBLIC Best Sudoku: fix(hooks): isolate the hook test's ledger and stop leaking git env into spawned children
-  PUBLIC Best Sudoku: fix(e2e): refuse to bank a green earned on a modified tracked tree
-  PUBLIC Best Sudoku: fix(hooks): select tests from a merge-base diff, not a tip-to-tip diff
-  PUBLIC Best Sudoku: fix(hooks): stop a stray untracked file from disabling every E2E fast path
-  PUBLIC Best Sudoku: fix(hooks): key E2E fast paths off the pushed refs, not the checkout HEAD
-  PUBLIC StarRupture-Plugin-BetterCheats: Multiply-mode rows compose onto BaseValue, not the buffed total
-  PUBLIC StarRupture-Plugin-BetterCheats: Show grenade tab before charging, cap number-box width
-  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.19.0-gss.28
-  PUBLIC StarRupture-Plugin-BetterCheats: Multiply-mode rows compose onto BaseValue, not the buffed total
-  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.19.0-gss.27
-  PUBLIC StarRupture-Plugin-BetterCheats: Show grenade tab before charging, cap number-box width
-  PUBLIC StarRupture-Plugin-BetterDrone: v0.20.0-gss.23
-  PUBLIC StarRupture-Plugin-BetterDrone: Move drone audio volumes off the loader page into the panel
-  PUBLIC StarRupture-Plugin-BetterDrone: Move drone audio volumes off the loader page into the panel
-  PUBLIC Agent Templates: chore(agent-companion): release 0.29.7
-  PUBLIC Agent Templates: fix(agent-companion): vault safe.directory decided once; strip exec-path/askpass env
-  PUBLIC Agent Templates: fix(agent-companion): copyable-prompt phrasing; a typed wrapper-tag name stays the user's text
-  PUBLIC Agent Templates: fix(agent-companion): vault safe.directory is read as git reads it; GIT_ATTR_SOURCE and GIT_REDIRECT_* are dropped
-  PUBLIC Agent Templates: test(agent-companion): every vault -c option and isolation pin has a test that fails without it
-  PUBLIC Agent Templates: fix(agent-companion): copyable-prompt phrasing fixes; linear wrapper stripping
-  PUBLIC Agent Templates: fix(agent-companion): vault git calls read no config from outside the vault
-  PUBLIC Agent Templates: chore(agent-companion): release 0.29.6
-  PUBLIC Agent Templates: docs(agent-companion): unstamped guard range is 0.29.0–0.29.5
-  PUBLIC Agent Templates: fix(agent-companion): ladder round 5 - a continued agent's repeat start is never an ignored rewrite
-  PUBLIC Agent Templates: fix(agent-companion): ladder round 4 - split stale-copy from outdated-session, positive rewrite attribution, pid-reuse-safe resume
-  PUBLIC Agent Templates: fix(agent-companion): ladder round 3 - judge sessions by the version they loaded, registered-only rewrites
-  PUBLIC Agent Templates: refactor(agent-companion): keep the installed_plugins readers inside context.mjs
-  PUBLIC Agent Templates: fix(agent-companion): ladder round 2 - cross-session stale-guard signal, namespaced agent defs, config-driven drift check
-  PUBLIC Agent Templates: feat(agent-companion): detect and recover from broken ladder registration
-  PUBLIC Agent Templates: chore(agent-companion): release 0.29.5
-  PUBLIC Agent Templates: fix(scripts): push-scan round 3 - ref names, replace refs, denylist separators, escaped names, destination-only public boundary
-  PUBLIC Agent Templates: test(scripts): correct push-scan test header on non-ASCII text
-  PUBLIC Agent Templates: test(scripts): pin push-scan's denylist decode reasons; document round-2 scan semantics
-  PUBLIC Agent Templates: fix(scripts): push-scan round 2 - byte-exact paths, binary content, public merges, strict denylist
-  PUBLIC Agent Templates: wip: round-2 partial from stopped worker
-  PUBLIC Agent Templates: chore(agent-companion): release 0.29.4
-  PUBLIC Agent Templates: fix(agent-companion): flake round 2 - real root causes, safer worktree fallback
-  PUBLIC Agent Templates: fix(agent-companion): memory-scope git-timeout fallback and 6 load-flaky tests
-  PUBLIC Agent Templates: chore(agent-companion): release 0.29.3
-  PUBLIC Agent Templates: docs(agent-companion): skills defer routing to the table and name ladder agents
-  PUBLIC Agent Templates: chore(agent-companion): release 0.29.2
-  PUBLIC Agent Templates: fix(agent-companion): effort review fixes
-  PUBLIC Agent Templates: docs(agent-companion): regenerate ROUTING.md after restoring the elevated floor
-  PUBLIC Agent Templates: test(agent-companion): differential proof that only integration's trial route changed
-  PUBLIC Agent Templates: fix(agent-companion): scope integration's F5 waiver to its own trial row, not the elevated floor globally
-  PUBLIC GSS Beacon: fix(beacon): record an app's random install id as vid for per-device joins
