@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Tue 29 Sept** — Quiet across every repo. The only thing that shipped today was the silence.
+**Wed 30 Sept** — No commits anywhere. The repos kept their own counsel.
 
-**Mon 28 Sept** — Best Sudoku shipped two production releases, replacing the staging-gate's hash allowlist with a live tester lookup, backed by heavy docs and tests. Parallel work landed on StarRupture's cheat plugin and GSS Stats' ad-visibility reporting.
+**Tue 29 Sept** — A polish day across three StarRupture plugins: panel alignment and map-key handling in BetterDrone, mining-tool stats surfaced in BetterCheats, a DLSS-G frame-gen persistence fix in ModLoader. Best Sudoku and Agent Templates each saw a single housekeeping commit.
 
-**Sun 27 Sept** — GSS Stats rewrote its dashboard as reusable metric-card components across several releases — funnel, arrivals, and campaign cards replacing bespoke panels. StarRupture's drone and cheat plugins got a run of stability fixes; agent-companion shipped routing and audit-signal releases.
+**Mon 28 Sept** — Best Sudoku shipped two releases while hardening the staging-gate: tester admission, a sign-out bug that could kill a tester's grace. BetterCheats landed composed weapon/movement rows and fixed a stack-size bug. GSS Stats shipped the first-50 ads offer report.
 
-**Sat 26 Sept** — Best Sudoku shipped a run of releases landing new analytics beacons (sign-in, game-completion) and closed out a long pre-push gate hardening effort. Agent-companion pushed a string of releases (prompt caching, namegate, transcript tooling). A quiet two commits on `[REDACTED]`.
+**Sun 27 Sept** — The big day: GSS Stats rebuilt its metrics system into reusable cards across six releases, replacing bespoke panels. StarRupture plugins fixed audio-preset bugs and stale-pointer checks. Agent Templates shipped a live-evidence routing amendment for agent-companion.
 
-**Fri 25 Sept** — Best Sudoku spent the day on analytics honesty — pop-up funnel beacons, install-referrer campaign attribution, and a privacy fix retracting a false install-ID claim — alongside pre-push gate hardening. Agent-companion tightened its push-scan denylist; GSS Beacon added per-device join ids.
+**Sat 26 Sept** — Best Sudoku shipped four releases, added completion and sign-in beacons, and hardened the e2e gate's decision logic. Agent Templates cut several agent-companion releases refining prompt-cache TTLs. GSS Stats shipped one release. Two quiet commits landed in `[REDACTED]`.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
