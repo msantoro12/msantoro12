@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Wed 30 Sept** — No commits anywhere. The repos kept their own counsel.
+**Thu 1 Oct** — Nothing committed anywhere. Whatever happened today didn't happen in git.
 
-**Tue 29 Sept** — A polish day across three StarRupture plugins: panel alignment and map-key handling in BetterDrone, mining-tool stats surfaced in BetterCheats, a DLSS-G frame-gen persistence fix in ModLoader. Best Sudoku and Agent Templates each saw a single housekeeping commit.
+**Wed 30 Sept** — Best Sudoku: corrected a mis-read ad funnel retest and logged the retraction in the audit trail. A quiet day of record-keeping, not building.
 
-**Mon 28 Sept** — Best Sudoku shipped two releases while hardening the staging-gate: tester admission, a sign-out bug that could kill a tester's grace. BetterCheats landed composed weapon/movement rows and fixed a stack-size bug. GSS Stats shipped the first-50 ads offer report.
+**Tue 29 Sept** — StarRupture work dominated: BetterDrone gained a map key to open and close its drone map, BetterCheats got mining-tool presets and a plant-pickup multiplier, ModLoader kept DLSS frame generation stable through loads. Mostly polish, heavily iterated.
 
-**Sun 27 Sept** — The big day: GSS Stats rebuilt its metrics system into reusable cards across six releases, replacing bespoke panels. StarRupture plugins fixed audio-preset bugs and stale-pointer checks. Agent Templates shipped a live-evidence routing amendment for agent-companion.
+**Mon 28 Sept** — Best Sudoku shipped two production releases, guarded its install-id beacon against concurrent mints, and sharpened sign-in error messaging. GSS Stats added client-visible ad-offer reporting. Agent Templates' agent-companion grew a delegation guard. A full day landing work already in flight.
 
-**Sat 26 Sept** — Best Sudoku shipped four releases, added completion and sign-in beacons, and hardened the e2e gate's decision logic. Agent Templates cut several agent-companion releases refining prompt-cache TTLs. GSS Stats shipped one release. Two quiet commits landed in `[REDACTED]`.
+**Sun 27 Sept** — GSS Stats rebuilt its dashboard around a unified metric-card system, shipping it across several point releases and retiring the old bespoke panels. StarRupture plugins picked off scattered preset and audio bugs. Agent Templates tuned agent-companion's routing. Mostly landing, not starting.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
