@@ -1,8 +1,8 @@
 {
-  "generated": "2026-10-02",
+  "generated": "2026-10-03",
   "days": 5,
-  "commitsToday": 36,
-  "commitsInWindow": 236,
-  "headline": "36 commits today",
-  "prose": "**Fri 2 Oct** — No commits. Either everything already works, or nobody has found out yet.\n\n**Thu 1 Oct** — Best Sudoku: corrections to the Day 4 and Day 5 retest reads, plus the routine audit-trail entry. Nine commits on `[REDACTED]`, all unclassified by type — steady work, no visible shape to the cadence.\n\n**Wed 30 Sept** — Best Sudoku: corrected the Day 4 retest read and retracted an earlier funnel-reach claim, then logged the audit trail. A day of fixing yesterday's numbers rather than adding new ones.\n\n**Tue 29 Sept** — Version churn across the StarRupture plugins: BetterDrone and BetterCheats saw UI polish (panel alignment, control renames, map-key handling) and a string of patch bumps; ModLoader got a DLSS-G frame-gen fix. Agent Templates picked up a merged PR.\n\n**Mon 28 Sept** — Heaviest day of the five: two Best Sudoku releases plus a rebuilt staging-tester gate; BetterCheats grew live mining and weapon readouts; Agent Templates shipped two releases including a delegation guard; GSS Stats added completion beacons and an ads report page."
+  "commitsToday": 126,
+  "commitsInWindow": 261,
+  "headline": "126 commits today",
+  "prose": "**Sat 3 Oct** — Best Sudoku pushed two production releases, adding onboarding beacons for first-run games and lowering the sign-in prompt's threshold; GSS Stats reworked ad reads to pull from any registered campaign instead of one hard-coded id. `[REDACTED]` logged a single commit.\n\n**Fri 2 Oct** — Agent Templates cut four hardening releases (effort-check prompts, version tooling, budget notices); StarRupture's BetterCheats and BetterDrone plugins added real features instead — a Windows Anywhere toggle, a drone map-reveal option. Best Sudoku hardened leaderboard scripts. `[REDACTED]`: eleven commits.\n\n**Thu 1 Oct** — Best Sudoku's day was pure ads bookkeeping — retest corrections and an audit trail for the ongoing campaign reads, no code changes. `[REDACTED]` carried the bulk of the day: nine commits.\n\n**Wed 30 Sept** — Best Sudoku retracted a prior ads retest read and corrected the record — day given over to fixing the audit trail rather than adding anything new.\n\n**Tue 29 Sept** — StarRupture's BetterCheats and BetterDrone plugins got a big day: mining-tool stats with presets, a wild plant-pickup multiplier, new drone map-key behavior, plus a UI alignment pass across both. Best Sudoku stuck to ads audit-trail logging."
 }
