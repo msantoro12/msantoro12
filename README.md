@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Sat 3 Oct** — Best Sudoku pushed two production releases, adding onboarding beacons for first-run games and lowering the sign-in prompt's threshold; GSS Stats reworked ad reads to pull from any registered campaign instead of one hard-coded id. `[REDACTED]` logged a single commit.
+**Sun 4 Oct** — Heaviest day of the week, nearly all landing and hardening: a run of GSS Stats releases covering retention cards, metric tiles and editor filters, plus a multi-pass hardening sweep on Agent Templates' write-target-guard.
 
-**Fri 2 Oct** — Agent Templates cut four hardening releases (effort-check prompts, version tooling, budget notices); StarRupture's BetterCheats and BetterDrone plugins added real features instead — a Windows Anywhere toggle, a drone map-reveal option. Best Sudoku hardened leaderboard scripts. `[REDACTED]`: eleven commits.
+**Sat 3 Oct** — Three production releases on Best Sudoku (onboarding flow, first-run tour exits, ad-campaign prep), new features landed on Agent Templates and GSS Stats, and light activity on two `[REDACTED]` repos.
 
-**Thu 1 Oct** — Best Sudoku's day was pure ads bookkeeping — retest corrections and an audit trail for the ongoing campaign reads, no code changes. `[REDACTED]` carried the bulk of the day: nine commits.
+**Fri 2 Oct** — A string of Agent Templates point releases (lead-effort-check, version tooling), drone and building toggles for the StarRupture plugins, script hardening on Best Sudoku, and an unusually busy day on a `[REDACTED]` project: eleven commits, cause unknown.
 
-**Wed 30 Sept** — Best Sudoku retracted a prior ads retest read and corrected the record — day given over to fixing the audit trail rather than adding anything new.
+**Thu 1 Oct** — Public side was quiet, just ads-retest bookkeeping on Best Sudoku; the real volume was nine commits on a `[REDACTED]` project, type unreadable from here.
 
-**Tue 29 Sept** — StarRupture's BetterCheats and BetterDrone plugins got a big day: mining-tool stats with presets, a wild plant-pickup multiplier, new drone map-key behavior, plus a UI alignment pass across both. Best Sudoku stuck to ads audit-trail logging.
+**Wed 30 Sept** — Two lines of ads-retest bookkeeping on Best Sudoku and nothing else; a quiet close to the week.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
