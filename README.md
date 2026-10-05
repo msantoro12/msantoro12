@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Sun 4 Oct** — Heaviest day of the week, nearly all landing and hardening: a run of GSS Stats releases covering retention cards, metric tiles and editor filters, plus a multi-pass hardening sweep on Agent Templates' write-target-guard.
+**Mon 5 Oct** — No commits anywhere. The repositories held their breath and nobody blinked first.
 
-**Sat 3 Oct** — Three production releases on Best Sudoku (onboarding flow, first-run tour exits, ad-campaign prep), new features landed on Agent Templates and GSS Stats, and light activity on two `[REDACTED]` repos.
+**Sun 4 Oct** — Massive day: shipped agent-companion's token-saving release after merging four feature branches, closed out GSS Stats' card-based stat tiles, retention and notes work, then landed editor filters and polish, plus a Best Sudoku marketing tidy and a quiet `[REDACTED]` commit.
 
-**Fri 2 Oct** — A string of Agent Templates point releases (lead-effort-check, version tooling), drone and building toggles for the StarRupture plugins, script hardening on Best Sudoku, and an unusually busy day on a `[REDACTED]` project: eleven commits, cause unknown.
+**Sat 3 Oct** — The heaviest day of the week: pushed two Best Sudoku releases with onboarding and tour fixes, landed a write-target-guard plugin, and kept shipping GSS Stats features across ads and retention; plus brief chore-heavy work in two `[REDACTED]` projects.
 
-**Thu 1 Oct** — Public side was quiet, just ads-retest bookkeeping on Best Sudoku; the real volume was nine commits on a `[REDACTED]` project, type unreadable from here.
+**Fri 2 Oct** — A run of small agent-companion releases (routing-table rework, budget/context notices, a version-check skill) each landing with its own review-fix follow-up, plus StarRupture drone/building toggles and Best Sudoku script hardening. One `[REDACTED]` project saw eleven commits, uncategorized.
 
-**Wed 30 Sept** — Two lines of ads-retest bookkeeping on Best Sudoku and nothing else; a quiet close to the week.
+**Thu 1 Oct** — Quiet on the public side: two Best Sudoku docs commits logging ad-retest audits. The real volume was in `[REDACTED]`, with nine commits landing back to back, none of them categorized by type.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
