@@ -21,7 +21,7 @@ software at enterprise scale, now building things I actually want to use.
 **Thu 1 Oct** — Quiet on the public side: two Best Sudoku docs commits logging ad-retest audits. The real volume was in `[REDACTED]`, with nine commits landing back to back, none of them categorized by type.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
-released products, contribute a commit count and nothing else, so it has no idea what
+released products, contribute a sanitized data, so it has no idea what
 half of this is.</sub>
 
 <!-- NOW:END -->
