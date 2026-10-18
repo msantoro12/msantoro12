@@ -19,13 +19,17 @@ on:
 permissions:
   contents: write
 
+# A run stuck waiting (environment gate, runner outage) must not block every later
+# run: the newest run replaces it. Groups are separate so a hung run of one workflow
+# cannot starve the other. Both jobs are idempotent, so being replaced mid-run is safe.
 concurrency:
-  group: digest
-  cancel-in-progress: false
+  group: digest-payload
+  cancel-in-progress: true
 
 jobs:
   payload:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     # The tokens live in the `digest` environment, which only `main` may use. This is
     # the load-bearing rule of the whole design: a REPOSITORY secret is readable by a
     # workflow file pushed to any branch, and the cloud routine can push claude/*

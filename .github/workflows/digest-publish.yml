@@ -20,13 +20,17 @@ on:
 permissions:
   contents: write
 
+# A run stuck waiting (environment gate, runner outage) must not block every later
+# run: the newest run replaces it. Groups are separate so a hung run of one workflow
+# cannot starve the other. Both jobs are idempotent, so being replaced mid-run is safe.
 concurrency:
-  group: digest
-  cancel-in-progress: false
+  group: digest-publish
+  cancel-in-progress: true
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     # Secrets live in the `digest` environment, usable from main only. See
     # digest-payload.yml for why that rule is the load-bearing one.
     environment: digest
