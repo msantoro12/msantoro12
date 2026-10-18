@@ -10,18 +10,18 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Mon 5 Oct** — No commits anywhere. The repositories held their breath and nobody blinked first.
+**Sun 18 Oct** — Best Sudoku spent the day landing Sign in with Apple on iOS: auth boot without the popup resolver, Apple deletion that no longer dead-ends, and simulator smoke tests. Agent Templates took fourteen commits; GSS Stats took two.
 
-**Sun 4 Oct** — Massive day: shipped agent-companion's token-saving release after merging four feature branches, closed out GSS Stats' card-based stat tiles, retention and notes work, then landed editor filters and polish, plus a Best Sudoku marketing tidy and a quiet `[REDACTED]` commit.
+**Sat 17 Oct** — Best Sudoku: more than two hundred commits, mostly the Apple sign-in follow-through. Deletion now fails closed with end-to-end coverage, error-report opt-out applies to signed-in players, and release notes were reconciled. Hardening, not starting.
 
-**Sat 3 Oct** — The heaviest day of the week: pushed two Best Sudoku releases with onboarding and tour fixes, landed a write-target-guard plugin, and kept shipping GSS Stats features across ads and retention; plus brief chore-heavy work in two `[REDACTED]` projects.
+**Fri 16 Oct** — Best Sudoku got Sign in with Apple built end to end: provider service, sign-in button, account linking, token revoke on deletion, e2e tests. GSS Stats added roughly forty more commits. One quiet `[REDACTED]` chore.
 
-**Fri 2 Oct** — A run of small agent-companion releases (routing-table rework, budget/context notices, a version-check skill) each landing with its own review-fix follow-up, plus StarRupture drone/building toggles and Best Sudoku script hardening. One `[REDACTED]` project saw eleven commits, uncategorized.
+**Thu 15 Oct** — StarRupture mods: BetterCheats gained a pause-menu row, and the ModLoader, BetterDrone and BetterCheats now ship update notes in their release manifests, shown in the Plugins Updated pop-up. GSS Stats took twenty commits; `[REDACTED]` one chore.
 
-**Thu 1 Oct** — Quiet on the public side: two Best Sudoku docs commits logging ad-retest audits. The real volume was in `[REDACTED]`, with nine commits landing back to back, none of them categorized by type.
+**Wed 14 Oct** — Mostly StarRupture mod housekeeping: credits and contributor markers across the ModLoader and BetterDrone, plus a drone fix so it stays out when the build menu closes. Three Agent Templates commits and one `[REDACTED]` chore.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
-released products, contribute a sanitized data, so it has no idea what
+released products, contribute a commit count and nothing else, so it has no idea what
 half of this is.</sub>
 
 <!-- NOW:END -->
