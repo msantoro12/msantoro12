@@ -15,6 +15,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/projects.json'   # re-gather immediately when the whitelist changes
+      - '.github/workflows/digest-payload.yml'   # and when this workflow changes
 
 permissions:
   contents: write
@@ -73,29 +74,6 @@ jobs:
           PAYLOAD_FILE: ${{ runner.temp }}/digest-payload.txt
         run: node scripts/build-digest.mjs
 
-      - name: Watchdog -- fail loudly if the published digest has gone stale
-        if: steps.cfg.outputs.configured == 'true'
-        # Runs before the branch switch below, while origin/main is still checked out.
-        # `generated` is null before the first publish (not a failure) or a YYYY-MM-DD
-        # date. Past 72 hours, the routine or the publish workflow has stopped
-        # producing digests -- worth an email rather than a quietly stale profile.
-        run: |
-          generated=$(git show origin/main:digest.json | node -e "
-            let s = '';
-            process.stdin.on('data', (d) => (s += d));
-            process.stdin.on('end', () => console.log(JSON.parse(s).generated ?? ''));
-          ")
-          if [ -z "$generated" ]; then
-            echo "No digest published yet -- nothing to watch."
-            exit 0
-          fi
-          age_hours=$(( ( $(date -u +%s) - $(date -u -d "$generated" +%s) ) / 3600 ))
-          if [ "$age_hours" -gt 72 ]; then
-            echo "::error title=Digest stale::The last published digest is from $generated ($age_hours hours ago). The cloud routine or the digest-publish workflow has stopped producing digests -- check https://claude.ai/code/routines and the digest-publish run history."
-            exit 1
-          fi
-          echo "Last digest from $generated, $age_hours hours ago -- within budget."
-
       - name: Publish payload to branch digest-input
         if: steps.cfg.outputs.configured == 'true'
         # digest-input is public, and that is fine: it holds only what the profile
@@ -125,3 +103,27 @@ jobs:
             git commit -m "chore: digest payload"
             git push origin digest-input
           fi
+
+      - name: Watchdog -- fail loudly if the published digest has gone stale
+        if: steps.cfg.outputs.configured == 'true'
+        # Runs AFTER the payload is published, reading main's digest.json from origin: if it
+        # ran first, a stale digest would block the very payload that fixes it.
+        # `generated` is null before the first publish (not a failure) or a YYYY-MM-DD
+        # date. Past 72 hours, the routine or the publish workflow has stopped
+        # producing digests -- worth an email rather than a quietly stale profile.
+        run: |
+          generated=$(git show origin/main:digest.json | node -e "
+            let s = '';
+            process.stdin.on('data', (d) => (s += d));
+            process.stdin.on('end', () => console.log(JSON.parse(s).generated ?? ''));
+          ")
+          if [ -z "$generated" ]; then
+            echo "No digest published yet -- nothing to watch."
+            exit 0
+          fi
+          age_hours=$(( ( $(date -u +%s) - $(date -u -d "$generated" +%s) ) / 3600 ))
+          if [ "$age_hours" -gt 72 ]; then
+            echo "::error title=Digest stale::The last published digest is from $generated ($age_hours hours ago). The cloud routine or the digest-publish workflow has stopped producing digests -- check https://claude.ai/code/routines and the digest-publish run history."
+            exit 1
+          fi
+          echo "Last digest from $generated, $age_hours hours ago -- within budget."
