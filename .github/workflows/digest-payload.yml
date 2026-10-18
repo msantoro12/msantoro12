@@ -109,7 +109,7 @@ jobs:
         # Runs AFTER the payload is published, reading main's digest.json from origin: if it
         # ran first, a stale digest would block the very payload that fixes it.
         # `generated` is null before the first publish (not a failure) or a YYYY-MM-DD
-        # date. Past 72 hours, the routine or the publish workflow has stopped
+        # date. Past 60 hours (date granularity can add up to 24), the routine or publish workflow has stopped
         # producing digests -- worth an email rather than a quietly stale profile.
         run: |
           generated=$(git show origin/main:digest.json | node -e "
@@ -122,7 +122,7 @@ jobs:
             exit 0
           fi
           age_hours=$(( ( $(date -u +%s) - $(date -u -d "$generated" +%s) ) / 3600 ))
-          if [ "$age_hours" -gt 72 ]; then
+          if [ "$age_hours" -gt 60 ]; then
             echo "::error title=Digest stale::The last published digest is from $generated ($age_hours hours ago). The cloud routine or the digest-publish workflow has stopped producing digests -- check https://claude.ai/code/routines and the digest-publish run history."
             exit 1
           fi
