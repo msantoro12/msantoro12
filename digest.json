@@ -1,8 +1,8 @@
 {
-  "generated": "2026-10-18",
+  "generated": "2026-10-19",
   "days": 5,
-  "commitsToday": 65,
-  "commitsInWindow": 590,
-  "headline": "65 commits today",
-  "prose": "**Sun 18 Oct** — Best Sudoku spent the day landing Sign in with Apple on iOS: auth boot without the popup resolver, Apple deletion that no longer dead-ends, and simulator smoke tests. Agent Templates took fourteen commits; GSS Stats took two.\n\n**Sat 17 Oct** — Best Sudoku: more than two hundred commits, mostly the Apple sign-in follow-through. Deletion now fails closed with end-to-end coverage, error-report opt-out applies to signed-in players, and release notes were reconciled. Hardening, not starting.\n\n**Fri 16 Oct** — Best Sudoku got Sign in with Apple built end to end: provider service, sign-in button, account linking, token revoke on deletion, e2e tests. GSS Stats added roughly forty more commits. One quiet `[REDACTED]` chore.\n\n**Thu 15 Oct** — StarRupture mods: BetterCheats gained a pause-menu row, and the ModLoader, BetterDrone and BetterCheats now ship update notes in their release manifests, shown in the Plugins Updated pop-up. GSS Stats took twenty commits; `[REDACTED]` one chore.\n\n**Wed 14 Oct** — Mostly StarRupture mod housekeeping: credits and contributor markers across the ModLoader and BetterDrone, plus a drone fix so it stays out when the build menu closes. Three Agent Templates commits and one `[REDACTED]` chore."
+  "commitsToday": 218,
+  "commitsInWindow": 618,
+  "headline": "218 commits today",
+  "prose": "**Mon 19 Oct** — GSS Stats gained a Play-direct arm with per-campaign Play installs, then spent the day fixing its ads reporting; Best Sudoku's CI notification step got patience. `[REDACTED]` logged 124 commits, mostly docs and untagged work.\n\n**Sun 18 Oct** — Best Sudoku landed Apple in-app purchases end to end, a large-screen menu layout and an ASC screenshot uploader, and shipped two releases. Agent Templates added Windows CI coverage. `[REDACTED]` added 49 commits, a quarter of them fixes.\n\n**Sat 17 Oct** — Best Sudoku spent 137 commits mostly making the E2E suite cheaper and harder to wedge, then closed out a release. GSS Stats added Flight 3 reporting cards.\n\n**Fri 16 Oct** — Best Sudoku got Sign in with Apple through sign-in, account linking and token revocation, plus a build-channel guard. GSS Stats added feature-health reporting and activated flight 3. `[REDACTED]` made one chore commit.\n\n**Thu 15 Oct** — StarRupture plugins now ship update notes in their release manifests, and BetterCheats gained a pause-menu row. GSS Stats staged flight 3 and added view-only access. `[REDACTED]` made one chore commit."
 }
