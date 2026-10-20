@@ -1,8 +1,8 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-10-20",
   "days": 5,
-  "commitsToday": 218,
-  "commitsInWindow": 618,
-  "headline": "218 commits today",
-  "prose": "**Mon 19 Oct** — GSS Stats gained a Play-direct arm with per-campaign Play installs, then spent the day fixing its ads reporting; Best Sudoku's CI notification step got patience. `[REDACTED]` logged 124 commits, mostly docs and untagged work.\n\n**Sun 18 Oct** — Best Sudoku landed Apple in-app purchases end to end, a large-screen menu layout and an ASC screenshot uploader, and shipped two releases. Agent Templates added Windows CI coverage. `[REDACTED]` added 49 commits, a quarter of them fixes.\n\n**Sat 17 Oct** — Best Sudoku spent 137 commits mostly making the E2E suite cheaper and harder to wedge, then closed out a release. GSS Stats added Flight 3 reporting cards.\n\n**Fri 16 Oct** — Best Sudoku got Sign in with Apple through sign-in, account linking and token revocation, plus a build-channel guard. GSS Stats added feature-health reporting and activated flight 3. `[REDACTED]` made one chore commit.\n\n**Thu 15 Oct** — StarRupture plugins now ship update notes in their release manifests, and BetterCheats gained a pause-menu row. GSS Stats staged flight 3 and added view-only access. `[REDACTED]` made one chore commit."
+  "commitsToday": 27,
+  "commitsInWindow": 645,
+  "headline": "27 commits today",
+  "prose": "**Tue 20 Oct** — Best Sudoku, App Store submission: added a diagnose mode that surfaces Apple's full error JSON, then made preflight block on a missing price or availability. Nine commits, almost all CI plumbing and one E2E fix.\n\n**Mon 19 Oct** — Best Sudoku shipped a release and fixed the service-worker auto-update path. StarRupture BetterCheats spent the day on grenade tab rows, adding and removing them. GSS Stats grew a Play-direct ads arm. `[REDACTED]`: 140 commits, mostly docs and other.\n\n**Sun 18 Oct** — Best Sudoku, mostly fixes: menu layout at the text-size extremes and App Store review plumbing for demo account, IAP price and notification URL. Agent Templates added a smaller run of fixes. `[REDACTED]`: 49 commits, fix-heavy.\n\n**Sat 17 Oct** — Best Sudoku landed native Sign in with Apple on iOS, account deletion with Apple revoke, and a public Support page. Over a hundred commits, a third of them tests. GSS Stats added ad-flight reporting alongside.\n\n**Fri 16 Oct** — GSS Stats led the day with flight 3 ad reporting: rules block, readouts, cost per complete. Best Sudoku gave alert emails a single configurable display zone, with tests and an ADR. `[REDACTED]`: one chore."
 }
