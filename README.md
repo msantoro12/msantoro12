@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Tue 20 Oct** — Best Sudoku, App Store submission: added a diagnose mode that surfaces Apple's full error JSON, then made preflight block on a missing price or availability. Nine commits, almost all CI plumbing and one E2E fix.
+**Wed 21 Oct** — BetterDrone gained a Drone Size setting for ladder holes, with mass held at stock and collision handling fixed, plus a speed readout under the HUD. BetterCheats now scales the grenade falloff curve for its Damage row.
 
-**Mon 19 Oct** — Best Sudoku shipped a release and fixed the service-worker auto-update path. StarRupture BetterCheats spent the day on grenade tab rows, adding and removing them. GSS Stats grew a Play-direct ads arm. `[REDACTED]`: 140 commits, mostly docs and other.
+**Tue 20 Oct** — Mostly landing work. BetterDrone and BetterCheats got a Grenade Damage row, mass fixes and README corrections; ModLoader now drops a plugin's registrations when unload is skipped. Best Sudoku spent the day diagnosing App Store submission.
 
-**Sun 18 Oct** — Best Sudoku, mostly fixes: menu layout at the text-size extremes and App Store review plumbing for demo account, IAP price and notification URL. Agent Templates added a smaller run of fixes. `[REDACTED]`: 49 commits, fix-heavy.
+**Mon 19 Oct** — BetterDrone picked up a mining laser, map marker, speed presets and a floor guard for long flights. BetterCheats got a pause menu row, build-anywhere toggles and a README rewrite. Mostly features, then docs.
 
-**Sat 17 Oct** — Best Sudoku landed native Sign in with Apple on iOS, account deletion with Apple revoke, and a public Support page. Over a hundred commits, a third of them tests. GSS Stats added ad-flight reporting alongside.
+**Sun 18 Oct** — A big day. `[REDACTED]` took 140 commits, heavy on docs and miscellany with 16 fixes. Publicly, Best Sudoku got a large-screen menu layout and App Store CI steps, and GSS Stats got Play-direct ad tracking.
 
-**Fri 16 Oct** — GSS Stats led the day with flight 3 ad reporting: rules block, readouts, cost per complete. Best Sudoku gave alert emails a single configurable display zone, with tests and an ADR. `[REDACTED]`: one chore.
+**Sat 17 Oct** — Best Sudoku did most of the public work: Sign in with Apple, a billing provider refactor, a support page, and E2E tests with fewer fixed waits. `[REDACTED]` added 49 commits, mostly fixes and docs.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
