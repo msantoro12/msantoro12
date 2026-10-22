@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Wed 21 Oct** — BetterDrone gained a Drone Size setting for ladder holes, with mass held at stock and collision handling fixed, plus a speed readout under the HUD. BetterCheats now scales the grenade falloff curve for its Damage row.
+**Thu 22 Oct** — No commits. The repositories were left to their own devices and, as far as the log can tell, behaved.
 
-**Tue 20 Oct** — Mostly landing work. BetterDrone and BetterCheats got a Grenade Damage row, mass fixes and README corrections; ModLoader now drops a plugin's registrations when unload is skipped. Best Sudoku spent the day diagnosing App Store submission.
+**Wed 21 Oct** — BetterDrone got a Drone Size setting for ladder holes, then spent the day on mass and collision handling so a resized drone still flies like stock. BetterCheats scaled the grenade falloff curve behind its Damage row.
 
-**Mon 19 Oct** — BetterDrone picked up a mining laser, map marker, speed presets and a floor guard for long flights. BetterCheats got a pause menu row, build-anywhere toggles and a README rewrite. Mostly features, then docs.
+**Tue 20 Oct** — Mostly landing and hardening: BetterDrone mass and hit-probe fixes, BetterCheats grenade tab rework with the Max and Min Charge rows removed, a ModLoader unload cleanup. Best Sudoku spent the day on App Store submission tooling.
 
-**Sun 18 Oct** — A big day. `[REDACTED]` took 140 commits, heavy on docs and miscellany with 16 fixes. Publicly, Best Sudoku got a large-screen menu layout and App Store CI steps, and GSS Stats got Play-direct ad tracking.
+**Mon 19 Oct** — Heavy on docs and release plumbing across the StarRupture plugins and ModLoader, plus update notes in release manifests. Best Sudoku shipped a release; GSS Stats extended Play-direct ad tracking. `[REDACTED]`: 140 commits, a third of them docs.
 
-**Sat 17 Oct** — Best Sudoku did most of the public work: Sign in with Apple, a billing provider refactor, a support page, and E2E tests with fewer fixed waits. `[REDACTED]` added 49 commits, mostly fixes and docs.
+**Sun 18 Oct** — Best Sudoku wired up App Store billing and legal copy by build channel, and shipped a release. Agent Templates fixed Windows CI paths. `[REDACTED]`: 49 commits, mostly fixes and unlabelled changes.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
