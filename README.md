@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Thu 22 Oct** — No commits. The repositories were left to their own devices and, as far as the log can tell, behaved.
+**Fri 23 Oct** — Nothing committed. The repositories enjoyed a rare stretch without supervision.
 
-**Wed 21 Oct** — BetterDrone got a Drone Size setting for ladder holes, then spent the day on mass and collision handling so a resized drone still flies like stock. BetterCheats scaled the grenade falloff curve behind its Damage row.
+**Thu 22 Oct** — A clean log. Whatever got done left no fingerprints.
 
-**Tue 20 Oct** — Mostly landing and hardening: BetterDrone mass and hit-probe fixes, BetterCheats grenade tab rework with the Max and Min Charge rows removed, a ModLoader unload cleanup. Best Sudoku spent the day on App Store submission tooling.
+**Wed 21 Oct** — BetterDrone gained a Drone Size setting for ladder holes, with mass held at stock and mesh collision fixes, plus a speed readout under the HUD. BetterCheats made the grenade Damage row scale the real falloff curve.
 
-**Mon 19 Oct** — Heavy on docs and release plumbing across the StarRupture plugins and ModLoader, plus update notes in release manifests. Best Sudoku shipped a release; GSS Stats extended Play-direct ad tracking. `[REDACTED]`: 140 commits, a third of them docs.
+**Tue 20 Oct** — Landing day. BetterDrone mass handling and BetterCheats' grenade Damage row (replacing the charge rows) were finished and documented. ModLoader stopped leaking registrations on skipped unloads; Best Sudoku's App Store submit script learned to diagnose pricing gaps.
 
-**Sun 18 Oct** — Best Sudoku wired up App Store billing and legal copy by build channel, and shipped a release. Agent Templates fixed Windows CI paths. `[REDACTED]`: 49 commits, mostly fixes and unlabelled changes.
+**Mon 19 Oct** — A wide day: BetterDrone got a mining laser, map marker and speed presets; BetterCheats a README rewrite and new Building toggles; ModLoader update notes in pop-ups. `[REDACTED]` logged 140 commits, mostly docs and refactors.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
