@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Fri 23 Oct** — Nothing committed. The repositories enjoyed a rare stretch without supervision.
+**Sat 24 Oct** — Best Sudoku shipped a release with a first-finish sign-in ask; GSS Stats now judges ads on cost per finisher; Agent Templates gained a step budget and tripwires. `[REDACTED]`: 19 commits, test- and wip-heavy.
 
-**Thu 22 Oct** — A clean log. Whatever got done left no fingerprints.
+**Fri 23 Oct** — Two fixes to Best Sudoku's key-rotation scripts so they fall back to a token file. Maintenance, nothing more.
 
-**Wed 21 Oct** — BetterDrone gained a Drone Size setting for ladder holes, with mass held at stock and mesh collision fixes, plus a speed readout under the HUD. BetterCheats made the grenade Damage row scale the real falloff curve.
+**Thu 22 Oct** — No commits. The repositories held a brief meeting and adjourned without motions.
 
-**Tue 20 Oct** — Landing day. BetterDrone mass handling and BetterCheats' grenade Damage row (replacing the charge rows) were finished and documented. ModLoader stopped leaking registrations on skipped unloads; Best Sudoku's App Store submit script learned to diagnose pricing gaps.
+**Wed 21 Oct** — StarRupture BetterDrone gained a Drone Size setting for ladder holes, with mass held at stock and speed shown under the HUD. BetterCheats' grenade Damage row now scales the falloff curve.
 
-**Mon 19 Oct** — A wide day: BetterDrone got a mining laser, map marker and speed presets; BetterCheats a README rewrite and new Building toggles; ModLoader update notes in pop-ups. `[REDACTED]` logged 140 commits, mostly docs and refactors.
+**Tue 20 Oct** — A landing day across the StarRupture plugins: BetterCheats traded grenade charge rows for a Damage row, ModLoader drops registrations on skipped unloads. Best Sudoku's App Store submit gained diagnostics and preflight checks.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
