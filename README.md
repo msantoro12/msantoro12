@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Sat 24 Oct** — Best Sudoku shipped a release with a first-finish sign-in ask; GSS Stats now judges ads on cost per finisher; Agent Templates gained a step budget and tripwires. `[REDACTED]`: 19 commits, test- and wip-heavy.
+**Sun 25 Oct** — Best Sudoku's generator now falls back to a seed bank, Hard through Medium, when generation times out, plus a round of production client-error cleanup. Agent Templates got silent spawn fixes; GSS Stats counts the first-finish sign-in ask.
 
-**Fri 23 Oct** — Two fixes to Best Sudoku's key-rotation scripts so they fall back to a token file. Maintenance, nothing more.
+**Sat 24 Oct** — A landing-and-hardening day: Best Sudoku shipped a release with a first-finish sign-in ask, beacon and App Store submission CI fixes. Agent Templates gained a step budget and bleed guards. Plus 19 commits in `[REDACTED]`, mostly wip and tests.
 
-**Thu 22 Oct** — No commits. The repositories held a brief meeting and adjourned without motions.
+**Fri 23 Oct** — Best Sudoku: two fixes so the key-rotation scripts fall back to a token file through a shared helper. Small, and the kind that only matters when it's missing.
 
-**Wed 21 Oct** — StarRupture BetterDrone gained a Drone Size setting for ladder holes, with mass held at stock and speed shown under the HUD. BetterCheats' grenade Damage row now scales the falloff curve.
+**Thu 22 Oct** — Nothing. The repositories held their own for a full day without supervision.
 
-**Tue 20 Oct** — A landing day across the StarRupture plugins: BetterCheats traded grenade charge rows for a Damage row, ModLoader drops registrations on skipped unloads. Best Sudoku's App Store submit gained diagnostics and preflight checks.
+**Wed 21 Oct** — StarRupture-Plugin-BetterDrone gained a Drone Size setting for ladder holes, with mass held at stock and mesh collision fixes, and a speed readout under the HUD distance. BetterCheats now scales grenade falloff with the Damage row.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
