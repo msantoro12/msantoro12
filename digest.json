@@ -1,8 +1,8 @@
 {
-  "generated": "2026-10-25",
+  "generated": "2026-10-26",
   "days": 5,
-  "commitsToday": 54,
-  "commitsInWindow": 141,
-  "headline": "54 commits today",
-  "prose": "**Sun 25 Oct** — Best Sudoku's generator now falls back to a seed bank, Hard through Medium, when generation times out, plus a round of production client-error cleanup. Agent Templates got silent spawn fixes; GSS Stats counts the first-finish sign-in ask.\n\n**Sat 24 Oct** — A landing-and-hardening day: Best Sudoku shipped a release with a first-finish sign-in ask, beacon and App Store submission CI fixes. Agent Templates gained a step budget and bleed guards. Plus 19 commits in `[REDACTED]`, mostly wip and tests.\n\n**Fri 23 Oct** — Best Sudoku: two fixes so the key-rotation scripts fall back to a token file through a shared helper. Small, and the kind that only matters when it's missing.\n\n**Thu 22 Oct** — Nothing. The repositories held their own for a full day without supervision.\n\n**Wed 21 Oct** — StarRupture-Plugin-BetterDrone gained a Drone Size setting for ladder holes, with mass held at stock and mesh collision fixes, and a speed readout under the HUD distance. BetterCheats now scales grenade falloff with the Damage row."
+  "commitsToday": 64,
+  "commitsInWindow": 207,
+  "headline": "64 commits today",
+  "prose": "**Mon 26 Oct** — Best Sudoku got an async, cancellable puzzle start with a generating overlay, plus a mid-game new-version toast. Chunk-reload and sign-in-cancel error reporting were corrected. Roughly half the commits were tests and docs.\n\n**Sun 25 Oct** — A sync day in Best Sudoku: the outbox flush now isolates bad writes instead of jamming, plus a sanitize step that repairs or holds invalid records. Seed-bank generator reverted. Agent Templates got spawn-guard fixes; GSS Stats, a sign-in counter.\n\n**Sat 24 Oct** — Best Sudoku asks for sign-in after a device's first finished puzzle, with a once-per-device beacon behind it; GSS Stats and GSS Beacon counted it. `[REDACTED]` took 19 commits, six of them wip.\n\n**Fri 23 Oct** — Two small fixes to Best Sudoku's key-rotation scripts, which now fall back to a token file. A quiet day.\n\n**Thu 22 Oct** — No commits. The repository kept its own counsel."
 }

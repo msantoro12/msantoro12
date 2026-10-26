@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Sun 25 Oct** — Best Sudoku's generator now falls back to a seed bank, Hard through Medium, when generation times out, plus a round of production client-error cleanup. Agent Templates got silent spawn fixes; GSS Stats counts the first-finish sign-in ask.
+**Mon 26 Oct** — Best Sudoku got an async, cancellable puzzle start with a generating overlay, plus a mid-game new-version toast. Chunk-reload and sign-in-cancel error reporting were corrected. Roughly half the commits were tests and docs.
 
-**Sat 24 Oct** — A landing-and-hardening day: Best Sudoku shipped a release with a first-finish sign-in ask, beacon and App Store submission CI fixes. Agent Templates gained a step budget and bleed guards. Plus 19 commits in `[REDACTED]`, mostly wip and tests.
+**Sun 25 Oct** — A sync day in Best Sudoku: the outbox flush now isolates bad writes instead of jamming, plus a sanitize step that repairs or holds invalid records. Seed-bank generator reverted. Agent Templates got spawn-guard fixes; GSS Stats, a sign-in counter.
 
-**Fri 23 Oct** — Best Sudoku: two fixes so the key-rotation scripts fall back to a token file through a shared helper. Small, and the kind that only matters when it's missing.
+**Sat 24 Oct** — Best Sudoku asks for sign-in after a device's first finished puzzle, with a once-per-device beacon behind it; GSS Stats and GSS Beacon counted it. `[REDACTED]` took 19 commits, six of them wip.
 
-**Thu 22 Oct** — Nothing. The repositories held their own for a full day without supervision.
+**Fri 23 Oct** — Two small fixes to Best Sudoku's key-rotation scripts, which now fall back to a token file. A quiet day.
 
-**Wed 21 Oct** — StarRupture-Plugin-BetterDrone gained a Drone Size setting for ladder holes, with mass held at stock and mesh collision fixes, and a speed readout under the HUD distance. BetterCheats now scales grenade falloff with the Damage row.
+**Thu 22 Oct** — No commits. The repository kept its own counsel.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
