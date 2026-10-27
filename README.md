@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Mon 26 Oct** — Best Sudoku got an async, cancellable puzzle start with a generating overlay, plus a mid-game new-version toast. Chunk-reload and sign-in-cancel error reporting were corrected. Roughly half the commits were tests and docs.
+**Tue 27 Oct** — Best Sudoku's guest paywall, mostly fixes and tests: email accounts confirm before paying, a picked pass no longer crosses accounts, and "Maybe later" clears the pick. One small dev-only preview trigger.
 
-**Sun 25 Oct** — A sync day in Best Sudoku: the outbox flush now isolates bad writes instead of jamming, plus a sanitize step that repairs or holds invalid records. Seed-bank generator reverted. Agent Templates got spawn-guard fixes; GSS Stats, a sign-in counter.
+**Mon 26 Oct** — Best Sudoku: puzzle generation moved off the main thread, updates now reload mid-puzzle with holds for purchases and unsent text, and guests see pass prices. GSS Stats tracked the release.
 
-**Sat 24 Oct** — Best Sudoku asks for sign-in after a device's first finished puzzle, with a once-per-device beacon behind it; GSS Stats and GSS Beacon counted it. `[REDACTED]` took 19 commits, six of them wip.
+**Sun 25 Oct** — Best Sudoku's sync outbox got a sanitize step and confirm-then-subtract flushing, so one bad record no longer jams the queue. Agent Templates got guard work in agent-companion.
 
-**Fri 23 Oct** — Two small fixes to Best Sudoku's key-rotation scripts, which now fall back to a token file. A quiet day.
+**Sat 24 Oct** — Best Sudoku asks guests to sign in after their first finished puzzle, with beacon and tests. Agent Templates added a step budget for helpers. `[REDACTED]`: 19 commits, six of them WIP.
 
-**Thu 22 Oct** — No commits. The repository kept its own counsel.
+**Fri 23 Oct** — Two small Best Sudoku script fixes. A quiet day, in the way that a pair of commits is quiet.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
