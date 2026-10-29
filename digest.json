@@ -1,8 +1,8 @@
 {
-  "generated": "2026-10-27",
+  "generated": "2026-10-29",
   "days": 5,
-  "commitsToday": 121,
-  "commitsInWindow": 342,
-  "headline": "121 commits today",
-  "prose": "**Tue 27 Oct** — Best Sudoku's guest paywall, mostly fixes and tests: email accounts confirm before paying, a picked pass no longer crosses accounts, and \"Maybe later\" clears the pick. One small dev-only preview trigger.\n\n**Mon 26 Oct** — Best Sudoku: puzzle generation moved off the main thread, updates now reload mid-puzzle with holds for purchases and unsent text, and guests see pass prices. GSS Stats tracked the release.\n\n**Sun 25 Oct** — Best Sudoku's sync outbox got a sanitize step and confirm-then-subtract flushing, so one bad record no longer jams the queue. Agent Templates got guard work in agent-companion.\n\n**Sat 24 Oct** — Best Sudoku asks guests to sign in after their first finished puzzle, with beacon and tests. Agent Templates added a step budget for helpers. `[REDACTED]`: 19 commits, six of them WIP.\n\n**Fri 23 Oct** — Two small Best Sudoku script fixes. A quiet day, in the way that a pair of commits is quiet."
+  "commitsToday": 249,
+  "commitsInWindow": 601,
+  "headline": "249 commits today",
+  "prose": "**Thu 29 Oct** — Agent Plugins' workspace-bridge got mail attachments, plugin packaging and a free-tier performance pass on get_thread. GSS Stats moved Feature health onto the card editor. `[REDACTED]` logged 130 commits, nearly all untyped.\n\n**Wed 28 Oct** — Agent Plugins' workspace-bridge went from scaffold to send, reply and forward in one long run of merges. Best Sudoku shipped a release; GSS Stats gained ad conversion tracking. `[REDACTED]` ran two streams: 27 commits in one, 8 in the other.\n\n**Tue 27 Oct** — Best Sudoku spent the day on paywall edge cases and a release. Agent Templates split the spawn guard into nine modules; the StarRupture mods gained a runtime load button and a drone speedometer. `[REDACTED]`: ten commits, four refactors.\n\n**Mon 26 Oct** — Best Sudoku: puzzle generation moved off the main thread, updates reload mid-game, guests see pass prices, release shipped. GSS Stats added release markers and extended an ad flight.\n\n**Sun 25 Oct** — A landing day: Best Sudoku's sync outbox got confirm-then-subtract flushing and a sanitizer, mostly review fixes and tests, then a release. Agent Templates tightened its silent spawn fixes."
 }

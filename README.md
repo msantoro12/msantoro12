@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Tue 27 Oct** — Best Sudoku's guest paywall, mostly fixes and tests: email accounts confirm before paying, a picked pass no longer crosses accounts, and "Maybe later" clears the pick. One small dev-only preview trigger.
+**Thu 29 Oct** — Agent Plugins' workspace-bridge got mail attachments, plugin packaging and a free-tier performance pass on get_thread. GSS Stats moved Feature health onto the card editor. `[REDACTED]` logged 130 commits, nearly all untyped.
 
-**Mon 26 Oct** — Best Sudoku: puzzle generation moved off the main thread, updates now reload mid-puzzle with holds for purchases and unsent text, and guests see pass prices. GSS Stats tracked the release.
+**Wed 28 Oct** — Agent Plugins' workspace-bridge went from scaffold to send, reply and forward in one long run of merges. Best Sudoku shipped a release; GSS Stats gained ad conversion tracking. `[REDACTED]` ran two streams: 27 commits in one, 8 in the other.
 
-**Sun 25 Oct** — Best Sudoku's sync outbox got a sanitize step and confirm-then-subtract flushing, so one bad record no longer jams the queue. Agent Templates got guard work in agent-companion.
+**Tue 27 Oct** — Best Sudoku spent the day on paywall edge cases and a release. Agent Templates split the spawn guard into nine modules; the StarRupture mods gained a runtime load button and a drone speedometer. `[REDACTED]`: ten commits, four refactors.
 
-**Sat 24 Oct** — Best Sudoku asks guests to sign in after their first finished puzzle, with beacon and tests. Agent Templates added a step budget for helpers. `[REDACTED]`: 19 commits, six of them WIP.
+**Mon 26 Oct** — Best Sudoku: puzzle generation moved off the main thread, updates reload mid-game, guests see pass prices, release shipped. GSS Stats added release markers and extended an ad flight.
 
-**Fri 23 Oct** — Two small Best Sudoku script fixes. A quiet day, in the way that a pair of commits is quiet.
+**Sun 25 Oct** — A landing day: Best Sudoku's sync outbox got confirm-then-subtract flushing and a sanitizer, mostly review fixes and tests, then a release. Agent Templates tightened its silent spawn fixes.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
