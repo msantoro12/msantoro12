@@ -1,8 +1,8 @@
 {
-  "generated": "2026-11-01",
+  "generated": "2026-11-03",
   "days": 5,
-  "commitsToday": 167,
-  "commitsInWindow": 854,
-  "headline": "167 commits today",
-  "prose": "**Sun 1 Nov** — StarRupture-ModLoader gained a feed-driven version map, and ten plugins moved to read game members through it. starrupture-ci got the matching map-only path, promotion and staging in dry-run form. A day of migration, merged branch by branch.\n\n**Sat 31 Oct** — Version-map groundwork across the StarRupture stack: roughly 70 loader commits, 40 each in the SDK, Codex and CI. Also keybind handling fixes in the loader, and some Star Rupture Planner and Best Sudoku work.\n\n**Fri 30 Oct** — Loader and Codex plugin: pause-menu mouse input became opt-in per widget, and a hung callback now names its plugin. Best Sudoku got a first-run welcome screen. `[REDACTED]` logged 20 commits, mostly fixes and releases.\n\n**Thu 29 Oct** — Mostly workspace-bridge in Agent Plugins, 52 commits of features and fixes, plus startup layout checks in the ModLoader. `[REDACTED]` logged 99 commits, nearly all untyped. The shape suggests a bulk operation, nothing more.\n\n**Wed 28 Oct** — Agent Plugins built out the workspace-bridge MCP server: handler, drive tools, drafts. Agent Templates and GSS Stats took smaller fixes and docs. `[REDACTED]` added eight commits, five of them fixes."
+  "commitsToday": 49,
+  "commitsInWindow": 900,
+  "headline": "49 commits today",
+  "prose": "**Tue 3 Nov** — GSS Stats took most of it: a new-devices-per-day chart on the Traffic page, closed ad flights re-read daily for two weeks, and a split-guard prefix fix. Best Sudoku got clearer sign-in copy on the win screen.\n\n**Mon 2 Nov** — Mostly StarRupture plugin work: WAILA learned to read rail throughput and storage stock, Codex got right-click recipe pinning, BetterDrone vents laser heat. Best Sudoku's sign-in ask gained a leave sheet, with end-to-end specs.\n\n**Sun 1 Nov** — A starrupture-ci day: per-plugin gating, a signed version-map feed and a dry-run promotion path. Codex and WAILA got steady point releases; Best Sudoku shipped its Welcome screen release.\n\n**Sat 31 Oct** — Plugin upkeep: Codex pin persistence, drag and tiling; WAILA rail tracing reworked; BetterDrone floor guard fix. starrupture-ci added pattern proposals and a central version map. Best Sudoku's Welcome screen got review fixes.\n\n**Fri 30 Oct** — Wide spread: a pause-menu mouse opt-in across the mod loader, SDK and Codex; MiniMap sprite capture pacing; GSS Stats ads readings. Best Sudoku shipped a release. Two `[REDACTED]` repos: 20 commits, nine of them fixes."
 }
