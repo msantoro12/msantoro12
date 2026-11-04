@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Tue 3 Nov** — GSS Stats took most of it: a new-devices-per-day chart on the Traffic page, closed ad flights re-read daily for two weeks, and a split-guard prefix fix. Best Sudoku got clearer sign-in copy on the win screen.
+**Wed 4 Nov** — StarRupture-ModLoader landed per-build version-map reads, a signed feed and plugin-crash recovery; the SDK and a dozen plugins were moved onto the same release workflow. Two `[REDACTED]` repositories saw eight commits, shape unknown.
 
-**Mon 2 Nov** — Mostly StarRupture plugin work: WAILA learned to read rail throughput and storage stock, Codex got right-click recipe pinning, BetterDrone vents laser heat. Best Sudoku's sign-in ask gained a leave sheet, with end-to-end specs.
+**Tue 3 Nov** — Mostly Best Sudoku and the stats dashboard: sign-in prompt copy, billing import retry, ad-sync fixes, release bookkeeping. Plus a RuptureTimer change to read the live wave countdown, and agent tooling tweaks. Housekeeping rather than headline work.
 
-**Sun 1 Nov** — A starrupture-ci day: per-plugin gating, a signed version-map feed and a dry-run promotion path. Codex and WAILA got steady point releases; Best Sudoku shipped its Welcome screen release.
+**Mon 2 Nov** — A spread-out day: ModLoader gained tab hotkeys and keyboard navigation, the plugin fleet took version bumps and release notes, and CI learned a latest-release plugin source. Mostly merges and polish; very little started from scratch.
 
-**Sat 31 Oct** — Plugin upkeep: Codex pin persistence, drag and tiling; WAILA rail tracing reworked; BetterDrone floor guard fix. starrupture-ci added pattern proposals and a central version map. Best Sudoku's Welcome screen got review fixes.
+**Sun 1 Nov** — ModLoader's busiest stretch: features can now be disabled individually when a map key is missing, the overlay draws where the game draws its UI, and plugins declare when they may unload. Best Sudoku shipped a release.
 
-**Fri 30 Oct** — Wide spread: a pause-menu mouse opt-in across the mod loader, SDK and Codex; MiniMap sprite capture pacing; GSS Stats ads readings. Best Sudoku shipped a release. Two `[REDACTED]` repos: 20 commits, nine of them fixes.
+**Sat 31 Oct** — Version-map groundwork: ModLoader resolved its own patterns and registry through the map and gated clients on known builds, with the SDK documenting the rules. Plugins followed with version files. Foundation work, not features.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
