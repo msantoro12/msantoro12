@@ -1,8 +1,8 @@
 {
-  "generated": "2026-11-04",
+  "generated": "2026-11-05",
   "days": 5,
-  "commitsToday": 298,
-  "commitsInWindow": 1088,
-  "headline": "298 commits today",
-  "prose": "**Wed 4 Nov** — StarRupture-ModLoader landed per-build version-map reads, a signed feed and plugin-crash recovery; the SDK and a dozen plugins were moved onto the same release workflow. Two `[REDACTED]` repositories saw eight commits, shape unknown.\n\n**Tue 3 Nov** — Mostly Best Sudoku and the stats dashboard: sign-in prompt copy, billing import retry, ad-sync fixes, release bookkeeping. Plus a RuptureTimer change to read the live wave countdown, and agent tooling tweaks. Housekeeping rather than headline work.\n\n**Mon 2 Nov** — A spread-out day: ModLoader gained tab hotkeys and keyboard navigation, the plugin fleet took version bumps and release notes, and CI learned a latest-release plugin source. Mostly merges and polish; very little started from scratch.\n\n**Sun 1 Nov** — ModLoader's busiest stretch: features can now be disabled individually when a map key is missing, the overlay draws where the game draws its UI, and plugins declare when they may unload. Best Sudoku shipped a release.\n\n**Sat 31 Oct** — Version-map groundwork: ModLoader resolved its own patterns and registry through the map and gated clients on known builds, with the SDK documenting the rules. Plugins followed with version files. Foundation work, not features."
+  "commitsToday": 114,
+  "commitsInWindow": 946,
+  "headline": "114 commits today",
+  "prose": "**Thu 5 Nov** — Mostly StarRupture-ModLoader and starrupture-ci: native-member rows for unreflected types, a ProcessEvent vtable check that disables plugins on mismatch, and CI build-ID guards. Several reverts along the way. One quiet commit in `[REDACTED]`.\n\n**Wed 4 Nov** — Two private repos, `[REDACTED]` and `[REDACTED]`, took six and three commits respectively. All uncategorised. Steady cadence, no shape beyond that.\n\n**Tue 3 Nov** — No commits. The repository enjoyed a rare unobserved day and kept its own counsel.\n\n**Mon 2 Nov** — Two commits in `[REDACTED]`. A short day with nothing further to report.\n\n**Sun 1 Nov** — Nothing shipped. Even the build servers seem to have kept the Sabbath."
 }

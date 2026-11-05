@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Wed 4 Nov** — StarRupture-ModLoader landed per-build version-map reads, a signed feed and plugin-crash recovery; the SDK and a dozen plugins were moved onto the same release workflow. Two `[REDACTED]` repositories saw eight commits, shape unknown.
+**Thu 5 Nov** — Mostly StarRupture-ModLoader and starrupture-ci: native-member rows for unreflected types, a ProcessEvent vtable check that disables plugins on mismatch, and CI build-ID guards. Several reverts along the way. One quiet commit in `[REDACTED]`.
 
-**Tue 3 Nov** — Mostly Best Sudoku and the stats dashboard: sign-in prompt copy, billing import retry, ad-sync fixes, release bookkeeping. Plus a RuptureTimer change to read the live wave countdown, and agent tooling tweaks. Housekeeping rather than headline work.
+**Wed 4 Nov** — Two private repos, `[REDACTED]` and `[REDACTED]`, took six and three commits respectively. All uncategorised. Steady cadence, no shape beyond that.
 
-**Mon 2 Nov** — A spread-out day: ModLoader gained tab hotkeys and keyboard navigation, the plugin fleet took version bumps and release notes, and CI learned a latest-release plugin source. Mostly merges and polish; very little started from scratch.
+**Tue 3 Nov** — No commits. The repository enjoyed a rare unobserved day and kept its own counsel.
 
-**Sun 1 Nov** — ModLoader's busiest stretch: features can now be disabled individually when a map key is missing, the overlay draws where the game draws its UI, and plugins declare when they may unload. Best Sudoku shipped a release.
+**Mon 2 Nov** — Two commits in `[REDACTED]`. A short day with nothing further to report.
 
-**Sat 31 Oct** — Version-map groundwork: ModLoader resolved its own patterns and registry through the map and gated clients on known builds, with the SDK documenting the rules. Plugins followed with version files. Foundation work, not features.
+**Sun 1 Nov** — Nothing shipped. Even the build servers seem to have kept the Sabbath.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
