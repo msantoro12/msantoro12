@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Thu 5 Nov** — Mostly StarRupture-ModLoader and starrupture-ci: native-member rows for unreflected types, a ProcessEvent vtable check that disables plugins on mismatch, and CI build-ID guards. Several reverts along the way. One quiet commit in `[REDACTED]`.
+**Fri 6 Nov** — No commits. The repositories were left unattended and, to their credit, stayed put.
 
-**Wed 4 Nov** — Two private repos, `[REDACTED]` and `[REDACTED]`, took six and three commits respectively. All uncategorised. Steady cadence, no shape beyond that.
+**Thu 5 Nov** — A landing day in StarRupture: ModLoader gained a ProcessEvent vtable check and map-served native members, MiniMap now runs on both game builds, and starrupture-ci tightened its build guards. One `[REDACTED]` commit.
 
-**Tue 3 Nov** — No commits. The repository enjoyed a rare unobserved day and kept its own counsel.
+**Wed 4 Nov** — Wide and mostly plugin-side. ModLoader added panel title-bar buttons and collapse, plus shared-mouse handling over game menus; Codex and WAILA took most of the remaining commits. Two `[REDACTED]` repositories saw nine commits between them.
 
-**Mon 2 Nov** — Two commits in `[REDACTED]`. A short day with nothing further to report.
+**Tue 3 Nov** — Mostly hardening. WAILA reworked its rail card with storage stock and shortage colours, GSS Stats fixed chart and ad-sync bugs, and Best Sudoku fixed auth tagging. No `[REDACTED]` activity.
 
-**Sun 1 Nov** — Nothing shipped. Even the build servers seem to have kept the Sabbath.
+**Mon 2 Nov** — Release plumbing across the plugins: notes copied into manifests, version bumps, a Sprint-key fix in BetterDrone, and WAILA showing what a rail's machines can make. Two `[REDACTED]` commits on the side.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
