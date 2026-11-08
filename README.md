@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Sat 7 Nov** — starrupture-ci took the day: a client test rig built on a hosted runner, then rerun against the WAILA fix. Elsewhere, Codex, WAILA and ProductionViewer now check icon textures are alive before use.
+**Sun 8 Nov** — Mostly merges. starrupture-ci now publishes the feed itself after a green public run, gated on a rig proof. The loader now releases the game before its mismatch dialog; BetterCheats and BetterDrone adopt the SDK's hardened shared presets.
 
-**Fri 6 Nov** — Release hygiene across the StarRupture plugin set: SDK pinned in every workflow, Nexus pages refreshed. ModLoader now shows per-version release notes after an update. One `[REDACTED]` commit, and a paywall copy change in Best Sudoku.
+**Sat 7 Nov** — Heavy day on starrupture-ci: a client test rig, key sources, and a public-only feed, merged as a run of small pull requests. The loader resolves Blueprint parameters live and fixes overlay focus blink. BetterDrone gets a Slow key.
 
-**Thu 5 Nov** — Mostly landing: ModLoader merged a dozen feature branches into one release line, with version-map rows and a startup check on the ProcessEvent slot. MiniMap now runs on two game builds. One `[REDACTED]` commit.
+**Fri 6 Nov** — Release prep: a dozen plugins pinned to the newest SDK and given refreshed store text, while the loader got release notes shown per update. Best Sudoku's upgrade dialog leads with ad-free. One `[REDACTED]` commit.
 
-**Wed 4 Nov** — Heaviest day of the stretch, and mostly finishing. Codex and ModLoader led the volume; WAILA gained a rail card and drone-aware aiming. Best Sudoku and GSS Stats kept moving. `[REDACTED]` logged nine commits across two entries.
+**Thu 5 Nov** — Loader day: six feature branches merged into the next release line, version-map rows added for new builds, and a startup check that switches plugins off if the ProcessEvent slot moves. starrupture-ci guards known builds. One `[REDACTED]` commit.
 
-**Tue 3 Nov** — GSS Stats added new devices per day to Traffic and made closed ad-spend days re-read for two weeks. Best Sudoku fixed sign-in, update and billing edge cases. WAILA's rail card was reworked. Agent Templates shipped percent-based budgets.
+**Wed 4 Nov** — Widest day: about 250 commits across fifteen public repos, mostly the loader and plugins following its new interface. Loader gained panel title-bar buttons and a switch for the version map. Nine `[REDACTED]` commits in two batches.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
