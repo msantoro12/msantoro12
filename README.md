@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Sun 8 Nov** — Mostly merges. starrupture-ci now publishes the feed itself after a green public run, gated on a rig proof. The loader now releases the game before its mismatch dialog; BetterCheats and BetterDrone adopt the SDK's hardened shared presets.
+**Mon 9 Nov** — StarRupture-ModLoader only: a texture upload probe plugin, timing runs with a switch back to the old path, and the copy context moved to device capture. Measured first, then written down.
 
-**Sat 7 Nov** — Heavy day on starrupture-ci: a client test rig, key sources, and a public-only feed, merged as a run of small pull requests. The loader resolves Blueprint parameters live and fixes overlay focus blink. BetterDrone gets a Slow key.
+**Sun 8 Nov** — About a hundred commits, mostly starrupture-ci: publish now gates on a feed-path rig run and proves the other build before signing. A landing day, with the ModLoader's mismatch dialog fixed alongside.
 
-**Fri 6 Nov** — Release prep: a dozen plugins pinned to the newest SDK and given refreshed store text, while the loader got release notes shown per update. Best Sudoku's upgrade dialog leads with ad-free. One `[REDACTED]` commit.
+**Sat 7 Nov** — Roughly 340 public commits across the loader, SDK and a dozen plugins, plus one in `[REDACTED]`. Mostly starrupture-ci, with BetterDrone gaining a held Slow key. Breadth over depth.
 
-**Thu 5 Nov** — Loader day: six feature branches merged into the next release line, version-map rows added for new builds, and a startup check that switches plugins off if the ProcessEvent slot moves. starrupture-ci guards known builds. One `[REDACTED]` commit.
+**Fri 6 Nov** — A quiet day by comparison: ModLoader reuses one queue and fence for texture copies, and the plugins mostly pick up small follow-ups. One commit in `[REDACTED]`.
 
-**Wed 4 Nov** — Widest day: about 250 commits across fifteen public repos, mostly the loader and plugins following its new interface. Loader gained panel title-bar buttons and a switch for the version map. Nine `[REDACTED]` commits in two batches.
+**Thu 5 Nov** — ModLoader led: native members of unreflected types now come from the version map, and all plugins switch off on a ProcessEvent slot mismatch. SDK and BetterCheats followed. One commit in `[REDACTED]`.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
