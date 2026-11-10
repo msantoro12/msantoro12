@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Mon 9 Nov** — StarRupture-ModLoader only: a texture upload probe plugin, timing runs with a switch back to the old path, and the copy context moved to device capture. Measured first, then written down.
+**Tue 10 Nov** — Agent Templates cut a release: project-tier resolver, a `/ac tier` command and risk-aware reviewer instructions, merged and patched in one pass. Best Sudoku got ops docs; GSS Stats got a review-prompt beacon. One commit to `[REDACTED]`.
 
-**Sun 8 Nov** — About a hundred commits, mostly starrupture-ci: publish now gates on a feed-path rig run and proves the other build before signing. A landing day, with the ModLoader's mismatch dialog fixed alongside.
+**Mon 9 Nov** — A landing-and-hardening day. StarRupture-ModLoader merged a dozen branches: texture-copy context fixes, feed-cache refetch, unknown feed rows skipped. BetterDrone added a map-centre toggle; Best Sudoku fixed purchase-funnel delivery and a prod verify check.
 
-**Sat 7 Nov** — Roughly 340 public commits across the loader, SDK and a dozen plugins, plus one in `[REDACTED]`. Mostly starrupture-ci, with BetterDrone gaining a held Slow key. Breadth over depth.
+**Sun 8 Nov** — StarRupture merge day. BetterDrone gained Ctrl+wheel hotbar and hold-to-take-all; the SDK got a shared saved-presets store, adopted by BetterCheats. starrupture-ci landed seven pull requests, mostly publish-path and key-source work.
 
-**Fri 6 Nov** — A quiet day by comparison: ModLoader reuses one queue and fence for texture copies, and the plugins mostly pick up small follow-ups. One commit in `[REDACTED]`.
+**Sat 7 Nov** — ModLoader work on live function-parameter resolution, struct sizes from the version map, and an alt-tab overlay blink. BetterDrone added a held Slow key and map-follow. starrupture-ci restricted the feed to public builds. One commit to `[REDACTED]`.
 
-**Thu 5 Nov** — ModLoader led: native members of unreflected types now come from the version map, and all plugins switch off on a ProcessEvent slot mismatch. SDK and BetterCheats followed. One commit in `[REDACTED]`.
+**Fri 6 Nov** — Release housekeeping across a dozen StarRupture plugins: Nexus pages refreshed, release workflows pinned to the new SDK. Item icons now load on first use in Codex and ProductionViewer. Best Sudoku reworded its paywall; one commit to `[REDACTED]`.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
