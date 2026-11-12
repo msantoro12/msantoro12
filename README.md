@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Wed 11 Nov** — Best Sudoku's iOS simulator check for production purchases now gets past the welcome screen and can run from a CI branch. Plus a one-line change turning on starrupture-ci's autopilot. A quiet day of tightening.
+**Thu 12 Nov** — Mostly `starrupture-ci`: five pull requests merged: the published feed as the permanent base for builds, a re-measure that keeps published rows, and the planner data extract wired into the watcher. ModLoader and the SDK gained image library hooks.
 
-**Tue 10 Nov** — Mostly Best Sudoku: a StoreKit purchase-sheet UI test and its CI wiring, plus deploy checks that fail when a billing flag disagrees with its committed value. ModLoader and plugin work alongside; `[REDACTED]` added two chores.
+**Wed 11 Nov** — A landing day. `starrupture-ci` merged four PRs on layout cross-checks and a daily refresh, ModLoader got an image trial and unload fixes, and Best Sudoku shipped a release. `[REDACTED]`: fourteen commits, mostly release and fix.
 
-**Mon 9 Nov** — ModLoader led, with texture-copy and feed-cache fixes plus update notes. BetterDrone merged a stack of feature branches. Agent Templates took a review-fix round. Mostly landing and hardening, with little new started.
+**Tue 10 Nov** — Mostly Best Sudoku and ModLoader, with release notes and GPU device-loss logging on the latter and a calendar-sharing tool in the workspace bridge plugin. `[REDACTED]` logged two chores. Wide rather than deep.
 
-**Sun 8 Nov** — BetterDrone dominated: hotbar wheel, map-follow and a version bump, with plugin patterns restricted to key-source builds. The Plugin SDK gained the matching pattern support, and starrupture-ci reworked its key sources to match.
+**Mon 9 Nov** — Spread thin across a dozen repositories: heaviest in ModLoader, Best Sudoku and BetterDrone, with smaller touches to the other plugins, the SDK and the templates. Breadth over depth, mostly follow-through.
 
-**Sat 7 Nov** — The busiest day by far, mostly Star Rupture Planner and starrupture-ci. ModLoader learned to resolve Blueprint function parameters live and report struct sizes; the Plugin SDK got matching helpers, and BetterCheats now requires it.
+**Sun 8 Nov** — Weekend in `starrupture-ci` and the plugins: first-publish signing proven against the other build, MiniMap moved onto the shared key SDK, and BetterDrone and BetterCheats carried the rest of the commits.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
