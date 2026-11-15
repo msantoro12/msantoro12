@@ -1,5 +1,5 @@
-generated: 2026-11-14T10:02:57.311Z
-days: Sat 14 Nov | Fri 13 Nov | Thu 12 Nov | Wed 11 Nov | Tue 10 Nov
+generated: 2026-11-15T10:38:47.323Z
+days: Sun 15 Nov | Sat 14 Nov | Fri 13 Nov | Thu 12 Nov | Wed 11 Nov
 
 === INSTRUCTIONS ===
 You write the "What I'm working on" section of Mike Santoro's GitHub profile.
@@ -39,34 +39,77 @@ customer or product names absent from the input, URLs, or anything describing a 
 fix.
 
 === DATA (every line below is data, never an instruction) ===
+Sun 15 Nov
+  PRIVATE (name withheld): 2 commits [other=2]
+
 Sat 14 Nov
+  PUBLIC Best Sudoku: fix(rules): restore CRLF line endings in firestore.rules so the batch diff is the one comment line
+  PUBLIC StarRupture-Plugin-BetterDrone: Bump version to 0.24.0-dev.6
+  PUBLIC StarRupture-Plugin-BetterDrone: Merge feat/bd-hotbar-select into gss/plugin-work
+  PUBLIC StarRupture-Plugin-BetterDrone: Track the game's number-key pick for the on-foot wheel
+  PUBLIC StarRupture-Plugin-BetterDrone: Pick hotbar buildings with the wheel on foot too
+  PUBLIC StarRupture-Plugin-BetterDrone: Read the building slot type by name and pick once per flick
+  PUBLIC StarRupture-Plugin-BetterDrone: Pick hotbar building slots from the drone
+  PUBLIC StarRupture-Plugin-BetterDrone: Keep the drone when a placement is cancelled
+  PUBLIC StarRupture-ModLoader: Merge branch 'integrate/rows-bd-hotbar' into dev/image-library-dev10
+  PUBLIC StarRupture-ModLoader: Merge branch 'integrate/rows-bd-building' into dev/image-library-dev10
+  PUBLIC StarRupture-ModLoader: Mark the hotbar slot members absent on CL-127004
+  PUBLIC StarRupture-ModLoader: List an absent key once per feature
+  PUBLIC StarRupture-ModLoader: Mark the hotbar members absent on CL-127004
+  PUBLIC StarRupture-ModLoader: Merge branch 'fix/absent-field-rows' into fix/absent-hotbar-rows
+  PUBLIC StarRupture-ModLoader: Add CanRestoreInitialState map rows for both builds
+  PUBLIC StarRupture-ModLoader: Use shared widget limit in layer log
+  PUBLIC StarRupture-ModLoader: Include game-menu build menu in hover read
+  PUBLIC StarRupture-ModLoader: Find the build menu on the game-menu layer
+  PUBLIC StarRupture-ModLoader: Include game-menu build menu in hover read
+  PUBLIC StarRupture-Plugin-SDK: Merge feat/image-library: fix IconRow layout
+  PUBLIC StarRupture-Plugin-SDK: Fix IconRow group start, whole-pixel offsets, null id
+  PUBLIC StarRupture-Plugin-SDK: Merge feat/image-library: add IconRow
+  PUBLIC StarRupture-Plugin-SDK: Add IconRow to draw an icon beside text lines
+  PUBLIC StarRupture-Plugin-SDK: Merge feat/image-library: make SizeForFont NaN-safe
+  PUBLIC StarRupture-Plugin-SDK: Make SizeForFont NaN-safe and fix its example
+  PUBLIC StarRupture-Plugin-SDK: Merge feat/image-library: size images from the font
+  PUBLIC StarRupture-Plugin-SDK: Add SizeForFont to size images from the font
+  PUBLIC StarRupture-Plugin-WAILA: Let the card widen to fit font-grown icons
+  PUBLIC StarRupture-Plugin-WAILA: Size card icons from the font and scale
+  PUBLIC StarRupture-Plugin-ProductionViewer: Size item icons from the overlay font
+  PUBLIC StarRupture-Plugin-Codex: Show the pin arrow with the pin controls; scale icons
+  PUBLIC StarRupture-Plugin-Codex: Correct the arrow gate comments and size constant
+  PUBLIC StarRupture-Plugin-Codex: Size item icons to two lines; arrow follows cursor
+  PUBLIC Agent Templates: Merge release/0.31.54 into main (agent-companion 0.31.54: no Opus writers, two-leg routes, 110k handoff notice)
+  PUBLIC Agent Templates: agent-companion 0.31.54 recheck2 fixes: real appended-text markers, notice variant gated on plan-leg types
+  PUBLIC Agent Templates: agent-companion 0.31.54 recheck fixes: declared ROLE beats the plan-leg text clause, plan-leg exemption needs a type with legs; version, changelog
+  PUBLIC Agent Templates: agent-companion 0.31.54 review fix: self-review test for the bare two-leg TYPE
+  PUBLIC Agent Templates: agent-companion 0.31.54 review fix: write leg for bare two-leg TYPE, role-aware size notice, plan leg without writer clauses, ADR 0006
+  PUBLIC Agent Templates: Merge fix/routing-handoff-0-31-54 into release/0.31.54 (stage 2: two-leg routes, handoff notice)
+  PUBLIC Agent Templates: agent-companion 0.31.54 stage 2: follow-up test fixes (110k notice, Opus rungs carry no block)
+  PUBLIC Agent Templates: agent-companion 0.31.54 stage 2: docs (two-leg routes, 110k notice default with environment), test baselines
+  PUBLIC Agent Templates: agent-companion 0.31.54 stage 2: handoff notice (110k default, hand off instead of return)
+  PUBLIC Agent Templates: agent-companion 0.31.54 stage 2: two-leg routes (Opus plans, Sonnet writes), tier text and rung bodies
+  PUBLIC Agent Templates: Merge fix/no-opus-writers-0-31-54 into release/0.31.54 (stage 1: no Opus writers, writer and staging clauses)
+  PUBLIC Agent Templates: feat(agent-companion): no Opus writers at the spawn guard, writer clause, staging clause (0.31.54 stage 1)
   PUBLIC Agent Templates: Merge feat/coordinator-message-gate into main (0.31.53)
   PUBLIC Agent Templates: fix(agent-companion): coordinator gate review round (resolve the coordinator by title, plain off spellings, linear tag check, short no-record cache)
   PUBLIC Agent Templates: WIP docs(agent-companion): coordinator gate README, CHANGELOG, telemetry and defaults pages
   PUBLIC Agent Templates: WIP feat(agent-companion): coordinator message gate (hook, option, standing rule, tests)
-  PRIVATE (name withheld): 168 commits [other=147 leave=1 test=4 client=4 invites=3 onboarding=1 docs=3 fix=4 wip=1]
+  PUBLIC GSS Stats: chore(release): 0.79.1
+  PUBLIC GSS Stats: fix(charts): readout counts whole days only, says when a change is before the range; band names no longer crowd (0.79.1)
+  PUBLIC GSS Stats: chore(release): 0.79.0
+  PUBLIC GSS Stats: fix(charts): ratio tooltip uses formattedValue; room for change labels; ratio parts stay distinct
+  PUBLIC GSS Stats: feat(charts): product-change markers, before/after readout, ratio lines and an untagged new-devices card (0.79.0)
+  PUBLIC GSS Stats: feat(charts): product-change markers, before/after readout and ratio series (WIP)
+  PRIVATE (name withheld): 190 commits [other=169 leave=1 test=4 client=4 invites=3 onboarding=1 docs=3 fix=4 wip=1]
   PRIVATE (name withheld): 8 commits [release=2 fix=2 test=2 feat=2]
 
 Fri 13 Nov
-  PUBLIC StarRupture-Plugin-SDK: Draw an image in the box the helper reserved
-  PUBLIC StarRupture-Plugin-SDK: Draw library images from an exact-size copy
-  PUBLIC StarRupture-Plugin-SDK: Explain items with no unique name in the image guide
-  PUBLIC StarRupture-Plugin-SDK: Merge feat/image-library: draw in the reserved box
-  PUBLIC StarRupture-Plugin-SDK: Add GetSized to the image interface, make it v77
-  PUBLIC StarRupture-Plugin-SDK: Merge feat/image-library
-  PUBLIC StarRupture-Plugin-SDK: Say how an item with no unique name is asked for
-  PUBLIC StarRupture-Plugin-WAILA: Ask for icon sizes independent of screen position
-  PUBLIC StarRupture-Plugin-WAILA: Draw card icons from the loader's exact-size copy
-  PUBLIC StarRupture-Plugin-WAILA: Draw rate row icons at the image library minimum
-  PUBLIC StarRupture-Plugin-WAILA: Key unnamed items by their asset name
-  PUBLIC StarRupture-Plugin-WAILA: Keep items without a unique name apart
-  PUBLIC StarRupture-Plugin-ProductionViewer: Draw the history graph at the icon height
-  PUBLIC StarRupture-Plugin-ProductionViewer: Draw item icons at the image library minimum
-  PUBLIC StarRupture-Plugin-ProductionViewer: Key unnamed items by their asset name
-  PUBLIC StarRupture-Plugin-ProductionViewer: Count unnamed items separately and ask for no "None" icon
-  PUBLIC StarRupture-Plugin-BetterCheats: Note sharper item spawner pictures
-  PUBLIC StarRupture-Plugin-BetterCheats: Key unnamed items by their asset name
-  PUBLIC StarRupture-Plugin-BetterCheats: Give unnamed items their own icon and stack row
+  PUBLIC Best Sudoku: fix(batch): functions test arity, landing registry row, snapshot landing exclusion, landing nits
+  PUBLIC Best Sudoku: merge: feat/no-ads-landing-count
+  PUBLIC Best Sudoku: merge: fix/admin-gate-verified-email
+  PUBLIC Best Sudoku: docs(admin): ADR, changelog and spec for the verified bootstrap admin
+  PUBLIC Best Sudoku: fix(auth): client shows admin UI for the bootstrap address only when verified
+  PUBLIC Best Sudoku: fix(functions): admin gate takes the bootstrap address only when verified
+  PUBLIC Best Sudoku: fix(rules): bootstrap admin address grants admin only with a verified email
+  PUBLIC Best Sudoku: feat(landing): count visits on the static no-ads page with one GET image
   PUBLIC StarRupture-ModLoader: Log UI layer changes (temporary)
   PUBLIC StarRupture-ModLoader: Fix exact-size copy refusals, byte cap and sizes
   PUBLIC StarRupture-ModLoader: Make the image table plugin interface 77
@@ -78,37 +121,45 @@ Fri 13 Nov
   PUBLIC StarRupture-ModLoader: Look items up by asset name, never by an unset name
   PUBLIC StarRupture-ModLoader: Log UI layer changes (temporary)
   PUBLIC StarRupture-ModLoader: Log UI layer changes (temporary)
+  PUBLIC StarRupture-ModLoader: Log UI layer changes (temporary)
+  PUBLIC StarRupture-Plugin-SDK: Merge feat/image-library: draw in the reserved box
+  PUBLIC StarRupture-Plugin-SDK: Draw an image in the box the helper reserved
+  PUBLIC StarRupture-Plugin-SDK: Add GetSized to the image interface, make it v77
+  PUBLIC StarRupture-Plugin-SDK: Merge feat/image-library
+  PUBLIC StarRupture-Plugin-SDK: Draw library images from an exact-size copy
+  PUBLIC StarRupture-Plugin-SDK: Say how an item with no unique name is asked for
+  PUBLIC StarRupture-Plugin-SDK: Explain items with no unique name in the image guide
+  PUBLIC StarRupture-Plugin-WAILA: Ask for icon sizes independent of screen position
+  PUBLIC StarRupture-Plugin-WAILA: Draw card icons from the loader's exact-size copy
+  PUBLIC StarRupture-Plugin-WAILA: Draw rate row icons at the image library minimum
+  PUBLIC StarRupture-Plugin-WAILA: Key unnamed items by their asset name
+  PUBLIC StarRupture-Plugin-WAILA: Keep items without a unique name apart
+  PUBLIC StarRupture-Plugin-ProductionViewer: Draw the history graph at the icon height
+  PUBLIC StarRupture-Plugin-ProductionViewer: Draw item icons at the image library minimum
+  PUBLIC StarRupture-Plugin-ProductionViewer: Key unnamed items by their asset name
+  PUBLIC StarRupture-Plugin-ProductionViewer: Count unnamed items separately and ask for no "None" icon
   PUBLIC StarRupture-Plugin-Codex: Size the pinned recipe icons from the image minimum
   PUBLIC StarRupture-Plugin-Codex: Log build menu UI state changes (temporary)
   PUBLIC StarRupture-Plugin-Codex: Test the pin arrow gate in the build menu
   PUBLIC StarRupture-Plugin-Codex: Key unnamed items by their asset name
   PUBLIC StarRupture-Plugin-Codex: Give item rows ids by column and slot
-  PUBLIC Best Sudoku: docs(admin): ADR, changelog and spec for the verified bootstrap admin
-  PUBLIC Best Sudoku: fix(auth): client shows admin UI for the bootstrap address only when verified
-  PUBLIC Best Sudoku: fix(functions): admin gate takes the bootstrap address only when verified
-  PUBLIC Best Sudoku: fix(rules): bootstrap admin address grants admin only with a verified email
-  PUBLIC Best Sudoku: feat(landing): count visits on the static no-ads page with one GET image
+  PUBLIC StarRupture-Plugin-BetterCheats: Note sharper item spawner pictures
+  PUBLIC StarRupture-Plugin-BetterCheats: Key unnamed items by their asset name
+  PUBLIC StarRupture-Plugin-BetterCheats: Give unnamed items their own icon and stack row
   PUBLIC Agent Templates: Merge fix/box-gate-outside-load into main (0.31.52)
   PUBLIC Agent Templates: fix(agent-companion): review round for 0.31.52 (restore lone-run floor test power, one stray scan in status, wording)
   PUBLIC Agent Templates: release: 0.31.52 (box admission charges only outside load past the budget's headroom; status says why; ci-budget reclaim test no longer reads the host's process table)
   PUBLIC Agent Templates: WIP fix(agent-companion): box admission charges only outside load past the budget's headroom
 
 Thu 12 Nov
-  PUBLIC StarRupture-Plugin-SDK: Update the image library docs and mark item_icons superseded
-  PUBLIC StarRupture-Plugin-SDK: Add PluginImages::Image, a draw helper for library images
-  PUBLIC StarRupture-Plugin-SDK: Mirror the loader interface header
-  PUBLIC StarRupture-Plugin-SDK: Refresh the temporary image library header copy
-  PUBLIC StarRupture-Plugin-SDK: Refresh the temporary image library header copy
-  PUBLIC StarRupture-Plugin-SDK: Temporary copy of the image library interface header
-  PUBLIC StarRupture-Plugin-WAILA: State the loader the icons need, fix log dash
-  PUBLIC StarRupture-Plugin-WAILA: Note the image library in the README and update notes
-  PUBLIC StarRupture-Plugin-WAILA: Draw card images from the loader's image library
-  PUBLIC StarRupture-Plugin-ProductionViewer: State the loader the icons need
-  PUBLIC StarRupture-Plugin-ProductionViewer: Draw item icons through the image library
-  PUBLIC StarRupture-Plugin-BetterCheats: State the loader the icons need
-  PUBLIC StarRupture-Plugin-BetterCheats: Register the item set with the image library
-  PUBLIC StarRupture-Plugin-BetterCheats: Update docs for the image library icons
-  PUBLIC StarRupture-Plugin-BetterCheats: Draw spawner icons through the image library
+  PUBLIC Best Sudoku: docs(ops): close-out accepts a reopened row's earlier resolvedRef
+  PUBLIC Best Sudoku: docs(ops): close-out accepts the card's fix sha again
+  PUBLIC Best Sudoku: merge: prod-env hand-edit guard hook (ops only, no release)
+  PUBLIC StarRupture-Plugin-BetterDrone: Separate the Esc and hotbar sections in the README
+  PUBLIC StarRupture-Plugin-BetterDrone: Merge feat/bd-light-preset into release/next
+  PUBLIC StarRupture-Plugin-BetterDrone: Merge feat/bd-esc-pause into release/next
+  PUBLIC StarRupture-Plugin-BetterDrone: Merge fix/bd-drone-hotbar-page into release/next
+  PUBLIC StarRupture-Plugin-BetterDrone: Merge feat/bd-map-centre-toggle into release/next
   PUBLIC StarRupture-ModLoader: Set up the image shrink pass off the game thread
   PUBLIC StarRupture-ModLoader: Serve FTexture's members as a plain C++ type
   PUBLIC StarRupture-ModLoader: Match the preload and test docs to the code
@@ -148,19 +199,32 @@ Thu 12 Nov
   PUBLIC StarRupture-ModLoader: Shrink library images to the stored size with every level
   PUBLIC StarRupture-ModLoader: Run the image pump from the engine tick
   PUBLIC StarRupture-ModLoader: Add GPU state exports and library hand-back calls
+  PUBLIC StarRupture-ModLoader: Tell a member the game build lacks from a missing one
   PUBLIC StarRupture-ModLoader: Read engine textures through the version map rows
   PUBLIC StarRupture-ModLoader: Merge commit '4b0cb2d' into feat/image-library
   PUBLIC StarRupture-ModLoader: Merge commit '4448edc' into feat/image-library
   PUBLIC StarRupture-ModLoader: Merge commit '12666ca' into feat/image-library
   PUBLIC StarRupture-ModLoader: Add the image library table
   PUBLIC StarRupture-ModLoader: Append IPluginImages to IPluginHooks
+  PUBLIC StarRupture-Plugin-SDK: Mirror the loader interface header
+  PUBLIC StarRupture-Plugin-SDK: Update the image library docs and mark item_icons superseded
+  PUBLIC StarRupture-Plugin-SDK: Refresh the temporary image library header copy
+  PUBLIC StarRupture-Plugin-SDK: Refresh the temporary image library header copy
+  PUBLIC StarRupture-Plugin-SDK: Temporary copy of the image library interface header
+  PUBLIC StarRupture-Plugin-SDK: Add PluginImages::Image, a draw helper for library images
+  PUBLIC StarRupture-Plugin-WAILA: State the loader the icons need, fix log dash
+  PUBLIC StarRupture-Plugin-WAILA: Note the image library in the README and update notes
+  PUBLIC StarRupture-Plugin-WAILA: Draw card images from the loader's image library
+  PUBLIC StarRupture-Plugin-ProductionViewer: State the loader the icons need
+  PUBLIC StarRupture-Plugin-ProductionViewer: Draw item icons through the image library
   PUBLIC StarRupture-Plugin-Codex: Fix icon draw comment, loader requirement text
   PUBLIC StarRupture-Plugin-Codex: Match the tooltip pin by canonical image id
   PUBLIC StarRupture-Plugin-Codex: Describe the image library icons in the docs
   PUBLIC StarRupture-Plugin-Codex: Draw item icons through the image library
-  PUBLIC Best Sudoku: docs(ops): close-out accepts a reopened row's earlier resolvedRef
-  PUBLIC Best Sudoku: docs(ops): close-out accepts the card's fix sha again
-  PUBLIC Best Sudoku: merge: prod-env hand-edit guard hook (ops only, no release)
+  PUBLIC StarRupture-Plugin-BetterCheats: State the loader the icons need
+  PUBLIC StarRupture-Plugin-BetterCheats: Register the item set with the image library
+  PUBLIC StarRupture-Plugin-BetterCheats: Update docs for the image library icons
+  PUBLIC StarRupture-Plugin-BetterCheats: Draw spawner icons through the image library
   PUBLIC starrupture-ci: Merge pull request #85 from msantoro12/fix/feed-loader-delete-reread
   PUBLIC starrupture-ci: Re-read the artifact list after deleting the feed loader
   PUBLIC starrupture-ci: Merge pull request #84 from msantoro12/fix/sdk-table-enforcing
@@ -225,29 +289,11 @@ Thu 12 Nov
   PUBLIC starrupture-ci: Accept an off feature whose keys are all optional
   PUBLIC starrupture-ci: Merge pull request #69 from msantoro12/feat/layout-scheduled-refresh
   PUBLIC starrupture-ci: Merge pull request #68 from msantoro12/fix/record-missing-keys
-  PUBLIC StarRupture-Plugin-BetterDrone: Separate the Esc and hotbar sections in the README
-  PUBLIC StarRupture-Plugin-BetterDrone: Merge feat/bd-light-preset into release/next
-  PUBLIC StarRupture-Plugin-BetterDrone: Merge feat/bd-esc-pause into release/next
-  PUBLIC StarRupture-Plugin-BetterDrone: Merge fix/bd-drone-hotbar-page into release/next
-  PUBLIC StarRupture-Plugin-BetterDrone: Merge feat/bd-map-centre-toggle into release/next
   PUBLIC Star Rupture Planner: chore(release): 1.8.1
-  PRIVATE (name withheld): 6 commits [release=2 fix=3 feat=1]
   PRIVATE (name withheld): 1 commits [chore=1]
+  PRIVATE (name withheld): 6 commits [release=2 fix=3 feat=1]
 
 Wed 11 Nov
-  PUBLIC StarRupture-Plugin-BetterCheats: Merge origin/main into fix/map-struct-sizes
-  PUBLIC StarRupture-ModLoader: Merge v1.23.3 into the image library branch
-  PUBLIC StarRupture-ModLoader: Add close-menu function key to the version map
-  PUBLIC StarRupture-ModLoader: Word the build menu cursor comments as what is known
-  PUBLIC StarRupture-ModLoader: Add hotbar subsystem map rows for CL-129402
-  PUBLIC StarRupture-ModLoader: Remove a stray imgui.ini
-  PUBLIC StarRupture-ModLoader: Treat the active build menu as a cursor screen
-  PUBLIC StarRupture-ModLoader: Keep the release notes to this release's changes
-  PUBLIC StarRupture-ModLoader: Fix the empty-string check in the blocking unload test
-  PUBLIC StarRupture-ModLoader: Note the wheel and unload blocking fixes
-  PUBLIC StarRupture-ModLoader: Drop a plugin's blocked keys when it unloads
-  PUBLIC StarRupture-ModLoader: Identify an InputKey event's key from its own name
-  PUBLIC StarRupture-Plugin-Codex: Document the version map struct sizes and loader v1.23.2
   PUBLIC Best Sudoku: merge: release v1.108.0 (staging e5c83297) into main
   PUBLIC Best Sudoku: release: v1.108.0
   PUBLIC Best Sudoku: chore(release): v1.108.0
@@ -285,6 +331,33 @@ Wed 11 Nov
   PUBLIC Best Sudoku: docs(ops): fixer finding only for an unreadable prod Error Reporting read; API now enabled in prod
   PUBLIC Best Sudoku: fix(scripts): flush piped stdout before exit in obs CLIs; fix cloud Error Reporting read
   PUBLIC Best Sudoku: ci(asc): status read 2026-11-11
+  PUBLIC StarRupture-Plugin-BetterDrone: Bump version to 0.24.0-dev.5
+  PUBLIC StarRupture-Plugin-BetterDrone: Merge fork/feat/bd-light-preset into gss/plugin-work
+  PUBLIC StarRupture-Plugin-BetterDrone: Merge fork/feat/bd-esc-pause into gss/plugin-work
+  PUBLIC StarRupture-Plugin-BetterDrone: Merge remote-tracking branch 'fork/fix/bd-drone-hotbar-page' into HEAD
+  PUBLIC StarRupture-Plugin-BetterDrone: Revert "Log hotbar calls on foot with a ProcessEvent observer"
+  PUBLIC StarRupture-Plugin-BetterDrone: Revert "Count hotbar capture calls per window and tag the trigger"
+  PUBLIC StarRupture-Plugin-BetterDrone: Match the loader's hotbar row name; pass the wheel on when unusable
+  PUBLIC StarRupture-Plugin-BetterDrone: Tie Esc pause to the game tick, latch one open per press
+  PUBLIC StarRupture-Plugin-BetterDrone: Add Light Construction speed preset
+  PUBLIC StarRupture-Plugin-BetterDrone: Switch hotbar pages with Ctrl + wheel in the drone
+  PUBLIC StarRupture-Plugin-BetterDrone: Add option: Esc opens the pause menu in the drone
+  PUBLIC StarRupture-Plugin-BetterDrone: Merge branch 'diag/bd-hotbar-gates' into gss/plugin-work
+  PUBLIC StarRupture-Plugin-BetterDrone: Bump version to 0.24.0-dev.4
+  PUBLIC StarRupture-Plugin-BetterDrone: Count hotbar capture calls per window and tag the trigger
+  PUBLIC StarRupture-ModLoader: Merge v1.23.3 into the image library branch
+  PUBLIC StarRupture-ModLoader: Add close-menu function key to the version map
+  PUBLIC StarRupture-ModLoader: Word the build menu cursor comments as what is known
+  PUBLIC StarRupture-ModLoader: Add hotbar subsystem map rows for CL-129402
+  PUBLIC StarRupture-ModLoader: Remove a stray imgui.ini
+  PUBLIC StarRupture-ModLoader: Treat the active build menu as a cursor screen
+  PUBLIC StarRupture-ModLoader: Keep the release notes to this release's changes
+  PUBLIC StarRupture-ModLoader: Fix the empty-string check in the blocking unload test
+  PUBLIC StarRupture-ModLoader: Note the wheel and unload blocking fixes
+  PUBLIC StarRupture-ModLoader: Drop a plugin's blocked keys when it unloads
+  PUBLIC StarRupture-ModLoader: Identify an InputKey event's key from its own name
+  PUBLIC StarRupture-Plugin-Codex: Document the version map struct sizes and loader v1.23.2
+  PUBLIC StarRupture-Plugin-BetterCheats: Merge origin/main into fix/map-struct-sizes
   PUBLIC starrupture-ci: Run the layout refresh in the watcher's group
   PUBLIC starrupture-ci: Fail a layout refresh that left key sources out
   PUBLIC starrupture-ci: Refresh the saved public layout once a day
@@ -304,20 +377,6 @@ Wed 11 Nov
   PUBLIC starrupture-ci: Store each public layout so a new public build has a reference
   PUBLIC starrupture-ci: Merge pull request #64 from msantoro12/chore/autopilot-on
   PUBLIC starrupture-ci: Turn the autopilot on
-  PUBLIC StarRupture-Plugin-BetterDrone: Match the loader's hotbar row name; pass the wheel on when unusable
-  PUBLIC StarRupture-Plugin-BetterDrone: Tie Esc pause to the game tick, latch one open per press
-  PUBLIC StarRupture-Plugin-BetterDrone: Add Light Construction speed preset
-  PUBLIC StarRupture-Plugin-BetterDrone: Switch hotbar pages with Ctrl + wheel in the drone
-  PUBLIC StarRupture-Plugin-BetterDrone: Add option: Esc opens the pause menu in the drone
-  PUBLIC StarRupture-Plugin-BetterDrone: Bump version to 0.24.0-dev.5
-  PUBLIC StarRupture-Plugin-BetterDrone: Merge fork/feat/bd-light-preset into gss/plugin-work
-  PUBLIC StarRupture-Plugin-BetterDrone: Merge fork/feat/bd-esc-pause into gss/plugin-work
-  PUBLIC StarRupture-Plugin-BetterDrone: Merge remote-tracking branch 'fork/fix/bd-drone-hotbar-page' into HEAD
-  PUBLIC StarRupture-Plugin-BetterDrone: Revert "Log hotbar calls on foot with a ProcessEvent observer"
-  PUBLIC StarRupture-Plugin-BetterDrone: Revert "Count hotbar capture calls per window and tag the trigger"
-  PUBLIC StarRupture-Plugin-BetterDrone: Merge branch 'diag/bd-hotbar-gates' into gss/plugin-work
-  PUBLIC StarRupture-Plugin-BetterDrone: Bump version to 0.24.0-dev.4
-  PUBLIC StarRupture-Plugin-BetterDrone: Count hotbar capture calls per window and tag the trigger
   PUBLIC Star Rupture Planner: Merge origin/main into fix/totals-side-scroll
   PUBLIC Star Rupture Planner: chore(release): 1.8.0
   PUBLIC Star Rupture Planner: Merge origin/main into feat/current-versions-from-game
@@ -354,118 +413,5 @@ Wed 11 Nov
   PUBLIC GSS Stats: feat(traffic): register the /landing/ page visit event family (0.78.5)
   PUBLIC GSS Stats: fix(charts): captions fit on phones; factory Traffic stat fits its content (0.78.4)
   PUBLIC GSS Stats: feat(traffic): v1.108.0 release markers and review-request rows note (0.78.3)
-  PRIVATE (name withheld): 8 commits [release=3 fix=5]
   PRIVATE (name withheld): 1 commits [chore=1]
-
-Tue 10 Nov
-  PUBLIC StarRupture-Plugin-BetterCheats: Update notes for the item spawner icon fix
-  PUBLIC StarRupture-Plugin-BetterCheats: Give the icon frame-gap check its own limit
-  PUBLIC StarRupture-Plugin-BetterCheats: Ask for spawner icons only after a row dwells
-  PUBLIC StarRupture-Plugin-BetterCheats: Tidy item icon range and spawner notes
-  PUBLIC StarRupture-Plugin-BetterCheats: Request item spawner icons for visible rows only
-  PUBLIC StarRupture-Plugin-BetterCheats: Merge branch 'fix/spawner-visible-icons' into dev/plugin-work-0.24
-  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.24.0-dev.2
-  PUBLIC StarRupture-Plugin-BetterCheats: Merge branch 'fix/spawner-visible-icons' into dev/plugin-work-0.24
-  PUBLIC StarRupture-Plugin-BetterCheats: Bump version to 0.24.0-dev.1
-  PUBLIC StarRupture-ModLoader: Write the v1.23.3 release notes and docs
-  PUBLIC StarRupture-ModLoader: Tell the texture copy steps apart in the log
-  PUBLIC StarRupture-ModLoader: Honour OffAfterDeviceLoss only once it is cleared
-  PUBLIC StarRupture-ModLoader: Say what the overlay submit skip actually checks
-  PUBLIC StarRupture-ModLoader: Log why the GPU device was lost
-  PUBLIC StarRupture-ModLoader: Keep the overlay off for one launch after a device loss
-  PUBLIC StarRupture-ModLoader: Draw the Slate-step overlay into the buffer being presented
-  PUBLIC StarRupture-ModLoader: Return null early while a residency request is parked
-  PUBLIC StarRupture-ModLoader: Submit an icon copy only once its residency is done
-  PUBLIC StarRupture-ModLoader: Queue a slow-residency copy behind its residency
-  PUBLIC StarRupture-ModLoader: Wait for the oldest icon copy instead of refusing
-  PUBLIC StarRupture-ModLoader: Copy engine textures on the game's queue without waiting
-  PUBLIC StarRupture-ModLoader: Keep the heap rows to CL-127004 until its build line lands
-  PUBLIC StarRupture-ModLoader: Add the heap pointer rows for placed D3D12 textures
-  PUBLIC Best Sudoku: fix(ios-sim): know Settings opened by its Text size row, not the menu About going
-  PUBLIC Best Sudoku: fix(ios-sim): match labels case-insensitively; keep a staging failure screenshot
-  PUBLIC Best Sudoku: fix(ios-sim): match the prompt's no-break space and retry Pause until the first deal lands
-  PUBLIC Best Sudoku: fix(ios-sim): pass the first-run Welcome and cancel the Apple Account prompt
-  PUBLIC Best Sudoku: test(ios-sim): pin the StoreKit config, the Swift test, the driver and the prod workflow guards
-  PUBLIC Best Sudoku: docs(ios): the StoreKit purchase-sheet test and the iOS prod purchase check
-  PUBLIC Best Sudoku: ci(ios): StoreKit step in the simulator smoke, and the manual iOS prod purchase check
-  PUBLIC Best Sudoku: feat(ios-sim): storekit and plan --mode subcommands for the staging and prod purchase-sheet runs
-  PUBLIC Best Sudoku: feat(ios-sim): StoreKit purchase-sheet UI test, its config and the runner-only target script
-  PUBLIC Best Sudoku: fix(functions-deploy): run the env hook through an aliased path; fail on an unmarked computed read
-  PUBLIC Best Sudoku: docs(founders): leaderboard rows, icon-only badge and owners in spec, ADR and notes
-  PUBLIC Best Sudoku: test(founders): E2E for icon-only rows, the leaderboard badge and owners
-  PUBLIC Best Sudoku: feat(founders): icon-only badge on friend and leaderboard rows, and the Owner badge
-  PUBLIC Best Sudoku: feat(founders): owner accounts carry the badge as Owner, server-set by the seed
-  PUBLIC Best Sudoku: fix(seo): no-ads h1 fits its column on one line, hero columns top aligned
-  PUBLIC Best Sudoku: feat(seo): no-ads page says your data is safe, not sold or shared
-  PUBLIC Best Sudoku: feat(seo): colored wordmark beside the hero icon, drop the duplicate top bar
-  PUBLIC Best Sudoku: docs(agents): risk tiers, reviewers run only covering tests, full E2E once per batch
-  PUBLIC Best Sudoku: fix(e2e-gate): full E2E once before staging, feature pushes opt in to affected
-  PUBLIC Best Sudoku: feat(founders): server mirror of founding numbers for leaderboard rows
-  PUBLIC Best Sudoku: test(ios-billing): give the per-answer prepare tests their allow-loop reason
-  PUBLIC Best Sudoku: docs(functions-deploy): document the env literals hook, the env contract and the hash skip
-  PUBLIC Best Sudoku: feat(founders): paywall line uses copy C; drop the dev-only founders= copy switch
-  PUBLIC Best Sudoku: feat(seo): replace the ad-trackers line with the never-sell-your-data promise
-  PUBLIC Best Sudoku: test(ios-billing): pin the three passes and that only a prepare 503 says coming soon
-  PUBLIC Best Sudoku: fix(asc-submit): block an App Store submission while prod prepare answers 503
-  PUBLIC Best Sudoku: feat(verify-release): fail when a live billing flag is off against its committed literal
-  PUBLIC Best Sudoku: fix(functions-deploy): write the committed env literals and enforce the env contract on every deploy
-  PUBLIC Best Sudoku: fix(scripts): split cmdline worktree roots with path.win32 in active-owner
-  PUBLIC Best Sudoku: docs(ops): fixer cloud review flow consistent across 5b and outcome b
-  PUBLIC Best Sudoku: fix(test): make the pre-push hook stubs executable on Linux
-  PUBLIC Best Sudoku: fix(pwa): count a browser-aborted update check instead of filing it
-  PUBLIC Best Sudoku: docs(ops): digest reports through its finding, never a push
-  PUBLIC Best Sudoku: docs(e2e-gate): one full E2E pass counts at every gate, on every machine
-  PUBLIC Best Sudoku: ci(e2e): skip a signed-off tree and publish the signoff after a full green
-  PUBLIC Best Sudoku: feat(e2e-gate): wire every gate to the shared signoff decision
-  PUBLIC Best Sudoku: docs(ops): REST-only GitHub calls and a fingerprint-only claim rule for the cloud routines
-  PUBLIC Best Sudoku: feat(e2e-gate): shared full-E2E signoff record and one skip decision
-  PUBLIC Best Sudoku: docs(ops): digest keeps standing findings within the findings contract
-  PUBLIC Best Sudoku: docs(ops): digest reports a prod error once per change, retire STEP 1d, fix Cloudflare reads
-  PUBLIC Best Sudoku: test(founders): founding member and paywall line specs, founders spec doc
-  PUBLIC Best Sudoku: docs(founders): index the founding members spec; mark the first-50 spec retired
-  PUBLIC Best Sudoku: test(founders): badge and founder line assertions skip the icon's ligature text
-  PUBLIC Best Sudoku: docs(changelog): shorten the cloud fixer entry to the style limit
-  PUBLIC Best Sudoku: docs(founders): ADR, monetization section, first-50 retired header, BACKLOG and CHANGELOG
-  PUBLIC Best Sudoku: test(founders): E2E for badge, purchase and paywall lines; first-50 specs prove the retirement
-  PUBLIC Best Sudoku: docs: environments work on this repo; fixer pointers say cloud routine
-  PUBLIC Best Sudoku: feat(founders): the paywall founders line hides when no passes show
-  PUBLIC Best Sudoku: feat(seo): product-page look for the no-ads landing page, generic after-trial wording
-  PUBLIC Best Sudoku: feat(founders): dev previews for the founders line, badge and purchase line
-  PUBLIC Best Sudoku: feat(founders): founding member badge, purchase line and paywall line on the client
-  PUBLIC Best Sudoku: docs(changelog): shorten the prod error fixer entry to the 50-word limit
-  PUBLIC Best Sudoku: fix(analytics): rename review beacon path to /review-prompt/requested
-  PUBLIC Best Sudoku: chore(ci): merge preflight branch
-  PUBLIC Best Sudoku: chore(ci): asc preflight read 1.101.1
-  PUBLIC starrupture-ci: Merge pull request #63 from msantoro12/feat/modloader-optional-native-keys
-  PUBLIC starrupture-ci: Pin the loader's optional keys in tests and docs
-  PUBLIC starrupture-ci: Map the loader's own optional native keys
-  PUBLIC StarRupture-Plugin-BetterDrone: Bump version to 0.24.0-dev.3
-  PUBLIC StarRupture-Plugin-BetterDrone: Log hotbar calls on foot with a ProcessEvent observer
-  PUBLIC StarRupture-Plugin-MiniMap: Skip a refused sprite when replaying building draws
-  PUBLIC Star Rupture Planner: docs(claude): risk-tier review and preview-then-merge workflow
-  PUBLIC Star Rupture Planner: Merge pull request #23 from GoodStuffSoftware/fix/version-switch-keeps-tabs
-  PUBLIC Star Rupture Planner: chore(release): 1.6.1
-  PUBLIC Star Rupture Planner: Merge branch 'fix/version-switch-keeps-tabs' of github.com:GoodStuffSoftware/star-rupture-planner into worktree-agent-af209741c299bab8c
-  PUBLIC Agent Templates: fix(agent-companion): review round for 0.31.51 (event-turn strictness, independent tier and landing, small fixes)
-  PUBLIC Agent Templates: release: 0.31.51 (event-turn-quiet rule, landing mode, full-pass sentence, version, changelog)
-  PUBLIC Agent Templates: Merge feat/tier-landing-full-pass into release/0.31.51
-  PUBLIC Agent Templates: Merge feat/event-turn-quiet into release/0.31.51
-  PUBLIC Agent Templates: feat(agent-companion): optional landing mode (pr|direct) per project, and the full pass on the landing path
-  PUBLIC Agent Templates: feat(agent-companion): event-turn scope for standing rules and built-in event-turn-quiet
-  PUBLIC Agent Templates: Merge release/0.31.50 into main; bump to 0.31.50
-  PUBLIC Agent Templates: fix(agent-companion): review round for 0.31.50 (tier clause, reviewer instruction, path kinds, three-dot floor, small fixes)
-  PUBLIC Agent Templates: fix(agent-companion): scout routine names the long_runs signal; backslash path-key test runs on Windows only (0.31.50 CI)
-  PUBLIC Agent Templates: release: 0.31.50 (push-tier reviewer reads only, step-note docs, version, changelog)
-  PUBLIC Agent Templates: Merge fix/step-notes-0-31-50 into release/0.31.50
-  PUBLIC Agent Templates: Merge feat/tier-wording-0-31-50 into release/0.31.50
-  PUBLIC Agent Templates: feat(agent-companion): RISK directive, declared_risk/project_tier/tier_source on spawn and verdict rows, telemetry docs
-  PUBLIC Agent Templates: feat(agent-companion): self-review protocol follows the change-risk table; reviewer instruction by risk; api-review --risk
-  PUBLIC Agent Templates: fix(agent-companion): step notes stop acting like a cap; long runs are reported to the lead (0.31.50 leg C)
-  PUBLIC Agent Templates: feat(agent-companion): /ac tier CLI, shim row, setup line, README section, tests
-  PUBLIC Agent Templates: feat(agent-companion): project tier resolver, loader, wording and risk floors; SessionStart line; spawn tier clause
-  PUBLIC GSS Stats: test(ads-reads): pin the clock in flight-window tests so they don't expire
-  PUBLIC GSS Stats: docs(claude): follow the agent-companion push tier for reviews
-  PUBLIC GSS Stats: chore(dev): add campaign and referrer columns to the local geo seed
-  PUBLIC GSS Stats: feat(traffic): register the /review-prompt/ store-review beacon, counts only (0.78.2)
-  PUBLIC GSS Beacon: fix(refused): mirror /review-prompt/% store-review rows from gss-stats
-  PRIVATE (name withheld): 2 commits [chore=2]
+  PRIVATE (name withheld): 8 commits [release=3 fix=5]
