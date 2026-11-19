@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Tue 17 Nov** — Agent Plugins, session-sync only: four releases in a day. Remote Control restore after restart and seamless account switching landed, with review-driven fixes to go-live and a tray progress indicator between them.
+**Thu 19 Nov** — No commits. The repository was left unattended and, by all available evidence, held together.
 
-**Mon 16 Nov** — Release-notes day across the StarRupture plugins, plus CI changes: PersistentIdFix added to the client check, key sources pinned to the new SDK. Elsewhere, session-sync gained cross-account linking and a go-live command, and agent-companion got review fixes.
+**Wed 18 Nov** — Mostly session-sync in Agent Plugins: Remote Control repair and relink fixes, plus Chrome artifact sharing, each landing with a review round. BetterDrone got its wheel handling aligned with the game. `[REDACTED]`: 27 commits, mostly unclassified.
 
-**Sun 15 Nov** — Mostly one sweep: nearly every StarRupture plugin got relative default SDK paths and a fallback for an empty SDK folder, while ModLoader gained the image library. Agent-companion shipped a release. `[REDACTED]` added 55 commits, a few of them docs.
+**Tue 17 Nov** — A hardening day for session-sync in Agent Plugins: account switching, Remote Control restore and a tray icon shipped, behind a long tail of review fixes. MiniMap got safer unloading; starrupture-ci re-pinned its key source.
 
-**Sat 14 Nov** — Image-library follow-through in the SDK and plugins (icon sizing from the font), hotbar picking in BetterDrone, product-change markers in GSS Stats, two agent-companion releases. Two `[REDACTED]` repos took 159 and 8 commits.
+**Mon 16 Nov** — Release housekeeping across the StarRupture plugins: notes trimmed, Nexus text synced, CI pins moved to the new SDK. Agent Templates took review fixes; session-sync learned to link conversations across accounts. `[REDACTED]`: 70 commits, mostly other.
 
-**Fri 13 Nov** — Image library plumbing: exact-size copies and a Lanczos resample in ModLoader, with the plugins switched over to draw from them and to key unnamed items by asset name. Best Sudoku got a landing-page counter. `[REDACTED]`: 85 commits, a fifth docs.
+**Sun 15 Nov** — One change fanned out across roughly fifteen plugins: relative default SDK paths with a fallback when the local SDK folder is empty. ModLoader gained an image library; Agent Templates shipped a release with worker guards.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
