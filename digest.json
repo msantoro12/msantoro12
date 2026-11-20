@@ -1,8 +1,8 @@
 {
-  "generated": "2026-11-19",
+  "generated": "2026-11-20",
   "days": 5,
-  "commitsToday": 51,
-  "commitsInWindow": 385,
-  "headline": "51 commits today",
-  "prose": "**Thu 19 Nov** — No commits. The repository was left unattended and, by all available evidence, held together.\n\n**Wed 18 Nov** — Mostly session-sync in Agent Plugins: Remote Control repair and relink fixes, plus Chrome artifact sharing, each landing with a review round. BetterDrone got its wheel handling aligned with the game. `[REDACTED]`: 27 commits, mostly unclassified.\n\n**Tue 17 Nov** — A hardening day for session-sync in Agent Plugins: account switching, Remote Control restore and a tray icon shipped, behind a long tail of review fixes. MiniMap got safer unloading; starrupture-ci re-pinned its key source.\n\n**Mon 16 Nov** — Release housekeeping across the StarRupture plugins: notes trimmed, Nexus text synced, CI pins moved to the new SDK. Agent Templates took review fixes; session-sync learned to link conversations across accounts. `[REDACTED]`: 70 commits, mostly other.\n\n**Sun 15 Nov** — One change fanned out across roughly fifteen plugins: relative default SDK paths with a fallback when the local SDK folder is empty. ModLoader gained an image library; Agent Templates shipped a release with worker guards."
+  "commitsToday": 191,
+  "commitsInWindow": 396,
+  "headline": "191 commits today",
+  "prose": "**Fri 20 Nov** — Release plumbing, mostly. StarRupture-ModLoader now publishes releases as drafts, checks them, and can rebuild a stuck one whole. starrupture-ci stops its watch loops by version rather than time. Hardening, not new features.\n\n**Thu 19 Nov** — StarRupture-ModLoader now runs unknown game builds on checked values and checks for a newer version map at every start. The starrupture-ci rig now covers a second client branch. Smaller fixes in BetterDrone, WAILA and the Plugin SDK.\n\n**Wed 18 Nov** — A contributor's bulk textured triangles merged into StarRupture-ModLoader and its SDK, and update notes were written. Agent Plugins shipped session-sync Remote Control fixes. `[REDACTED]` logged 27 commits, 25 of them uncategorised.\n\n**Tue 17 Nov** — Agent Plugins took the day: session-sync grew Remote Control restore after restart, seamless account switching and a custom tray icon, with review fixes between releases. StarRupture-ModLoader now runs plugin shutdown without the plugin lock held.\n\n**Mon 16 Nov** — Mostly docs and pins. Release notes trimmed and Nexus text synced across the StarRupture plugins; starrupture-ci added PersistentIdFix to its client check. Agent Plugins can now link conversations across accounts."
 }
