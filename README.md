@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Sat 21 Nov** — StarRupture-ModLoader, starrupture-ci and the plugins all got server parity: version map rows, per-build layout tables checked in CI, plugins reading values from the map. Plus budget UI polish in GSS Stats. A day of landing, not starting.
+**Sun 22 Nov** — Mostly Agent Templates: a resource-queue hardening pass (stuck-holder detection, a process reaper, live capacity) plus a release-watch guard, with tests chasing the code. Best Sudoku shipped a patch. `[REDACTED]` took 16 commits across five types.
 
-**Fri 20 Nov** — Pinned the Game-SDK to the latest client build across ModLoader, plugin SDK and CI; gave the server its own version map table; built out GSS Stats' budget pies. `[REDACTED]`: two chores.
+**Sat 21 Nov** — Server parity across the StarRupture stack: ModLoader gained per-player host rules, version minimums and a server version map; ServerUtility, the SDK and half a dozen plugins followed, and starrupture-ci learned to check it all. Two `[REDACTED]` commits.
 
-**Thu 19 Nov** — ModLoader now runs unknown game builds on checked values and checks for a newer version map at every start. The CI rig gained a second client branch and fallback-boot acceptance; small fixes in BetterDrone and WAILA.
+**Fri 20 Nov** — StarRupture ModLoader moved to a new game build and gave the server its own version map table, while GSS Stats grew a Budget section with drill-down pies. Agent Templates cut a release. Two `[REDACTED]` chores.
 
-**Wed 18 Nov** — ModLoader release prep: version map rows, a plugin shutdown lock fix, a contributor's bulk textured triangles merged. Session-sync shipped four releases. `[REDACTED]` logged 27 commits, 25 of them uncategorised.
+**Thu 19 Nov** — StarRupture ModLoader learned to run unknown game builds on checked values and to look for a newer version map at every start. starrupture-ci rigged a second client branch; the Game-SDK got a fresh client SDK drop.
 
-**Tue 17 Nov** — Quiet for ModLoader: shutdown now runs without the plugin lock held, plus PersistentIdFix map rows. Session-sync took most of the day, with five releases and account-switching work.
+**Wed 18 Nov** — Release prep for the StarRupture ModLoader and SDK, including a contributor's bulk textured triangles patch. Agent Plugins' session-sync shipped four point releases of Remote Control relink work, with review rounds between each.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
