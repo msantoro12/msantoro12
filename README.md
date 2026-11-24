@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Sun 22 Nov** — Mostly Agent Templates: a resource-queue hardening pass (stuck-holder detection, a process reaper, live capacity) plus a release-watch guard, with tests chasing the code. Best Sudoku shipped a patch. `[REDACTED]` took 16 commits across five types.
+**Tue 24 Nov** — The signed plugin catalog went end to end: built and published from starrupture-ci, fetched and cached by StarRupture-ModLoader. StarRupture-Plugin-ServerUtility merged its in-game admin client, and GSS Stats gained a Both view for budget.
 
-**Sat 21 Nov** — Server parity across the StarRupture stack: ModLoader gained per-player host rules, version minimums and a server version map; ServerUtility, the SDK and half a dozen plugins followed, and starrupture-ci learned to check it all. Two `[REDACTED]` commits.
+**Mon 23 Nov** — Agent Templates merged three agent-companion releases in a day, mostly review-round fixes and tests. GSS Stats shipped three budget releases; StarRupture-ModLoader landed host rules. One commit in `[REDACTED]`, a chore.
 
-**Fri 20 Nov** — StarRupture ModLoader moved to a new game build and gave the server its own version map table, while GSS Stats grew a Budget section with drill-down pies. Agent Templates cut a release. Two `[REDACTED]` chores.
+**Sun 22 Nov** — GSS Stats got a Loans page, from schema to detail view. StarRupture-ModLoader fixed how the dedicated server reads the HTTP request method. Three `[REDACTED]` repos logged 59 commits between them.
 
-**Thu 19 Nov** — StarRupture ModLoader learned to run unknown game builds on checked values and to look for a newer version map at every start. starrupture-ci rigged a second client branch; the Game-SDK got a fresh client SDK drop.
+**Sat 21 Nov** — StarRupture-ModLoader got a server version map, per-player host rules and an admin prompt; nine plugins followed with docs and host-switch handling. Three `[REDACTED]` repos added 24 commits, one of them carrying 22.
 
-**Wed 18 Nov** — Release prep for the StarRupture ModLoader and SDK, including a contributor's bulk textured triangles patch. Agent Plugins' session-sync shipped four point releases of Remote Control relink work, with review rounds between each.
+**Fri 20 Nov** — StarRupture-ModLoader moved to a new Game-SDK pin and gave the dedicated server its own version map table. starrupture-ci merged ten changes around release loops and layout tables. Two chores in `[REDACTED]`.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
