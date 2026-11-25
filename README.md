@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Tue 24 Nov** — The signed plugin catalog went end to end: built and published from starrupture-ci, fetched and cached by StarRupture-ModLoader. StarRupture-Plugin-ServerUtility merged its in-game admin client, and GSS Stats gained a Both view for budget.
+**Wed 25 Nov** — Three merges, all in starrupture-ci, all about the scanner: where it builds from, what it is kept away from, and the gaps review found in its gate. A narrow day spent tightening one pipeline.
 
-**Mon 23 Nov** — Agent Templates merged three agent-companion releases in a day, mostly review-round fixes and tests. GSS Stats shipped three budget releases; StarRupture-ModLoader landed host rules. One commit in `[REDACTED]`, a chore.
+**Tue 24 Nov** — Signed plugin catalog end to end: ModLoader fetches and caches it, starrupture-ci builds and publishes it, ServerUtility gained an in-game admin client. One chore commit in `[REDACTED]`.
 
-**Sun 22 Nov** — GSS Stats got a Loans page, from schema to detail view. StarRupture-ModLoader fixed how the dedicated server reads the HTTP request method. Three `[REDACTED]` repos logged 59 commits between them.
+**Mon 23 Nov** — Release-heavy: three agent-companion releases in Agent Templates and three budget releases in GSS Stats, with ModLoader host rules and a one-commit `[REDACTED]` chore on the side.
 
-**Sat 21 Nov** — StarRupture-ModLoader got a server version map, per-player host rules and an admin prompt; nine plugins followed with docs and host-switch handling. Three `[REDACTED]` repos added 24 commits, one of them carrying 22.
+**Sun 22 Nov** — Loans landed in GSS Stats: schema, payoff math, list and detail pages, merged from six branches. Three `[REDACTED]` projects added 59 commits, 42 of them in one.
 
-**Fri 20 Nov** — StarRupture-ModLoader moved to a new Game-SDK pin and gave the dedicated server its own version map table. starrupture-ci merged ten changes around release loops and layout tables. Two chores in `[REDACTED]`.
+**Sat 21 Nov** — Dedicated-server support spread across the plugin family: ModLoader fetches its own version map, and ServerUtility, KeepTicking and WaveOptimiser read game values from it. Three `[REDACTED]` projects added 24 commits.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
