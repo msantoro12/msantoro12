@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Wed 25 Nov** — Three merges, all in starrupture-ci, all about the scanner: where it builds from, what it is kept away from, and the gaps review found in its gate. A narrow day spent tightening one pipeline.
+**Thu 26 Nov** — One merge in Agent Templates, a release branch landing. A quiet day by the log.
 
-**Tue 24 Nov** — Signed plugin catalog end to end: ModLoader fetches and caches it, starrupture-ci builds and publishes it, ServerUtility gained an in-game admin client. One chore commit in `[REDACTED]`.
+**Wed 25 Nov** — Mostly starrupture-ci: tightened the mod index pipeline with gates on loader refs and plugin DLLs, a static intake check and thumbnail validation. Two Agent Templates releases merged, plus one chore in `[REDACTED]`.
 
-**Mon 23 Nov** — Release-heavy: three agent-companion releases in Agent Templates and three budget releases in GSS Stats, with ModLoader host rules and a one-commit `[REDACTED]` chore on the side.
+**Tue 24 Nov** — StarRupture-Plugin-ServerUtility, nearly all day: the in-game admin client merged into the server branch, then review fixes, rate limiting per operation, nonce expiry, tests and setup docs. Landing and polishing, not starting.
 
-**Sun 22 Nov** — Loans landed in GSS Stats: schema, payoff math, list and detail pages, merged from six branches. Three `[REDACTED]` projects added 59 commits, 42 of them in one.
+**Mon 23 Nov** — Groundwork in ServerUtility (admin ops core, message codec), host rules in StarRupture-ModLoader, and Best Sudoku CI fixes around Firebase emulators and offline handling. Agent Templates took a release-sized batch. One chore in `[REDACTED]`.
 
-**Sat 21 Nov** — Dedicated-server support spread across the plugin family: ModLoader fetches its own version map, and ServerUtility, KeepTicking and WaveOptimiser read game values from it. Three `[REDACTED]` projects added 24 commits.
+**Sun 22 Nov** — Heavy Sunday: GSS Stats and Agent Templates carried most of it, with ModLoader build-mismatch logging and server-scanner wiring in starrupture-ci. `[REDACTED]` ran two busy repos, 42 and 16 commits, heavy on tests and fixes.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
