@@ -466,9 +466,12 @@ const show = (detail) => (IN_CI ? '' : `: ${detail}`);
 
 // The prose must be a digest of THIS window. A routine that wrote from a stale
 // payload, or replied with an apology instead of a digest, fails here rather than
-// publishing it -- every day label must appear, bolded exactly as supplied.
+// publishing it -- every day label except TODAY's must appear, bolded exactly as
+// supplied. Today's is optional: the routine writes once a day, and the publish can
+// land after UTC midnight or after a missed routine run, when yesterday's digest is
+// still the newest honest one. Prose two days old still fails (no yesterday label).
 if (!prose) failures.push('no prose supplied');
-const missingDays = labels.filter((l) => !prose.includes(`**${l}**`));
+const missingDays = labels.slice(1).filter((l) => !prose.includes(`**${l}**`));
 if (prose && missingDays.length) failures.push(`missing day labels: ${missingDays.join(', ')}`);
 const PATTERNS = [
   [/\bv?\d+\.\d+\.\d+\b/, 'a version number'],

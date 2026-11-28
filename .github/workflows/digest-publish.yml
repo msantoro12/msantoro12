@@ -12,8 +12,8 @@ on:
     # branch's copy of a workflow -- so a publish triggered by the routine's push
     # would let whatever the routine pushed decide what runs beside the tokens. A
     # scheduled run always uses main's copy. The two-hour margin absorbs GitHub's
-    # schedule delays while staying inside the same UTC day, which the gate needs:
-    # it requires every day label of the current window.
+    # schedule delays. The gate requires every day label of the current window
+    # except today's, so a run after UTC midnight still passes on yesterday's prose.
     - cron: '0 15 * * *'
   workflow_dispatch:
 
