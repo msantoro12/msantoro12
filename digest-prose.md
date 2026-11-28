@@ -1,0 +1,9 @@
+**Sat 28 Nov** — One release merge into Agent Templates, plus six commits to a `[REDACTED]` repo, five of them docs. A quiet landing day: tidying, not starting.
+
+**Fri 27 Nov** — starrupture-ci took eight changes: server-side version map checks, name-check row drops, a rehearsal of the mapped build that alerts on holds. Agent Templates merged five releases. A `[REDACTED]` repo saw eight commits, mostly one type.
+
+**Thu 26 Nov** — Agent Templates merged four releases and starrupture-ci kept its client checks off live data. A single `[REDACTED]` chore commit. Maintenance day, nothing new started.
+
+**Wed 25 Nov** — starrupture-ci got seven changes around the mod index: intake checks, thumbnail key checks, and a switched-off automatic publish. Two Agent Templates releases merged. One `[REDACTED]` chore commit.
+
+**Tue 24 Nov** — The big one. StarRupture-ModLoader, ServerUtility, SDK, BetterCheats and starrupture-ci moved together: a plugin catalog, declared features, and an in-game admin client. Agent Templates and GSS Stats shipped releases alongside.
