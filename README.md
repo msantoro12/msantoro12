@@ -10,15 +10,15 @@ software at enterprise scale, now building things I actually want to use.
 
 ### What I'm working on
 
-**Thu 26 Nov** — One merge in Agent Templates, a release branch landing. A quiet day by the log.
+**Sat 28 Nov** — One release merge into Agent Templates, plus six commits to a `[REDACTED]` repo, five of them docs. A quiet landing day: tidying, not starting.
 
-**Wed 25 Nov** — Mostly starrupture-ci: tightened the mod index pipeline with gates on loader refs and plugin DLLs, a static intake check and thumbnail validation. Two Agent Templates releases merged, plus one chore in `[REDACTED]`.
+**Fri 27 Nov** — starrupture-ci took eight changes: server-side version map checks, name-check row drops, a rehearsal of the mapped build that alerts on holds. Agent Templates merged five releases. A `[REDACTED]` repo saw eight commits, mostly one type.
 
-**Tue 24 Nov** — StarRupture-Plugin-ServerUtility, nearly all day: the in-game admin client merged into the server branch, then review fixes, rate limiting per operation, nonce expiry, tests and setup docs. Landing and polishing, not starting.
+**Thu 26 Nov** — Agent Templates merged four releases and starrupture-ci kept its client checks off live data. A single `[REDACTED]` chore commit. Maintenance day, nothing new started.
 
-**Mon 23 Nov** — Groundwork in ServerUtility (admin ops core, message codec), host rules in StarRupture-ModLoader, and Best Sudoku CI fixes around Firebase emulators and offline handling. Agent Templates took a release-sized batch. One chore in `[REDACTED]`.
+**Wed 25 Nov** — starrupture-ci got seven changes around the mod index: intake checks, thumbnail key checks, and a switched-off automatic publish. Two Agent Templates releases merged. One `[REDACTED]` chore commit.
 
-**Sun 22 Nov** — Heavy Sunday: GSS Stats and Agent Templates carried most of it, with ModLoader build-mismatch logging and server-scanner wiring in starrupture-ci. `[REDACTED]` ran two busy repos, 42 and 16 commits, heavy on tests and fixes.
+**Tue 24 Nov** — The big one. StarRupture-ModLoader, ServerUtility, SDK, BetterCheats and starrupture-ci moved together: a plugin catalog, declared features, and an in-game admin client. Agent Templates and GSS Stats shipped releases alongside.
 
 <sub>Written daily by a model from commit metadata. Private repositories, other than
 released products, contribute a commit count and nothing else, so it has no idea what
